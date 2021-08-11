@@ -4,6 +4,7 @@ import Home from "../Pages/Home"
 import Login from "../Pages/Login"
 import Register from "../Pages/Register"
 import Groups from "../Pages/Groups"
+import PhysicalActivity from "../Pages/PhysicalActivity"
 
 const Routes = () => {
     return (
@@ -19,6 +20,9 @@ const Routes = () => {
             </Route>
             <Route exact path = '/groups'>
                 <Groups />
+            </Route>
+            <Route exact path = '/groups/physicalactivity'>
+                <PhysicalActivity/>
             </Route>
             <Route exact path = '/register'>
                 <Register /> 

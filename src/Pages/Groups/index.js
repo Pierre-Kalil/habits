@@ -13,7 +13,7 @@ const Groups = () => {
                     <Link to={"/groups/meditacao"} style={{color:"white", textDecoration: "none"}}>
                         <BoxContainerMobile>Meditação</BoxContainerMobile>
                     </Link>
-                    <Link to={"/groups/exercicio"} style={{color:"white", textDecoration: "none"}}>
+                    <Link to={"/groups/physicalActivity"} style={{color:"white", textDecoration: "none"}}>
                         <BoxContainerMobile>Exercício Físico</BoxContainerMobile>
                     </Link>
                     <Link to={"/groups/respiracao"} style={{color:"white", textDecoration: "none"}}>
@@ -28,7 +28,7 @@ const Groups = () => {
                     <Link to={"/groups/meditacao"} style={{color:"white", textDecoration: "none"}}>
                         <BoxContainerDescktop>Meditação</BoxContainerDescktop>
                     </Link>
-                    <Link to={"/groups/exercicio"} style={{color:"white", textDecoration: "none"}}>
+                    <Link to={"/groups/physicalActivity"} style={{color:"white", textDecoration: "none"}}>
                         <BoxContainerDescktop>Exercício Físico</BoxContainerDescktop>
                     </Link>
                     <Link to={"/groups/respiracao"} style={{color:"white", textDecoration: "none"}}>
