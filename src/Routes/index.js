@@ -3,6 +3,7 @@ import Dashboard from "../Pages/Dashboard"
 import Home from "../Pages/Home"
 import Login from "../Pages/Login"
 import Register from "../Pages/Register"
+import Groups from "../Pages/Groups"
 
 const Routes = () => {
     return (
@@ -15,6 +16,9 @@ const Routes = () => {
             </Route>
             <Route exact path = '/dashboard'>
                 <Dashboard />
+            </Route>
+            <Route exact path = '/groups'>
+                <Groups />
             </Route>
             <Route exact path = '/register'>
                 <Register /> 
