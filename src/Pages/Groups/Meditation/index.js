@@ -19,13 +19,13 @@ const Meditation = () => {
 
   console.log(cardsPrimary);
 
-  const token = JSON.parse(localStorage.getItem("token"));
+  // const token = JSON.parse(localStorage.getItem("token"));
 
-  const decode = jwt_decode(token);
+  // const decode = jwt_decode(token);
 
-  const UserID = decode.user_id;
+  // const UserID = decode.user_id;
 
-  console.log(UserID);
+  // console.log(UserID);
 
   return (
     <Container>
@@ -43,12 +43,12 @@ const Meditation = () => {
         os pensamentos chegarem e partirem. Apenas não lhes sirva chá.”
       </p>
 
-      {/* <div>
+      <div>
         <ul>
           {cardsPrimary &&
             cardsPrimary.map((item, index) => <li key={index}>{item.name}</li>)}
         </ul>
-      </div> */}
+      </div>
     </Container>
   );
 };

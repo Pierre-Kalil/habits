@@ -63,7 +63,7 @@ const Groups = () => {
           <h1>Escolha seu grupo</h1>
           <OptionsContainerDescktop>
             <Link
-              to={"/groups/meditation"}
+              to={"/groups/Meditation"}
               style={{ color: "white", textDecoration: "none" }}
             >
               <BoxContainerDescktop>Meditação</BoxContainerDescktop>
