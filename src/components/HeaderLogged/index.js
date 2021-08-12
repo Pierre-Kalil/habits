@@ -19,6 +19,7 @@ const HeaderLogged = () => {
         <MenuHeader>
             <h2 style={{cursor:"pointer"}} onClick={() => toSend("/")}>Tres emme</h2>
             <ButtonFlexContainer>
+                <MenuButton onClick={() => toSend("/Community")}>Para Comunidade</MenuButton>
                 <MenuButton onClick={() => toSend("/Habits")}>Para Hábitos</MenuButton>
                 <MenuButton onClick={() => toSend("/Groups")}>Para Grupos</MenuButton>
                 <MenuButton onClick={handleLogout}>LogOut</MenuButton>

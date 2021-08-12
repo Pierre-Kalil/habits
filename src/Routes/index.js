@@ -9,6 +9,8 @@ import About from "../Pages/About";
 
 import Habits from "../Pages/Habits";
 
+import Meditation from "../Pages/Groups/Meditation";
+
 const Routes = () => {
   return (
     <Switch>
@@ -32,6 +34,9 @@ const Routes = () => {
       </Route>
       <Route exact path="/groups/physicalactivity">
         <PhysicalActivity />
+      </Route>
+      <Route exact path="/groups/Meditation">
+        <Meditation />
       </Route>
       <Route exact path="/register">
         <Register />
