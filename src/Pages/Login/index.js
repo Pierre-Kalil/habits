@@ -5,9 +5,13 @@ import * as yup from 'yup';
 import {yupResolver} from '@hookform/resolvers/yup';
 import toast  from 'react-hot-toast';
 import Header from "../../components/Header";
+import { Back, Container } from "./styles";
+import { useContext } from "react";
+import { UserContext } from "../../Providers/user";
 
 const Login = () => {
 
+    const {getToken,user} = useContext(UserContext);
     const history = useHistory();
 
     const schema = yup.object().shape({
@@ -24,20 +28,26 @@ const Login = () => {
             reset();
             localStorage.clear()
             localStorage.setItem('token', JSON.stringify(res.data.access))
+            getToken(res.data.access)
             toast.success('Successfully login!');
             history.push('/dashboard')
-
+            
         })
         .catch(err => console.log(err));
     }
+    
     return (
         <div>
-            <Header />
-            <form onSubmit = {handleSubmit(handleLogin)}>
-                <input placeholder = 'username' {...register('username')}></input>
-                <input placeholder = 'password' {...register('password')}></input>
-                <button type = 'submit'>Login</button>
-            </form>
+            
+            <Back><span class="material-icons">arrow_back</span></Back>
+            <Container>
+                <h1>Login</h1>
+                <form onSubmit = {handleSubmit(handleLogin)}>
+                    <input placeholder = 'username' {...register('username')}></input>
+                    <input placeholder = 'password' {...register('password')}></input>
+                    <button type = 'submit'>Login</button>
+                </form>     
+            </Container>
         </div>
     )
 }
