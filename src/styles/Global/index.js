@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
 * {
@@ -9,7 +9,10 @@ export default createGlobalStyle`
 }
 
 :root {
-    
+    --roxo-primario: #8e97fd;
+    --roxo-secundario: #3c096c;
+    --background: #f6f2f0;
+    --caixa-de-texto: #e0aaff;
 }
 
 body {
