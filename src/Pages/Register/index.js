@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useHistory } from "react-router";
 import * as yup from 'yup';
+import Header from "../../components/Header";
 
 const Register = () => {
     
@@ -29,6 +30,7 @@ const Register = () => {
     }
     return (
         <div>
+            <Header />
             <form onSubmit = {handleSubmit(handleRegister)}>
                 <input placeholder = 'username' {...register('username')}></input>
                 <input placeholder = 'email' {...register('email')}></input>

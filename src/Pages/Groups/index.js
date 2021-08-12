@@ -1,10 +1,14 @@
 import { ContainerMobile, BoxContainerMobile, OptionsContainerMobile } from "./styles";
 import { ContainerDescktop, BoxContainerDescktop, OptionsContainerDescktop } from "./styles";
 import { Link } from "react-router-dom";
+
+import HeaderLogged from "../../components/HeaderLogged";
+
 const Groups = () => {
     const viewport = window.innerWidth;
     return(
         <>
+        <HeaderLogged />
         {viewport < 500 ?
             <ContainerMobile>
                 <h2>Organize sua vida</h2>
