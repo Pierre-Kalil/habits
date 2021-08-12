@@ -6,7 +6,8 @@ import Register from "../Pages/Register";
 import Groups from "../Pages/Groups";
 import PhysicalActivity from "../Pages/PhysicalActivity";
 import About from "../Pages/About";
-import Meditation from "../Pages/Groups/Meditation";
+
+import Habits from "../Pages/Habits";
 
 const Routes = () => {
   return (
@@ -23,11 +24,11 @@ const Routes = () => {
       <Route exact path="/dashboard">
         <Dashboard />
       </Route>
+      <Route exact path="/habits">
+        <Habits />
+      </Route>
       <Route exact path="/groups">
         <Groups />
-      </Route>
-      <Route exact path="/groups/meditation">
-        <Meditation />
       </Route>
       <Route exact path="/groups/physicalactivity">
         <PhysicalActivity />
