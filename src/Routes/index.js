@@ -6,6 +6,7 @@ import Register from "../Pages/Register";
 import Groups from "../Pages/Groups";
 import PhysicalActivity from "../Pages/PhysicalActivity";
 import About from "../Pages/About";
+import Habits from "../Pages/Habits";
 
 const Routes = () => {
     return (
@@ -21,6 +22,9 @@ const Routes = () => {
             </Route>
             <Route exact path = '/dashboard'>
                 <Dashboard />
+            </Route>
+            <Route exact path = '/habits'>
+                <Habits />
             </Route>
             <Route exact path = '/groups'>
                 <Groups />
