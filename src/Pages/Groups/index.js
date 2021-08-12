@@ -1,6 +1,6 @@
 import {
   ContainerMobile,
-  BoxContainerMobile,
+  // BoxContainerMobile,
   OptionsContainerMobile,
   CardsContainer,
   ListCardsContainer,
@@ -43,25 +43,6 @@ const Groups = () => {
           <h2>Organize sua vida</h2>
           <h4>Escolha uma opção: </h4>
           <OptionsContainerMobile>
-            {/* <Link
-              to={"/groups/meditation"}
-              style={{ color: "white", textDecoration: "none" }}
-            >
-              <BoxContainerMobile>Meditação</BoxContainerMobile>
-            </Link>
-            <Link
-              to={"/groups/physicalActivity"}
-              style={{ color: "white", textDecoration: "none" }}
-            >
-              <BoxContainerMobile>Exercício Físico</BoxContainerMobile>
-            </Link>
-            <Link
-              to={"/groups/respiracao"}
-              style={{ color: "white", textDecoration: "none" }}
-            >
-              <BoxContainerMobile>Respiração para dormir</BoxContainerMobile>
-            </Link> */}
-
             <CardsContainer>
               {CardsGroups &&
                 CardsGroups.map((group, index) => (
