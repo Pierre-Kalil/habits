@@ -1,10 +1,10 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState} from "react";
 
 export const HabitsContext = createContext();
 
 export const HabitsProvider = ({children}) => {
 
-    const [habits, setHabits] = useState([]);
+    const [habits, setHabits] = useState(JSON.parse(localStorage.getItem("habits"))||[]);
 
     return(
         <HabitsContext.Provider value = {{habits, setHabits}}>
