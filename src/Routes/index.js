@@ -6,10 +6,8 @@ import Register from "../Pages/Register";
 import Groups from "../Pages/Groups";
 import PhysicalActivity from "../Pages/PhysicalActivity";
 import About from "../Pages/About";
-
 import Habits from "../Pages/Habits";
-
-import Meditation from "../Pages/Groups/Meditation";
+import Community from "../Pages/Community";
 
 const Routes = () => {
   return (
@@ -35,8 +33,8 @@ const Routes = () => {
       <Route exact path="/groups/physicalactivity">
         <PhysicalActivity />
       </Route>
-      <Route exact path="/groups/Meditation">
-        <Meditation />
+      <Route exact path="/community">
+        <Community />
       </Route>
       <Route exact path="/register">
         <Register />
