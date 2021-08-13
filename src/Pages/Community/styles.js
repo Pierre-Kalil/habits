@@ -36,6 +36,23 @@ export const OptionsContainerMobile = styled.div`
   height: 70vh;
 `;
 
+//lista dos grupos
+export const CardsContainerMobile = styled.ul`
+  /* margin-top: 900px; */
+`;
+export const ListCardsContainerMobile = styled.li`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 300px;
+  height: 100px;
+  margin: 5px 0;
+  background-color: var(--roxo-secundario);
+  color: #fff;
+`;
+
 //DESKTOP
 
 export const ContainerDescktop = styled.div`
@@ -64,4 +81,25 @@ export const OptionsContainerDescktop = styled.div`
   width: 90vw;
   display: flex;
   justify-content: space-around;
+`;
+
+//lista dos grupos
+export const CardsContainerDesktop = styled.ul`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+`;
+export const ListCardsContainerDesktop = styled.li`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 300px;
+  height: 100px;
+  margin: 5px 0;
+  background-color: var(--roxo-secundario);
+  color: #fff;
 `;
