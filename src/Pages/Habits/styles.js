@@ -9,6 +9,20 @@ export const Container = styled.div`
 
 export const Content = styled.div `
     display: flex;
-    flex-wrap: wrap;
-    width: 1000px;
+    flex-direction: column;
+    align-items: center;
+    @media screen and (min-width: 500px){
+        
+        flex-direction: row;
+        display: flex;
+        flex-wrap: wrap;
+        width: 500px;
+    }
+    @media screen and (min-width: 1000px){
+        
+        flex-direction: row;
+        display: flex;
+        flex-wrap: wrap;
+        width: 1000px;
+    }
 `
