@@ -13,7 +13,7 @@ export const UserProvider = ({children}) => {
     }
 
     useEffect (() =>{
-        getToken(JSON.parse(localStorage.getItem("token")));
+        JSON.parse(localStorage.getItem("token")) && getToken(JSON.parse(localStorage.getItem("token")));
     },[])
 
 

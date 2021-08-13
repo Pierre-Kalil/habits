@@ -10,6 +10,7 @@ import { UserContext} from "../../Providers/user"
 const Dashboard = () => {
     const viewport = window.innerWidth;
     const {user} = useContext(UserContext);
+    
         return(
         <>
         <HeaderLogged />
