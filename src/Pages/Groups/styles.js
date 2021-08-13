@@ -6,7 +6,6 @@ export const ContainerMobile = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-
     height: 10vh;
   }
 
@@ -39,7 +38,7 @@ export const OptionsContainerMobile = styled.div`
 
 //lista dos grupos
 export const CardsContainer = styled.ul`
-  margin-top: 900px;
+  /* margin-top: 900px; */
 `;
 export const ListCardsContainer = styled.li`
   display: flex;

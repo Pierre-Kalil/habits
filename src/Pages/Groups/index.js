@@ -7,7 +7,7 @@ import {
 } from "./styles";
 import {
   ContainerDescktop,
-  BoxContainerDescktop,
+  // BoxContainerDescktop,
   OptionsContainerDescktop,
 } from "./styles";
 import { Link } from "react-router-dom";
@@ -44,17 +44,16 @@ const Groups = () => {
           <h4>Escolha uma opção: </h4>
           <OptionsContainerMobile>
             <CardsContainer>
-              {CardsGroups &&
-                CardsGroups.map((group, index) => (
-                  <ListCardsContainer key={index}>
-                    <h3>{group.name} </h3>
-                    <p>{group.category}</p>
-                    <p>id: {group.id}</p>
-                    <button onClick={() => SubmitToSubscribe(group.id)}>
-                      Cadastrar-se
-                    </button>
-                  </ListCardsContainer>
-                ))}
+              {CardsGroups.map((group, index) => (
+                <ListCardsContainer key={index}>
+                  <h3>{group.name} </h3>
+                  <p>{group.category}</p>
+                  <p>id: {group.id}</p>
+                  <button onClick={() => SubmitToSubscribe(group.id)}>
+                    Cadastrar-se
+                  </button>
+                </ListCardsContainer>
+              ))}
             </CardsContainer>
           </OptionsContainerMobile>
         </ContainerMobile>
@@ -62,7 +61,19 @@ const Groups = () => {
         <ContainerDescktop>
           <h1>Escolha seu grupo</h1>
           <OptionsContainerDescktop>
-            <Link
+            <CardsContainer>
+              {CardsGroups.map((group, index) => (
+                <ListCardsContainer key={index}>
+                  <h3>{group.name} </h3>
+                  <p>{group.category}</p>
+                  <p>id: {group.id}</p>
+                  <button onClick={() => SubmitToSubscribe(group.id)}>
+                    Cadastrar-se
+                  </button>
+                </ListCardsContainer>
+              ))}
+            </CardsContainer>
+            {/* <Link
               to={"/groups/meditation"}
               style={{ color: "white", textDecoration: "none" }}
             >
@@ -81,7 +92,7 @@ const Groups = () => {
               <BoxContainerDescktop>
                 Respiração para dormir
               </BoxContainerDescktop>
-            </Link>
+            </Link> */}
           </OptionsContainerDescktop>
         </ContainerDescktop>
       )}
