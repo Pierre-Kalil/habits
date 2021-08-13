@@ -1,8 +1,6 @@
 import { MenuHeader, MenuButton, ButtonFlexContainer } from "./styles"
 import { useHistory } from "react-router-dom";
 
-
-
 const Header = () => {
 
     const history = useHistory();
@@ -13,7 +11,7 @@ const Header = () => {
 
     return (
         <MenuHeader>
-            <h2 style={{cursor:"pointer"}} onClick={() => toSend("/")}>Tres emme</h2>
+            <h2 style={{cursor:"pointer"}} onClick={() => toSend("/dashboard")}>Tres emme</h2>
             <ButtonFlexContainer>
                 <MenuButton onClick={() => toSend("/Register")}>Cadastrar</MenuButton>
                 <MenuButton onClick={() => toSend("/Login")}>Login</MenuButton>
