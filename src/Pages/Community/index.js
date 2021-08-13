@@ -55,12 +55,12 @@ const Community = () => {
             <CardsContainerMobile>
               {CardsGroups.map((group, index) => (
                 <ListCardsContainerMobile key={index}>
-                  <h3>{group.name} </h3>
-                  <p>{group.category}</p>
-                  <p>id: {group.id}</p>
-                  <button onClick={() => SubmitToSubscribe(group.id)}>
+                  <h3>Nome: {group.name}</h3>
+                  <p>Categoria: {group.category}</p>
+                  <p>Descrição: {group.description}</p>
+                  <Button onClick={() => SubmitToSubscribe(group.id)}>
                     Cadastrar-se
-                  </button>
+                  </Button>
                 </ListCardsContainerMobile>
               ))}
             </CardsContainerMobile>

@@ -43,7 +43,7 @@ export const CardsContainerMobile = styled.ul`
 export const ListCardsContainerMobile = styled.li`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 
   width: 250px;
@@ -53,6 +53,10 @@ export const ListCardsContainerMobile = styled.li`
   box-shadow: 1px 1px 4px 1px var(--sombra-box);
   background-color: var(--roxo-secundario);
   color: #fff;
+
+  button {
+    width: 50%;
+  }
 `;
 
 //DESKTOP
