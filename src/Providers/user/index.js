@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import jwt_decode from 'jwt-decode';
 import { useContext } from "react";
 
@@ -11,6 +11,10 @@ export const UserProvider = ({children}) => {
         const id = jwt_decode(token)
         setUser(JSON.stringify(id.user_id))
     }
+
+    useEffect (() =>{
+        getToken(JSON.parse(localStorage.getItem("token")));
+    },[])
 
 
     return (
