@@ -1,14 +1,17 @@
 import Button from "../../components/Button"
 import { Container, ContainerButtons, ContainerInputs, ContainerTest } from "./styles"
 import {useHabits} from "../../Providers/habits"
+import {useUser} from "../../Providers/user"
 
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
+import axios from "axios";
 
 const AddHabits = ({setAddNewHabit}) => {
 
     const {habits, setHabits} = useHabits();
+    const {user} = useUser();
     
     const formSchema = yup.object().shape({
         title: yup.string().required("Titúlo Obrigatório"),
@@ -29,10 +32,23 @@ const AddHabits = ({setAddNewHabit}) => {
         
 
         const onSubmit =(data)=>{
-            setHabits([...habits, data]);
-            let x = habits;
-            x.push(data)
-            localStorage.setItem("habits", JSON.stringify(x));
+            
+            const {title, category,difficulty,frequency,achieved,how_much_achieved} = data;
+            
+            axios.post("https://kabit-api.herokuapp.com/habits/", {
+                title: title,
+                category: category,
+                difficulty: difficulty,
+                frequency: frequency,
+                achieved: achieved,
+                how_much_achieved: how_much_achieved,
+                user: user,
+            }, {
+                headers:{
+                    Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`
+                }
+            })
+
             setAddNewHabit(0);
         }
 
