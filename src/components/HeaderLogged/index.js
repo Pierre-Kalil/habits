@@ -1,8 +1,12 @@
 import { MenuHeader, MenuButton, ButtonFlexContainer } from "./styles"
 import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
+
+import { useState } from "react"
+
+const HeaderLogged = ({isLoggedIn, setIsLoggedIn}) => {
 
 
-const HeaderLogged = () => {
 
     const history = useHistory();
     
@@ -11,9 +15,14 @@ const HeaderLogged = () => {
     }
 
     const handleLogout = () => {
+        // setIsLoggedIn(false);
         localStorage.clear();
         history.push("/login")
     }
+
+    // if (isLoggedIn === false) {
+	// 	return <Redirect to="/login" />
+    // }
 
     return (
         <MenuHeader>

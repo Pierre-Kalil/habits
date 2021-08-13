@@ -18,6 +18,7 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem("@Tresemme:token", response.data.access);
         const decodedToken = jwt_decode(response.data.access);
         setAuth(decodedToken);
+
         toast.success("Seja bem-vindo(a)!");
         history.push("/dashboard");
       })
@@ -25,6 +26,7 @@ export const AuthProvider = ({ children }) => {
         toast.error("Verifique se seus dados estão corretos"),
       );
   };
+
 
   return (
     <AuthContext.Provider value={{ auth, setAuth, signIn }}>
