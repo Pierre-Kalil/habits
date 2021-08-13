@@ -7,7 +7,8 @@ export const MenuHeader = styled.header`
 	width: 100vw;
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 20px;
+	margin-bottom: 50px;
+	z-index: 2;
 `;
 
 export const ButtonFlexContainer = styled.div`
