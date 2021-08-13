@@ -1,7 +1,6 @@
 import { MenuHeader, MenuButton, ButtonFlexContainer } from "./styles"
 import { useHistory } from "react-router-dom";
 
-
 const HeaderLogged = () => {
 
     const history = useHistory();

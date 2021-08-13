@@ -4,7 +4,7 @@ import Habit from "../../components/Habit"
 import {useHabits} from "../../Providers/habits"
 import SinalMais from "../../components/SinalMais"
 import {Container, Content} from "./styles"
-import Header from "../../components/Header"
+import HeaderLogged from "../../components/HeaderLogged"
 
 
 
@@ -18,7 +18,7 @@ const Habits = () => {
 
     return(
     <Container>
-        <Header />
+        <HeaderLogged />
         <Content>
             {habits.map((habit)=> <Habit key={habit.id} habit={habit}></Habit>)}
             

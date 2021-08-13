@@ -57,9 +57,9 @@ export const HabitsProvider = ({children}) => {
     }
 
     
-    useEffect(()=>{
-        loadHabits();
-    },[])
+    // useEffect(()=>{
+    //     loadHabits();
+    // },[])
     
     return(
         <HabitsContext.Provider value = {{habits, setHabits, addHabit, updateHabit, deleteHabit, loadHabits}}>

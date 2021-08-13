@@ -16,7 +16,7 @@ const Login = () => {
     const {getToken, user} = useContext(UserContext);
     const history = useHistory();
 
-    // const { loggedIn } = useAuth()
+    const { signIn } = useAuth()
 
     const schema = yup.object().shape({
         username: yup.string().required('Campo Obrigatório!'),
@@ -27,24 +27,24 @@ const Login = () => {
     const {register, handleSubmit, formState: {errors}, reset} = useForm({resolver: yupResolver(schema)})
 
     const handleLogin = (data) => {
-        axios.post('https://kabit-api.herokuapp.com/sessions/', data)
-        .then((res)=> {
-            reset();
-            localStorage.clear()
-            localStorage.setItem('token', JSON.stringify(res.data.access))
-            getToken(res.data.access)
-            toast.success('Você foi logado!');
-            history.push('/dashboard')
+        // axios.post('https://kabit-api.herokuapp.com/sessions/', data)
+        // .then((res)=> {
+        //     reset();
+        //     localStorage.clear()
+        //     localStorage.setItem('token', JSON.stringify(res.data.access))
+        //     getToken(res.data.access)
+        //     toast.success('Você foi logado!');
+        //     history.push('/dashboard')
             
-        })
-        .catch(err => console.log(err));
+        // })
+        // .catch(err => console.log(err));
 
-    // loggedIn(data, history);
+        signIn(data, history);
     }
     
     return (
         <div>
-            
+            <Header />
             <Back><span class="material-icons">arrow_back</span></Back>
             <Container>
                 <h1>Login</h1>
