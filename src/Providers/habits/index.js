@@ -9,7 +9,7 @@ export const HabitsProvider = ({children}) => {
 
     const addHabit = (data, user) => {
         const {title, category,difficulty,frequency,achieved,how_much_achieved} = data;
-            
+            console.log(user);
             axios.post("https://kabit-api.herokuapp.com/habits/", {
                 title: title,
                 category: category,

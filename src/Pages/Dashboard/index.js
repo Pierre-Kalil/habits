@@ -4,9 +4,12 @@ import { Link } from "react-router-dom";
 
 import medidate from "../../images/medidate.png";
 import HeaderLogged from "../../components/HeaderLogged";
+import { useContext } from "react";
+import { UserContext} from "../../Providers/user"
 
 const Dashboard = () => {
     const viewport = window.innerWidth;
+    const {user} = useContext(UserContext);
         return(
         <>
         <HeaderLogged />
