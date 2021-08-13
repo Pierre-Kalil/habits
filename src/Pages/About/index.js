@@ -1,6 +1,8 @@
 import { DevFlex, DevContainer } from "./styles";
 import Header from "../../components/Header";
 
+import Input from "../../components/Input";
+
 const About = () => {
 
 	return (
@@ -36,6 +38,7 @@ const About = () => {
 				<h3>Pierre Kalil</h3>
 				<h4>Quality Assurance, QA</h4>
 			</DevContainer>
+			<Input />
 		</DevFlex>
 	)
     }
