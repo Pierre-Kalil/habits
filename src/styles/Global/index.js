@@ -13,6 +13,7 @@ export default createGlobalStyle`
     --roxo-secundario: #3c096c;
     --background: #f6f2f0;
     --caixa-de-texto: #e0aaff;
+    --sombra-box: rgba(0, 0, 0, 0.67);
 }
 
 body {

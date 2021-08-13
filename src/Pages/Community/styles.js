@@ -46,9 +46,11 @@ export const ListCardsContainerMobile = styled.li`
   justify-content: center;
   align-items: center;
 
-  width: 300px;
-  height: 100px;
+  width: 250px;
+  height: 150px;
   margin: 5px 0;
+  border-radius: 20px;
+  box-shadow: 1px 1px 4px 1px var(--sombra-box);
   background-color: var(--roxo-secundario);
   color: #fff;
 `;
@@ -94,12 +96,17 @@ export const CardsContainerDesktop = styled.ul`
 export const ListCardsContainerDesktop = styled.li`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-
   width: 300px;
-  height: 100px;
+  height: 200px;
   margin: 5px 0;
+  border-radius: 20px;
+  box-shadow: 1px 1px 4px 1px var(--sombra-box);
   background-color: var(--roxo-secundario);
   color: #fff;
+
+  button {
+    width: 50%;
+  }
 `;
