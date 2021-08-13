@@ -9,14 +9,18 @@ import { Back, Container } from "./styles";
 import { useContext } from "react";
 import { UserContext } from "../../Providers/user";
 
+import { useAuth } from "../../Providers/auth"
+
 const Login = () => {
 
-    const {getToken,user} = useContext(UserContext);
+    const {getToken, user} = useContext(UserContext);
     const history = useHistory();
 
+    // const { loggedIn } = useAuth()
+
     const schema = yup.object().shape({
-        username: yup.string().required('Required Field'),
-        password: yup.string().required('Required Field').min(6, 'Minimum 6 characters'),
+        username: yup.string().required('Campo Obrigatório!'),
+        password: yup.string().required('Campo Obrigatório!').min(6, 'Mínimo de 6 caracteres'),
 
     })
 
@@ -29,11 +33,13 @@ const Login = () => {
             localStorage.clear()
             localStorage.setItem('token', JSON.stringify(res.data.access))
             getToken(res.data.access)
-            toast.success('Successfully login!');
+            toast.success('Você foi logado!');
             history.push('/dashboard')
             
         })
         .catch(err => console.log(err));
+
+    // loggedIn(data, history);
     }
     
     return (
@@ -43,9 +49,9 @@ const Login = () => {
             <Container>
                 <h1>Login</h1>
                 <form onSubmit = {handleSubmit(handleLogin)}>
-                    <input placeholder = 'username' {...register('username')}></input>
-                    <input placeholder = 'password' {...register('password')}></input>
-                    <button type = 'submit'>Login</button>
+                    <input placeholder = 'Nome de Usuário' {...register('username')}></input>
+                    <input placeholder = 'Senha' {...register('password')}></input>
+                    <button type='submit'>Login</button>
                 </form>     
             </Container>
         </div>

@@ -12,17 +12,17 @@ const HeaderLogged = () => {
 
     const handleLogout = () => {
         localStorage.clear();
-        window.location.reload();
+        history.push("/login")
     }
 
     return (
         <MenuHeader>
-            <h2 style={{cursor:"pointer"}} onClick={() => toSend("/")}>Tres emme</h2>
+            <h2 style={{cursor:"pointer"}} onClick={() => toSend("/dashboard")}>Tres emme</h2>
             <ButtonFlexContainer>
-                <MenuButton onClick={() => toSend("/Community")}>Para Comunidade</MenuButton>
-                <MenuButton onClick={() => toSend("/Habits")}>Para Hábitos</MenuButton>
-                <MenuButton onClick={() => toSend("/Groups")}>Para Grupos</MenuButton>
-                <MenuButton onClick={handleLogout}>LogOut</MenuButton>
+                <MenuButton onClick={() => toSend("/Community")}>Comunidade</MenuButton>
+                <MenuButton onClick={() => toSend("/Habits")}>Hábitos</MenuButton>
+                <MenuButton onClick={() => toSend("/Groups")}>Grupos</MenuButton>
+                <MenuButton onClick={handleLogout}>Sair</MenuButton>
                 <MenuButton onClick={() => toSend("/About")}>Sobre</MenuButton>
             </ButtonFlexContainer>
         </MenuHeader> 
