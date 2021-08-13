@@ -1,9 +1,11 @@
 import {Header, ContainerDesktop, ContainerDesktopTitle, ContainerDesktopDescription, ContainerDescktopButton, ContainerDesktopImages} from "./styles"
 import {ContainerMobile, ContainerMobileDescription, ContainerMobileImages, ContainerMobileTitle} from "./styles"
-import sleep from "../../images/dormir.png"
-import energy from "../../images/energia.png"
-import bodybuilding from "../../images/musculacao.png"
-import couch from "../../images/sofa.png"
+import sleep from "../../images/dormir.png";
+import energy from "../../images/energia.png";
+import bodybuilding from "../../images/musculacao.png";
+import couch from "../../images/sofa.png";
+
+import HeaderLogged from "../../components/HeaderLogged";
 
 const PhysicalActivity = () => {
     
@@ -11,6 +13,7 @@ const PhysicalActivity = () => {
 
     return(
         <>
+        <HeaderLogged />
           { viewport < 1000 ?
 
 

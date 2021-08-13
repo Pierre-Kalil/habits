@@ -56,8 +56,58 @@ export const Container = styled.div`
   }
 `;
 
+export const Logo = styled.div`
+  position: absolute;
+  img {
+    width: 40%;
+    height: 40%;
+  }
+`;
 export const Desktop = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: red;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 800px;
+  height: 80%;
+  margin-top: 20px;
+
+  img {
+    width: 30vw;
+    height: 23vw;
+    animation: go-back 1s infinite alternate;
+  }
+  @keyframes go-back {
+    from {
+      transform: translateY(10px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  h1 {
+    font-family: "Tourney", cursive;
+    font-size: 55px;
+    line-height: 100%;
+  }
+`;
+
+export const ContainerDescktop = styled.div`
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const StyledButton = styled.button`
+  min-width: 150px;
+  /* width: 80%; */
+  margin: 5px;
+  padding: 10px;
+  background: #8e97fd;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  align-items: center;
+  cursor: pointer;
 `;

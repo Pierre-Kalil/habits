@@ -2,11 +2,14 @@ import { ContainerMobile, BoxContainerMobile, OptionsContainerMobile } from "./s
 import { ContainerDescktop, BoxContainerDescktop, OptionsContainerDescktop, ContainerTitle } from "./styles";
 import { Link } from "react-router-dom";
 
-import medidate from "../../images/medidate.png"
+import medidate from "../../images/medidate.png";
+import HeaderLogged from "../../components/HeaderLogged";
 
 const Dashboard = () => {
     const viewport = window.innerWidth;
-        return(<>
+        return(
+        <>
+        <HeaderLogged />
         { viewport < 500 ? 
             <ContainerMobile>
                 <h2>Organize sua vida</h2>

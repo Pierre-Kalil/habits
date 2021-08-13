@@ -4,6 +4,7 @@ import {useForm} from 'react-hook-form';
 import * as yup from 'yup';
 import {yupResolver} from '@hookform/resolvers/yup';
 import toast  from 'react-hot-toast';
+import Header from "../../components/Header";
 
 const Login = () => {
 
@@ -31,6 +32,7 @@ const Login = () => {
     }
     return (
         <div>
+            <Header />
             <form onSubmit = {handleSubmit(handleLogin)}>
                 <input placeholder = 'username' {...register('username')}></input>
                 <input placeholder = 'password' {...register('password')}></input>
