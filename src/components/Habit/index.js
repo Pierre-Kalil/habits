@@ -1,22 +1,31 @@
 import Button  from "../Button"
 import { Container, ContainerInfos, ContainerButtons } from "./style"
 import {useHabits} from "../../Providers/habits"
+import axios from "axios"
 const Habit = ({habit}) => {
 
-    const {habits, setHabits} = useHabits();
     
     const updateHabit = () => {
-        habit.achieved = "true"
-        habit.how_much_achieved = 100;
-        
-        localStorage.setItem("habits", JSON.stringify(habits));
-        setHabits(habits)
-        
+        axios.patch(`https://kabit-api.herokuapp.com/habits/${habit.id}/`,{
+            achieved: true,
+            how_much_achieved: "100",
+        },{
+            headers:{
+                Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`
+            },
+        });
     }
 
     const deleteHabit = () =>{
-        setHabits(habits.filter((x) => x != habit));
-        localStorage.setItem("habits", JSON.stringify(habits.filter((x) => x != habit)));
+        console.log(habit.id)
+        axios.delete(`https://kabit-api.herokuapp.com/habits/${habit.id}/`, {
+            headers:{
+                Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`              
+            },
+        }
+
+        )
+        
     }
     
     return(
@@ -27,7 +36,7 @@ const Habit = ({habit}) => {
                 <h5>CATEGORIA: {habit.category}</h5>
                 <h5>DIFICULDADE: {habit.difficulty}</h5>
                 <h5>FREQUÊNCIA: {habit.frequency}</h5>
-                <h5>ALCANÇADO: {habit.achieved}</h5>
+                <h5>ALCANÇADO: {habit?.achieved}</h5>
                 <h5>QUANTO ANCANÇOU:{habit.how_much_achieved}</h5>
             </ContainerInfos>
             <ContainerButtons>
