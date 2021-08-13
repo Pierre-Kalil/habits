@@ -7,7 +7,7 @@ import jwt_decode from "jwt-decode";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const token = localStorage.getItem("@Tresemme:token") || "";
+  const token = localStorage.getItem("token") || "";
 
   const [auth, setAuth] = useState(token);
 
@@ -15,10 +15,11 @@ export const AuthProvider = ({ children }) => {
     api
     .post('https://kabit-api.herokuapp.com/sessions/', data)
       .then((response) => {
-        localStorage.setItem("@Tresemme:token", response.data.access);
+        localStorage.clear()
+        localStorage.setItem("token", JSON.stringify(response.data.access));
         const decodedToken = jwt_decode(response.data.access);
         setAuth(decodedToken);
-
+        
         toast.success("Seja bem-vindo(a)!");
         history.push("/dashboard");
       })

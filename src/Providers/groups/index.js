@@ -18,7 +18,7 @@ export const GroupsProvider = ({children}) => {
 
     useEffect ( () => {
         loadGroups();
-    },[])
+    },[groups])
 
     return(
         <GroupsContext.Provider value ={{groups, loadGroups}}>
