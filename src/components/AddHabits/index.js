@@ -10,7 +10,7 @@ import axios from "axios";
 
 const AddHabits = ({setAddNewHabit}) => {
 
-    const {habits, setHabits} = useHabits();
+    const {addHabit} = useHabits();
     const {user} = useUser();
     
     const formSchema = yup.object().shape({
@@ -18,8 +18,8 @@ const AddHabits = ({setAddNewHabit}) => {
         category: yup.string().required("Categoria Obrigatório"),
         difficulty: yup.string().required("Dificuldade Obrigatória"),
         frequency: yup.string().required("Frequência Obrigatório"),
-        achieved: yup.string().required("Item Obrigatório"),
-        how_much_achieved: yup.string().required("Item Obrigatório"),
+        achieved: yup.boolean().required("Item Obrigatório"),
+        how_much_achieved: yup.number().required("Item Obrigatório"),
     })
 
     const {
@@ -32,23 +32,7 @@ const AddHabits = ({setAddNewHabit}) => {
         
 
         const onSubmit =(data)=>{
-            
-            const {title, category,difficulty,frequency,achieved,how_much_achieved} = data;
-            
-            axios.post("https://kabit-api.herokuapp.com/habits/", {
-                title: title,
-                category: category,
-                difficulty: difficulty,
-                frequency: frequency,
-                achieved: achieved,
-                how_much_achieved: how_much_achieved,
-                user: user,
-            }, {
-                headers:{
-                    Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`
-                }
-            })
-
+            addHabit(data, user);
             setAddNewHabit(0);
         }
 
