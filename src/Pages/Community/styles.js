@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ContainerMobile = styled.div`
   height: 90vh;
+
   h2 {
     display: flex;
     align-items: center;
@@ -38,7 +39,7 @@ export const OptionsContainerMobile = styled.div`
 
 //lista dos grupos
 export const CardsContainerMobile = styled.ul`
-  /* margin-top: 900px; */
+  margin-top: 1900px;
 `;
 export const ListCardsContainerMobile = styled.li`
   display: flex;
@@ -53,6 +54,7 @@ export const ListCardsContainerMobile = styled.li`
   box-shadow: 1px 1px 4px 1px var(--sombra-box);
   background-color: var(--roxo-secundario);
   color: #fff;
+  text-align: center;
 
   button {
     width: 50%;

@@ -15,18 +15,12 @@ import HeaderLogged from "../../components/HeaderLogged";
 import Button from "../../components/Button";
 import { useEffect } from "react";
 import axios from "axios";
-import { useState } from "react";
+import { useContext } from "react";
+import { CommunityContext } from "../../Providers/community";
 
 const Community = () => {
   const viewport = window.innerWidth;
-  const [CardsGroups, setCardsGroups] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("https://kabit-api.herokuapp.com/groups/")
-      .then((response) => setCardsGroups(response.data.results))
-      .catch((err) => console.log(err));
-  }, []);
+  const { CardsGroups } = useContext(CommunityContext);
 
   const SubmitToSubscribe = (id) => {
     console.log(id);
@@ -49,6 +43,16 @@ const Community = () => {
       <HeaderLogged />
       {viewport < 500 ? (
         <ContainerMobile>
+          <p>
+            <input placeholder="Nome do grupo" />
+          </p>
+          <p>
+            <input placeholder="Descrição do grupo" />
+          </p>
+          <p>
+            <input placeholder="Categoria do grupo" />
+          </p>
+          <button>Crie seu grupo</button>
           <h2>Organize sua vida</h2>
           <h4>Escolha uma opção: </h4>
           <OptionsContainerMobile>
