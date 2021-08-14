@@ -8,6 +8,7 @@ import PhysicalActivity from "../Pages/PhysicalActivity";
 import About from "../Pages/About";
 import Habits from "../Pages/Habits";
 import Community from "../Pages/Community";
+import { useEffect } from "react";
 
 const Routes = () => {
 
