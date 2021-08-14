@@ -10,6 +10,7 @@ export const UserProvider = ({children}) => {
     const getToken = (token) => {
         const id = jwt_decode(token)
         setUser(JSON.stringify(id.user_id))
+        console.log(id)
     }
 
     useEffect (() =>{
