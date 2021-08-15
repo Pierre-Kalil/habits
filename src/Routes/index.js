@@ -12,7 +12,7 @@ import { useEffect } from "react";
 
 const Routes = () => {
 
-  const token = localStorage.getItem("@Tresemme:token") || "";
+  const token = localStorage.getItem("token") || "";
 
   return (
     <Switch>
