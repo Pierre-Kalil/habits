@@ -10,7 +10,6 @@ import Habits from "../Pages/Habits";
 import Community from "../Pages/Community";
 
 const Routes = () => {
-
   const token = localStorage.getItem("token") || "";
 
   return (
@@ -25,7 +24,7 @@ const Routes = () => {
         <About />
       </Route>
       <Route exact path="/dashboard">
-        {token ? <Dashboard /> : <Login /> } 
+        {token ? <Dashboard /> : <Login />}
       </Route>
       <Route exact path="/habits">
         {token ? <Habits /> : <Login />}

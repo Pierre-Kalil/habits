@@ -13,23 +13,15 @@ import {
 
 import HeaderLogged from "../../components/HeaderLogged";
 import Button from "../../components/Button";
-import { useEffect } from "react";
 import axios from "axios";
-import { useState } from "react";
+import { useContext } from "react";
+import { CommunityContext } from "../../Providers/community";
 
 const Community = () => {
   const viewport = window.innerWidth;
-  const [CardsGroups, setCardsGroups] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("https://kabit-api.herokuapp.com/groups/")
-      .then((response) => setCardsGroups(response.data.results))
-      .catch((err) => console.log(err));
-  }, []);
+  const { CardsGroups } = useContext(CommunityContext);
 
   const SubmitToSubscribe = (id) => {
-    console.log(id);
     const token = JSON.parse(localStorage.getItem("token"));
     axios
       .post(
@@ -55,12 +47,12 @@ const Community = () => {
             <CardsContainerMobile>
               {CardsGroups.map((group, index) => (
                 <ListCardsContainerMobile key={index}>
-                  <h3>{group.name} </h3>
-                  <p>{group.category}</p>
-                  <p>id: {group.id}</p>
-                  <button onClick={() => SubmitToSubscribe(group.id)}>
+                  <h3>Nome: {group.name}</h3>
+                  <p>Categoria: {group.category}</p>
+                  <p>Descrição: {group.description}</p>
+                  <Button onClick={() => SubmitToSubscribe(group.id)}>
                     Cadastrar-se
-                  </button>
+                  </Button>
                 </ListCardsContainerMobile>
               ))}
             </CardsContainerMobile>
