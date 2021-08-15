@@ -20,8 +20,22 @@ export const GroupsProvider = ({children}) => {
         loadGroups();
     },[groups])
 
+    const newGroup = (data) => {
+        const {name, description,category} = data;
+            
+            axios.post("https://kabit-api.herokuapp.com/groups/", {
+                name: name,
+                description: description,
+                category: category
+            }, {
+                headers:{
+                    Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`
+                }
+            })
+    }
+
     return(
-        <GroupsContext.Provider value ={{groups, loadGroups}}>
+        <GroupsContext.Provider value ={{groups,newGroup,loadGroups}}>
             {children}
         </GroupsContext.Provider>
     )
