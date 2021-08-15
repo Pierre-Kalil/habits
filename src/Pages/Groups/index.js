@@ -13,43 +13,49 @@ import {
 import HeaderLogged from "../../components/HeaderLogged";
 import { useContext } from "react";
 import { GroupsContext } from "../../Providers/groups";
-import { ListCardsContainerDesktop, ListCardsContainerMobile } from "../Community/styles";
-
+import {
+  ListCardsContainerDesktop,
+  ListCardsContainerMobile,
+} from "../Community/styles";
+import { useState } from "react";
+import SinalMais from "../../components/SinalMais";
+import AddGroup from "../../components/AddGroup";
+// import { ActivitiesContext } from "../../Providers/actives";
+import AddActivities from "../../components/AddActivities";
 
 const Groups = () => {
   const viewport = window.innerWidth;
-  const {groups} = useContext(GroupsContext);
+  const { groups } = useContext(GroupsContext);
+  console.log(groups);
+  // const { actives, loadActivities } = useContext(ActivitiesContext);
+  const [register, setRegister] = useState(false);
+  const [addActive, setActive] = useState(false);
 
-  console.log(groups)
+  console.log(groups);
   return (
     <>
       <HeaderLogged />
-      {viewport < 500 ? (
-        <ContainerMobile>
-          <h2>Organize sua vida</h2>
-          <h4>Escolha uma opção: </h4>
-          <OptionsContainerMobile>
-            {groups.map(group =><ListCardsContainerMobile key = {group.id}>
+      <ContainerDescktop>
+        <h1>Grupos</h1>
+        <OptionsContainerDescktop>
+          {groups.map((group) => (
+            <ListCardsContainerDesktop key={group.id}>
               <h4>nome:</h4>
               <div>{group.name}</div>
               <h4>categoria:</h4>
               <div>{group.category}</div>
-              </ListCardsContainerMobile> )}
-          </OptionsContainerMobile>
-        </ContainerMobile>
-      ) : (
-        <ContainerDescktop>
-          <h1>Escolha seu grupo</h1>
-          <OptionsContainerDescktop>
-            {groups.map(group =><ListCardsContainerDesktop key = {group.id}>
-              <h4>nome:</h4>
-              <div>{group.name}</div>
-              <h4>categoria:</h4>
-              <div>{group.category}</div>
-              </ListCardsContainerDesktop> )}
-          </OptionsContainerDescktop>
-        </ContainerDescktop>
-      )}
+              <button onClick={() => setActive(true)}>Criar atividade</button>
+              {addActive ? (
+                <AddActivities setActive={setActive} id={group.id} />
+              ) : (
+                <></>
+              )}
+            </ListCardsContainerDesktop>
+          ))}
+        </OptionsContainerDescktop>
+      </ContainerDescktop>
+      <SinalMais onClick={() => setRegister(true)} />
+      {register ? <AddGroup setRegister={setRegister} /> : <></>}
     </>
   );
 };

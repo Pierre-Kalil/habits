@@ -13,7 +13,6 @@ import {
 
 import HeaderLogged from "../../components/HeaderLogged";
 import Button from "../../components/Button";
-import { useEffect } from "react";
 import axios from "axios";
 import { useContext } from "react";
 import { CommunityContext } from "../../Providers/community";
@@ -23,7 +22,6 @@ const Community = () => {
   const { CardsGroups } = useContext(CommunityContext);
 
   const SubmitToSubscribe = (id) => {
-    console.log(id);
     const token = JSON.parse(localStorage.getItem("token"));
     axios
       .post(
@@ -43,16 +41,6 @@ const Community = () => {
       <HeaderLogged />
       {viewport < 500 ? (
         <ContainerMobile>
-          <p>
-            <input placeholder="Nome do grupo" />
-          </p>
-          <p>
-            <input placeholder="Descrição do grupo" />
-          </p>
-          <p>
-            <input placeholder="Categoria do grupo" />
-          </p>
-          <button>Crie seu grupo</button>
           <h2>Organize sua vida</h2>
           <h4>Escolha uma opção: </h4>
           <OptionsContainerMobile>

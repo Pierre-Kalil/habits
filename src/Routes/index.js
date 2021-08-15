@@ -10,6 +10,8 @@ import Habits from "../Pages/Habits";
 import Community from "../Pages/Community";
 
 const Routes = () => {
+  const token = localStorage.getItem("token") || "";
+
   return (
     <Switch>
       <Route exact path="/">
@@ -22,19 +24,19 @@ const Routes = () => {
         <About />
       </Route>
       <Route exact path="/dashboard">
-        <Dashboard />
+        {token ? <Dashboard /> : <Login />}
       </Route>
       <Route exact path="/habits">
-        <Habits />
+        {token ? <Habits /> : <Login />}
       </Route>
       <Route exact path="/groups">
-        <Groups />
+        {token ? <Groups /> : <Login />}
       </Route>
       <Route exact path="/groups/physicalactivity">
-        <PhysicalActivity />
+        {token ? <PhysicalActivity /> : <Login />}
       </Route>
       <Route exact path="/community">
-        <Community />
+        {token ? <Community /> : <Login />}
       </Route>
       <Route exact path="/register">
         <Register />
