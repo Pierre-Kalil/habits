@@ -1,5 +1,6 @@
-import { MenuHeader, MenuButton, ButtonFlexContainer } from "./styles"
+import { MenuHeader, MenuButton, ButtonFlexContainer, TresemmeLogo } from "./styles"
 import { useHistory } from "react-router-dom";
+import Tresemmewhite from "../../images/Tresemmewhite.png"
 
 const HeaderLogged = () => {
 
@@ -16,7 +17,7 @@ const HeaderLogged = () => {
 
     return (
         <MenuHeader>
-            <h2 style={{cursor:"pointer"}} onClick={() => toSend("/dashboard")}>Tres emme</h2>
+             <TresemmeLogo src={Tresemmewhite} alt="Logo-written-white" onClick={() => toSend("/dashboard")}></TresemmeLogo>
             <ButtonFlexContainer>
                 <MenuButton onClick={() => toSend("/Community")}>Comunidade</MenuButton>
                 <MenuButton onClick={() => toSend("/Habits")}>Hábitos</MenuButton>

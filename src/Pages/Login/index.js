@@ -5,9 +5,16 @@ import * as yup from 'yup';
 import {yupResolver} from '@hookform/resolvers/yup';
 import toast  from 'react-hot-toast';
 import Header from "../../components/Header";
+import { FiUser, FiLock } from "react-icons/fi";
+import Button from "../../components/Button";
+import Input from "../../components/Input";
 import { Back, Container } from "./styles";
 import { useContext } from "react";
 import { UserContext } from "../../Providers/user";
+import { Background } from "./styles";
+import { Content } from "./styles";
+import { AnimationContainer } from "./styles";
+import { InputContainer1 } from "./styles";
 
 import { useAuth } from "../../Providers/auth"
 
@@ -45,14 +52,25 @@ const Login = () => {
     return (
         <div>
             <Header />
-            <Back><span class="material-icons">arrow_back</span></Back>
+            {/* <Back><span class="material-icons">arrow_back</span></Back> */}
             <Container>
-                <h1>Login</h1>
-                <form onSubmit = {handleSubmit(handleLogin)}>
-                    <input placeholder = 'Nome de Usuário' {...register('username')}></input>
-                    <input placeholder = 'Senha' {...register('password')}></input>
-                    <button type='submit'>Login</button>
-                </form>     
+                    <Content>
+                        <AnimationContainer>
+                            <form onSubmit = {handleSubmit(handleLogin)}>
+                                    <h1>Login</h1>
+                                    <InputContainer1>
+                                        <input placeholder='Nome de Usuário' {...register("username")}></input>
+                                        </InputContainer1>
+                                        <InputContainer1>
+                                        <input placeholder='Senha' {...register("password")} type="password"></input>
+                                        </InputContainer1>
+                                        <br />
+                                        <Button type='submit'>Login</Button>
+                                        <p>Não tem um <strong>cadastro</strong>? Faça seu <Link to="/register">Registro</Link>.</p>
+                            </form>
+                        </AnimationContainer> 
+                    </Content>
+			        <Background></Background>    
             </Container>
         </div>
     )
