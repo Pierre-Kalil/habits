@@ -27,11 +27,9 @@ const Groups = () => {
   const viewport = window.innerWidth;
   const { groups } = useContext(GroupsContext);
   console.log(groups);
-  // const { actives, loadActivities } = useContext(ActivitiesContext);
   const [register, setRegister] = useState(false);
   const [addActive, setActive] = useState(false);
 
-  console.log(groups);
   return (
     <>
       <HeaderLogged />
@@ -50,6 +48,10 @@ const Groups = () => {
               ) : (
                 <></>
               )}
+              <hr />
+              <div>
+                <button>Ver Atividades e Metas</button>
+              </div>
             </ListCardsContainerDesktop>
           ))}
         </OptionsContainerDescktop>

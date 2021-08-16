@@ -5,7 +5,7 @@ import Button from "../Button";
 const AddActivities = ({ setActive, id }) => {
   // const [actives, setActives] = useState({})
   const [title, setTitle] = useState("");
-  const { loadActives } = useActivities();
+  const { CreateActives } = useActivities();
 
   //funções para formatar data, conforme pede a documentação da API
   const zeroFill = (n) => {
@@ -33,10 +33,8 @@ const AddActivities = ({ setActive, id }) => {
       realization_time: dateActive,
       group: id,
     };
-    console.log(data);
-
     setActive(false);
-    loadActives(data);
+    CreateActives(data);
   };
 
   //os inputs abaixo estão nos cards na page de grupos

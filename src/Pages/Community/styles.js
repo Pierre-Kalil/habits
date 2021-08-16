@@ -115,4 +115,8 @@ export const ListCardsContainerDesktop = styled.li`
   button {
     width: 50%;
   }
+
+  hr {
+    width: 80%;
+  }
 `;
