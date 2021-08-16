@@ -13,9 +13,9 @@ export const GroupsProvider = ({ children }) => {
   const loadGroups = () => {
     axios
       .get("https://kabit-api.herokuapp.com/groups/subscriptions/", {
-        // headers: {
-        //   Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
-        // },
+        headers: {
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        },
       })
 
       .then((response) => setGroups(response.data));
