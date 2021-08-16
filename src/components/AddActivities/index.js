@@ -20,7 +20,7 @@ const AddActivities = ({ setActive, id }) => {
     const mi = zeroFill(date.getMinutes());
     const s = zeroFill(date.getSeconds());
 
-    return `${y}/${mo}/${d}T${h}:${mi}:${s}Z`;
+    return `${y}-${mo}-${d}T${h}:${mi}:${s}Z`;
   };
   const date = new Date();
   const dateActive = FormatData(date).toString();
