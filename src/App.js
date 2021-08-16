@@ -1,13 +1,17 @@
-import './App.css';
-import Routes from './Routes';
-import {Toaster} from 'react-hot-toast'
-import GlobalStyle from './styles/Global';
+import "./App.css";
+import Routes from "./Routes";
+import { Toaster } from "react-hot-toast";
+import GlobalStyle from "./styles/Global";
+import Header from "./components/Header";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <div><Toaster/></div>
+      {/* <Header /> */}
+      <div>
+        <Toaster />
+      </div>
       <Routes />
     </>
   );
