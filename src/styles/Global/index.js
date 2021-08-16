@@ -11,6 +11,7 @@ export default createGlobalStyle`
 :root {
     --roxo-primario: #8e97fd;
     --roxo-secundario: #3c096c;
+    --roxo-terciario: #10002B;
     --background: #f6f2f0;
     --caixa-de-texto: #e0aaff;
     --sombra-box: rgba(0, 0, 0, 0.67);
