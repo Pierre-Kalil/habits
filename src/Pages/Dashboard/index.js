@@ -18,6 +18,7 @@ import { UserContext } from "../../Providers/user";
 import { useAuth } from "../../Providers/auth";
 import { useState } from "react";
 import Username from "../../components/Username";
+import { Redirect } from "react-router-dom";
 
 const Dashboard = () => {
   const viewport = window.innerWidth;
@@ -25,6 +26,10 @@ const Dashboard = () => {
   const { username } = useAuth();
   const [newUsername, setNewUsername] = useState(false);
 
+  const { auth } = useAuth();
+  if (!auth) {
+    return <Redirect to="/login" />
+  }
   return (
     <>
       <HeaderLogged />

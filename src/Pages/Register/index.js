@@ -23,7 +23,8 @@ const Register = () => {
     const schema = yup.object().shape({
         username: yup.string().required('Campo Obrigatório!'),
         email: yup.string().required('Campo Obrigatório!').email('Email inválido!'),
-        password: yup.string().required('Campo Obrigatório').min(6,'Mínimo de 6 caracteres')
+        password: yup.string().required('Campo Obrigatório!').min(6,'Mínimo de 6 caracteres'),
+        confirmPassword: yup.string().oneOf([yup.ref("password")], "As senhas devem ser idênticas!").required("Campo obrigatório"),
     })
 
     const {register, handleSubmit, formState: { errors }, reset} = useForm({resolver: yupResolver(schema)})
@@ -51,15 +52,45 @@ const Register = () => {
                         <AnimationContainer>
                             <form onSubmit = {handleSubmit(handleRegister)}>
                                 <h1>Cadastro</h1>
-                                <InputContainer1>
-                                <input  placeholder="Seu nome" {...register('username')} name="username" error={errors.username?.message}></input>
-                                </InputContainer1>
-                                <InputContainer1>
-                                <input  placeholder="Seu e-mail" {...register('email')} name="email" error={errors.email?.message}></input>
-                                </InputContainer1>
-                                <InputContainer1>
-                                <input  placeholder="Sua Senha" {...register('password')} name="password" type="password" error={errors.password?.message}></input>
-                                </InputContainer1>
+                                <div>
+                                <Input label="Nome de usuário"
+                                        icon={FiUser}
+                                        name="username"
+                                        placeholder="Um ótimo nome"
+                                        register={register}
+                                        error={errors.username?.message}
+                                    />
+                                </div>
+                                <div>
+                                    <Input
+                                        label="E-mail"
+                                        icon={FiMail}
+                                        name="email"
+                                        placeholder="Seu melhor e-mail"
+                                        register={register}
+                                        error={errors.email?.message}
+                                    />
+                                </div>
+                                <div>
+                                    <Input
+                                        label="Senha"
+                                        icon={FiLock}
+                                        name="password"
+                                        placeholder="Uma senha bem forte"
+                                        register={register}
+                                        error={errors.password?.message}
+                                    />
+                                </div>
+                                <div>
+                                    <Input
+                                        label="Confirmação de senha"
+                                        icon={FiLock}
+                                        name="confirmPassword"
+                                        placeholder="Confirme sua senha"
+                                        register={register}
+                                        error={errors.confirmPassword?.message}
+                                    />
+                                </div>
                                 <br />
                                 <Button type='submit'>Registrar</Button>
                                 <p>Já tem uma conta? Faça seu <Link to="/login">login</Link> aqui!</p>
