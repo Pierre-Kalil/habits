@@ -11,7 +11,6 @@ import Community from "../Pages/Community";
 import { useEffect } from "react";
 
 const Routes = () => {
-
   const token = localStorage.getItem("token") || "";
 
   return (
@@ -26,7 +25,7 @@ const Routes = () => {
         <About />
       </Route>
       <Route exact path="/dashboard">
-        {token ? <Dashboard /> : <Login /> } 
+        {token ? <Dashboard /> : <Login />}
       </Route>
       <Route exact path="/habits">
         {token ? <Habits /> : <Login />}

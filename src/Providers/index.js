@@ -1,20 +1,24 @@
-import {HabitsProvider} from "./habits/";
-import {GroupsProvider} from "./groups";
+import { HabitsProvider } from "./habits/";
+import { GroupsProvider } from "./groups";
 import { UserProvider } from "./user";
-import { AuthProvider } from "./auth"
+import { AuthProvider } from "./auth";
+import { CommunityProvider } from "./community";
+import { ActivitiesProvider } from "./actives";
 
-const Providers = ({children}) => {
-    return(
-      <AuthProvider>
+const Providers = ({ children }) => {
+  return (
+    <AuthProvider>
       <HabitsProvider>
+        <CommunityProvider>
           <GroupsProvider>
-              <UserProvider>
-                {children}
-              </UserProvider>
+            <ActivitiesProvider>
+              <UserProvider>{children}</UserProvider>
+            </ActivitiesProvider>
           </GroupsProvider>
+        </CommunityProvider>
       </HabitsProvider>
-      </AuthProvider>
-    )
-}
+    </AuthProvider>
+  );
+};
 
 export default Providers;

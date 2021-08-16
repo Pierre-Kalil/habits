@@ -63,5 +63,6 @@ export const OptionsContainerDescktop = styled.div`
   height: 50vh;
   width: 90vw;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
 `;
