@@ -5,6 +5,8 @@ import {
   ContainerDescktop,
   StyledButton,
   ContainerDescription,
+  HomeBackground,
+  HomeFooter,
 } from "./styles";
 import Imagem from "../../images/icone.svg";
 import logo from "../../images/logo.svg";
@@ -13,6 +15,8 @@ import meditando from "../../images/medit.svg";
 import { Link, useHistory } from "react-router-dom";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
+import Clouds from "../../images/Clouds.png"
+
 
 const Home = () => {
   const viewport = window.innerWidth;
@@ -44,18 +48,20 @@ const Home = () => {
           <Logo>
             <img src={logo} alt="logo"></img>
           </Logo>
-
+          <HomeBackground>
+            <img src={Clouds} alt="background-home"></img>
+          </HomeBackground>
           <ContainerDescktop>
             <ContainerDescription>
               <img src={DescriptionHome} alt="descrição"></img>
             </ContainerDescription>
             <Desktop>
               <img src={meditando} alt="pessoa meditando"></img>
-              <br></br>
+              <br />
               <h1>Tenha uma mente saudável!</h1>
-              <br></br>
+              <br />
               <h2>Entre ou cadastre-se para conhecer nossa plataforma.</h2>
-              <br></br>
+              <br />
               <div>
                 <StyledButton onClick={(f) => history.push("/login")}>
                   Entrar
@@ -68,9 +74,9 @@ const Home = () => {
           </ContainerDescktop>
         </>
       )}
-      <footer style={{padding:"10px"}}>
-				Kenzie Academy Brasil
-		  </footer>
+      <HomeFooter>
+        Kenzie Academy Brasil
+      </HomeFooter>
     </>
   );
 };

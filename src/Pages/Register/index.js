@@ -15,6 +15,7 @@ import { Container } from "./styles";
 import { Content } from "./styles";
 import { AnimationContainer } from "./styles";
 import { InputContainer1 } from "./styles";
+import { HomeFooter } from "./styles";
 
 const Register = () => {
     
@@ -95,12 +96,13 @@ const Register = () => {
                                 <Button type='submit'>Registrar</Button>
                                 <p>Já tem uma conta? Faça seu <Link to="/login">login</Link> aqui!</p>
                             </form>
+                            <HomeFooter>
+                                Kenzie Academy Brasil
+                            </HomeFooter>
                         </AnimationContainer>
                     </Content>
                 </Container>
-                    {/* <footer style={{padding:"10px"}}>
-                        Kenzie Academy Brasil
-                    </footer> */}
+
         </div>
     )
 
