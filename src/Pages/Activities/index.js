@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useActivities } from "../../Providers/actives";
 
 import {
@@ -14,6 +14,7 @@ import { useAuth } from "../../Providers/auth";
 import { MenuHeader } from "../../components/Header/styles";
 import HeaderLogged from "../../components/HeaderLogged";
 import Input from "../../components/Input";
+import { GroupsContext } from "../../Providers/groups";
 
 const Activities = () => {
   const { showActivities } = useActivities();
@@ -21,6 +22,7 @@ const Activities = () => {
   const [inputUpdate, setInpuUpdate] = useState("");
   const { UpdateActivities, DeleteActivities } = useActivities();
   const { ShowActivities } = useActivities();
+  const {groupName} = useContext(GroupsContext);
 
   const UpdateHere = () => {
     setIsUpdate(true);
@@ -44,6 +46,7 @@ const Activities = () => {
     <ContainerMobile>
       <HeaderLogged />
       <h1>Atividades e Metas</h1>
+      <h1>{groupName}</h1>
       <OptionsContainerMobile>
 
         <div>

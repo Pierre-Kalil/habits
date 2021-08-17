@@ -7,6 +7,7 @@ export const GroupsContext = createContext();
 
 export const GroupsProvider = ({ children }) => {
   const [groups, setGroups] = useState([]);
+  const [groupName,setGroupName] = useState('');
 
   const loadGroups = () => {
     axios
@@ -52,10 +53,22 @@ export const GroupsProvider = ({ children }) => {
         .catch(err => console.log(err))
 };
 
+  const nameGroup = (group) => {
+    axios.get(`https://kabit-api.herokuapp.com/groups/${group}/`, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      },
+    })
+    .then((response) => setGroupName(response.data.name))
+    .catch((err)=> console.log(err))
+}; 
+
+  
+
 
 
   return (
-    <GroupsContext.Provider value={{ groups, newGroup, loadGroups , editGroup}}>
+    <GroupsContext.Provider value={{ groups, newGroup, loadGroups , editGroup, nameGroup, groupName}}>
       {children}
     </GroupsContext.Provider>
   );
