@@ -4,9 +4,11 @@ import {
   Desktop,
   ContainerDescktop,
   StyledButton,
+  ContainerDescription,
 } from "./styles";
 import Imagem from "../../images/icone.svg";
 import logo from "../../images/logo.svg";
+import DescriptionHome from "../../images/DescriptionHome.png"
 import meditando from "../../images/medit.svg";
 import { Link, useHistory } from "react-router-dom";
 import Button from "../../components/Button";
@@ -42,17 +44,21 @@ const Home = () => {
           <Logo>
             <img src={logo} alt="logo"></img>
           </Logo>
+
           <ContainerDescktop>
+            <ContainerDescription>
+              <img src={DescriptionHome} alt="descrição"></img>
+            </ContainerDescription>
             <Desktop>
               <img src={meditando} alt="pessoa meditando"></img>
               <br></br>
-              <h1>Tenha uma mente saudavel.</h1>
+              <h1>Tenha uma mente saudável!</h1>
               <br></br>
               <h2>Entre ou cadastre-se para conhecer nossa plataforma.</h2>
               <br></br>
               <div>
                 <StyledButton onClick={(f) => history.push("/login")}>
-                  Logar
+                  Entrar
                 </StyledButton>
                 <StyledButton onClick={(f) => history.push("/register")}>
                   Cadastrar
@@ -62,6 +68,9 @@ const Home = () => {
           </ContainerDescktop>
         </>
       )}
+      <footer style={{padding:"10px"}}>
+				Kenzie Academy Brasil
+		  </footer>
     </>
   );
 };

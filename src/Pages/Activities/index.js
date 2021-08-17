@@ -1,12 +1,16 @@
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useActivities } from "../../Providers/actives";
+
 import {
   ContainerMobile,
   ListCardsContainerMobile,
   OptionsContainerMobile,
 } from "./style";
 import AddActivities from "../../components/AddActivities";
+
+import { Redirect } from "react-router-dom";
+import { useAuth } from "../../Providers/auth";
 
 const Activities = () => {
   const { showActivities } = useActivities();
@@ -26,8 +30,12 @@ const Activities = () => {
 
   useEffect(() => {
     ShowActivities(showActivities[0]?.group);
-  }, []);
+  }, [showActivities]);
 
+  const { auth } = useAuth();
+  if (!auth) {
+    return <Redirect to="/login" />;
+  }
   return (
     <ContainerMobile>
       <h1>Atividades e Metas</h1>

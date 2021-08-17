@@ -23,7 +23,11 @@ import SinalMais from "../../components/SinalMais";
 import AddGroup from "../../components/AddGroup";
 // import { ActivitiesContext } from "../../Providers/actives";
 import AddActivities from "../../components/AddActivities";
+
 import { useActivities } from "../../Providers/actives";
+
+import { Redirect } from "react-router-dom";
+import { useAuth } from "../../Providers/auth";
 
 const Groups = () => {
   const viewport = window.innerWidth;
@@ -38,6 +42,10 @@ const Groups = () => {
     return history.push(path);
   };
 
+  const { auth } = useAuth();
+  if (!auth) {
+    return <Redirect to="/login" />;
+  }
   return (
     <>
       <HeaderLogged />

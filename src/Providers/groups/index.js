@@ -20,8 +20,8 @@ export const GroupsProvider = ({ children }) => {
 
   useEffect(() => {
     loadGroups();
-  }, []);
-
+  });
+  console.log(groups);
   const newGroup = (data) => {
     const { name, description, category } = data;
 

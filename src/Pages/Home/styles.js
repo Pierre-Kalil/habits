@@ -86,7 +86,9 @@ export const Desktop = styled.div`
     }
   }
   h1 {
-    font-family: "Tourney", cursive;
+    /* font-family: "Tourney", cursive; */
+    margin-top: 16px;
+    font-family: 'Helvetica';
     font-size: 55px;
     line-height: 100%;
   }
@@ -95,19 +97,46 @@ export const Desktop = styled.div`
 export const ContainerDescktop = styled.div`
   height: 90vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+export const ContainerDescription = styled.div`
+  /* position: absolute; */
+  img {
+    margin-top:10px;
+    width: 480px;
+    height: 480px;
+    margin-right: 64px;
+  }
 `;
 
 export const StyledButton = styled.button`
   min-width: 150px;
-  /* width: 80%; */
   margin: 5px;
-  padding: 10px;
-  background: #8e97fd;
-  color: #fff;
-  border: 0;
+  width: 240px;
+	height: 56px;
+  background: var(--roxo-primario);
+  color: var(--background);
+
+	border: 2px solid transparent;
   border-radius: 4px;
   align-items: center;
   cursor: pointer;
+
+	font-size: 32px;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  		border-radius: 16px 0 16px 16px;
+
+	:hover{
+		background-color: var(--roxo-secundario);
+		border: 2px solid var(--background);
+		border-radius: 16px 0 16px 16px;
+	}
+	:active{
+		background-color: var(--caixa-de-texto);
+		border: 2px solid #222222;
+		color: #222222;
+		border-radius: 16px 0 16px 16px;
+	}
 `;

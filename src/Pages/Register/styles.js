@@ -1,42 +1,18 @@
-import styled, { keyframes, css } from 'styled-components';
-import tresmLogopurple from "../../images/tresmLogopurple.png"
-
-export const Back = styled.button`
-    position: absolute;
-    width: 55px;
-    height: 55px;
-    left: 20px;
-    top: 30px;
-    background: none;
-    border: none;
-    border-radius: 50%;
-    &:hover {
-        background-color: gray;
-    }
-
-`;
+import styled, { keyframes, css } from 'styled-components'
+import tresmLogowhite from "../../images/tresmLogowhite.png"
 
 export const Container = styled.div`
-    display: flex;
-    /* flex-direction: column; */
-    height: 100vh;
-    /* align-items: center; */
-    /* justify-content: center; */
-    align-items:  stretch;
-`;
-
-export const Form = styled.form`
-    display: flex;
-    
+	height: 100vh;
+	display: flex;
+	align-items:  stretch;
 `;
 
 export const Background = styled.div`
 	@media (min-width: 1100px) {
 		flex: 1;
-		background: url(${tresmLogopurple}) no-repeat center, var(--caixa-de-texto);
-		/* background-size: contain; */
-		background-color: var(--caixa-de-texto);
-        background-size: 480px;
+		background: url(${tresmLogowhite}) no-repeat center, var(--roxo-secundario);
+		background-color: var(--roxo-secundario);
+		background-size: 480px;
 	}
 `;
 
@@ -49,10 +25,10 @@ export const Content = styled.div`
 	max-width: 700px;
 `;
 
-const appearFromLeft = keyframes`
+const appearFromRight = keyframes`
 	from {
 		opacity: 0;
-		transform: translateX(-50px)
+		transform: translateX(50px)
 	}
 	to {
 		opacity: 1;
@@ -65,7 +41,7 @@ export const AnimationContainer = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	animation: ${appearFromLeft} 1s;
+	animation: ${appearFromRight} 1s;
 
 	form{
 		margin: 80px 0;
@@ -78,6 +54,7 @@ export const AnimationContainer = styled.div`
 			text-shadow: 0px 4px 4px rgba(0,0,0,0.25);
 			font-size: 2.5rem;
 			font-family: "Calibri";
+
 		}
 
 		> div {
@@ -90,7 +67,8 @@ export const AnimationContainer = styled.div`
 			a {
 				font-weight: bold;
 				color: var(--roxo-secundario);
-                text-decoration: none;
+				text-decoration: none;
+
 			}
 		}
 	}
