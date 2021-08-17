@@ -90,4 +90,4 @@ export const HabitsProvider = ({ children }) => {
   );
 };
 
-export const useHabits = () => useContext(HabitsContext);
+export const useHabits  = () => useContext(HabitsContext);
