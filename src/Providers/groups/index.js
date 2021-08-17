@@ -18,10 +18,7 @@ export const GroupsProvider = ({ children }) => {
       .then((response) => setGroups(response.data));
   };
 
-  useEffect(() => {
-    loadGroups();
-  }, [groups]);
-
+  
   const newGroup = (data) => {
     const { name, description, category } = data;
 
