@@ -15,6 +15,8 @@ import { Background } from "./styles";
 import { Content } from "./styles";
 import { AnimationContainer } from "./styles";
 import { InputContainer1 } from "./styles";
+import { Redirect } from "react-router"
+import { HomeFooter } from "../Home/styles";
 
 import { useAuth } from "../../Providers/auth"
 
@@ -49,6 +51,8 @@ const Login = () => {
         signIn(data, history);
     }
     
+
+
     return (
         <div>
             <Header />
@@ -58,16 +62,15 @@ const Login = () => {
                         <AnimationContainer>
                             <form onSubmit = {handleSubmit(handleLogin)}>
                                     <h1>Login</h1>
-                                    <InputContainer1>
-                                        <input placeholder='Nome de Usuário' {...register("username")}></input>
-                                        </InputContainer1>
-                                        <InputContainer1>
-                                        <input placeholder='Senha' {...register("password")} type="password"></input>
-                                        </InputContainer1>
-                                        <br />
-                                        <Button type='submit'>Login</Button>
-                                        <p>Não tem um <strong>cadastro</strong>? Faça seu <Link to="/register">Registro</Link>.</p>
+                                    <Input icon={FiUser} placeholder="Nome de usuário" register={register} type="text" label="Nome de usuário" name="username" error={errors.username?.message}/>
+                                    <Input icon={FiLock} placeholder="Sua senha" type="password"register={register} label="Senha" name="password" error={errors.password?.message}/>
+                                    <br />
+                                    <Button type='submit'>Login</Button>
+                                    <p>Não tem um <strong>cadastro</strong>? Faça seu <Link to="/register">Registro</Link>.</p>
                             </form>
+                            <HomeFooter>
+                                Kenzie Academy Brasil
+                            </HomeFooter>
                         </AnimationContainer> 
                     </Content>
 			        <Background></Background>    

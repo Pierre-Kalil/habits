@@ -1,19 +1,17 @@
-import { Container1, InputContainer1 } from "./styles";
+import { InputContainer1 } from "../../Pages/Login/styles";
+// import { ContainerInput } from "../../Pages/Login/styles";
 
-
-const Input = ({label, icon: Icon, register, name, error = "", ...rest}) => {
-
+const Input = ({ label, icon: Icon, error, register, name, ...rest }) => {
   return (
-    <Container1>
-      <div>{label} {!!error && <span> - {error}</span>}</div>
-
-      <InputContainer1 isErrored={!!error}>
-      {Icon && <Icon size={20} />}
-      {/* <input {...register(name)} {...rest} /> */}
-      <input />
-      {/* <input {...rest} /> */}
+    <div>
+      <div>{label}</div>
+      <InputContainer1>
+        {Icon  && <Icon size={24}  />}
+        <input {...register(name)} {...rest} />
       </InputContainer1>
-	</Container1>
+      {!!error && <span style={{color:"red"}}>{error}</span>}
+    </div>
   );
-}
- export default Input;
+};
+
+export default Input;

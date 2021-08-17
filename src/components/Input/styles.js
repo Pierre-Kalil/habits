@@ -1,36 +1,25 @@
 import styled, { css } from "styled-components";
 
-export const Container1 = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: left;
-	font-size:20px;
-	margin-top:10px;
-	div {
-		span{
-			color: var(--red);
-		}
-	}
-`;
+export const ContainerInput = styled.div`
+`
 
-  /* input {
-    padding: 5px 0px 5px 10px;
-    height: 35px;
-    border: 1px solid purple;
-    border-bottom: 3px solid;
-    border-right: 3px solid;
-    border-radius: 8px;
-    margin: 10px auto;
-  }
 
-  input::placeholder {
-    color: purple;
-  } */
-
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   text-align: left;
+// 	font-size:20px;
+// 	margin-top:10px;
+// 	div {
+//   }
+// 		span{
+// 			color: #00aaee);
+// 		}
+// 	}
+// `;
 
   export const InputContainer1 = styled.div`
-    background: var(--background);
+    /* background: var(--background); */
     border-radius: 10px;
     border: 2px solid var(--roxo-secundario);
     color: var(--roxo-secundario);
@@ -43,9 +32,9 @@ export const Container1 = styled.div`
     border-right: 6px solid var(--roxo-secundario);
 
     ${props => props.isErrored && css`
-    border-color: var(--red);
+    border-color: red;
     svg {
-      color: var(--red);
+      color: red;
     }
     `}
 
@@ -68,6 +57,6 @@ export const Container1 = styled.div`
       }
 
     svg {
-      margin-right: 1
+      margin-top: 4px;
     }
   `;

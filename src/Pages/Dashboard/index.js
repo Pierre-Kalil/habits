@@ -18,6 +18,8 @@ import { UserContext } from "../../Providers/user";
 import { useAuth } from "../../Providers/auth";
 import { useState } from "react";
 import Username from "../../components/Username";
+import { Redirect } from "react-router-dom";
+import Button from "../../components/Button";
 
 const Dashboard = () => {
   const viewport = window.innerWidth;
@@ -25,6 +27,10 @@ const Dashboard = () => {
   const { username } = useAuth();
   const [newUsername, setNewUsername] = useState(false);
 
+  const { auth } = useAuth();
+  if (!auth) {
+    return <Redirect to="/login" />
+  }
   return (
     <>
       <HeaderLogged />
@@ -56,13 +62,13 @@ const Dashboard = () => {
             </figure>
             <h1>Organize sua vida, {username}</h1>
             {newUsername ? <Username setNewUsername={setNewUsername} /> : <></>}
-            <button
+            <Button
               onClick={() => {
                 setNewUsername(true);
               }}
             >
               Trocar usuário
-            </button>
+            </Button>
           </ContainerTitle>
 
           <OptionsContainerDescktop>

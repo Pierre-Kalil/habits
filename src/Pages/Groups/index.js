@@ -13,6 +13,7 @@ import {
 import HeaderLogged from "../../components/HeaderLogged";
 import { useContext, useEffect } from "react";
 import { GroupsContext } from "../../Providers/groups";
+import { useHistory } from "react-router-dom";
 import {
   ListCardsContainerDesktop,
   ListCardsContainerMobile,
@@ -26,15 +27,29 @@ import EditGroup from "../../components/EditGroup";
 import axios from "axios";
 import { UserContext } from "../../Providers/user";
 
+import { useActivities } from "../../Providers/actives";
+
+import { Redirect } from "react-router-dom";
+import { useAuth } from "../../Providers/auth";
+
 const Groups = () => {
   const viewport = window.innerWidth;
+  const history = useHistory();
   const { groups } = useContext(GroupsContext);
   const {user} = useContext(UserContext);
   const [edit,setEdit] = useState(false);
   const [register, setRegister] = useState(false);
-  const [addActive, setActive] = useState(false);
-  const [id,setId] = useState('')
-  
+  const { ShowActivities } = useActivities();
+
+  const toSend = (path, id) => {
+    ShowActivities(id);
+    return history.push(path);
+  };
+
+  const { auth } = useAuth();
+  if (!auth) {
+    return <Redirect to="/login" />;
+  }
   return (
     <>
       <HeaderLogged />
@@ -49,15 +64,10 @@ const Groups = () => {
               <div>{group.name}</div>
               <h4>categoria:</h4>
               <div>{group.category}</div>
-              <button onClick={() => setActive(true)}>Criar atividade</button>
-              {addActive ? (
-                <AddActivities setActive={setActive} id={group.id} />
-              ) : (
-                <></>
-              )}
-              <hr />
               <div>
-                <button>Ver Atividades e Metas</button>
+                <button onClick={() => toSend("/activities", group.id)}>
+                  Ver Atividades e Metas
+                </button>
               </div>
             </ListCardsContainerDesktop>
           ))}
