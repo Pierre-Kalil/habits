@@ -8,8 +8,10 @@ import PhysicalActivity from "../Pages/PhysicalActivity";
 import About from "../Pages/About";
 import Habits from "../Pages/Habits";
 import Community from "../Pages/Community";
-import { useAuth } from "../Providers/auth";
 
+import Activities from "../Pages/Activities";
+
+import { useAuth } from "../Providers/auth";
 
 const Routes = () => {
   const { auth } = useAuth();
@@ -33,6 +35,9 @@ const Routes = () => {
       </Route>
       <Route exact path="/groups">
         <Groups />
+      </Route>
+      <Route exact path="/activities">
+        <Activities />
       </Route>
       <Route exact path="/groups/physicalactivity">
         <PhysicalActivity />

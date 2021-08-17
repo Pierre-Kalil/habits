@@ -2,12 +2,9 @@ import axios from "axios";
 import { useEffect } from "react";
 import { createContext, useContext, useState } from "react";
 
-
 export const GroupsContext = createContext();
 
 export const GroupsProvider = ({ children }) => {
-
-
   const [groups, setGroups] = useState([]);
 
   const loadGroups = () => {
@@ -24,7 +21,7 @@ export const GroupsProvider = ({ children }) => {
   useEffect(() => {
     loadGroups();
   });
-
+  console.log(groups);
   const newGroup = (data) => {
     const { name, description, category } = data;
 
@@ -42,7 +39,6 @@ export const GroupsProvider = ({ children }) => {
       }
     );
   };
-
 
   return (
     <GroupsContext.Provider value={{ groups, newGroup, loadGroups }}>
