@@ -11,14 +11,14 @@ import {
 // import { Link } from "react-router-dom";
 
 import HeaderLogged from "../../components/HeaderLogged";
-import { useContext} from "react";
+import { useContext, useEffect } from "react";
 import { GroupsContext } from "../../Providers/groups";
 import { useHistory } from "react-router-dom";
 import {
   ListCardsContainerDesktop,
   ListCardsContainerMobile,
 } from "../Community/styles";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SinalMais from "../../components/SinalMais";
 import AddGroup from "../../components/AddGroup";
 // import { ActivitiesContext } from "../../Providers/actives";
@@ -34,8 +34,10 @@ import { useAuth } from "../../Providers/auth";
 
 const Groups = () => {
   const viewport = window.innerWidth;
-  const { groups, loadGroups } = useContext(GroupsContext);
-  console.log(groups);
+  const history = useHistory();
+  const { groups } = useContext(GroupsContext);
+  const {user} = useContext(UserContext);
+  const [edit,setEdit] = useState(false);
   const [register, setRegister] = useState(false);
   const { ShowActivities } = useActivities();
 
@@ -46,9 +48,10 @@ const Groups = () => {
     return history.push(path);
   };
 
-
-  
-
+  const { auth } = useAuth();
+  if (!auth) {
+    return <Redirect to="/login" />;
+  }
   return (
     <>
       <HeaderLogged />
