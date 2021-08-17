@@ -11,6 +11,9 @@ import AddActivities from "../../components/AddActivities";
 
 import { Redirect } from "react-router-dom";
 import { useAuth } from "../../Providers/auth";
+import { MenuHeader } from "../../components/Header/styles";
+import HeaderLogged from "../../components/HeaderLogged";
+import Input from "../../components/Input";
 
 const Activities = () => {
   const { showActivities } = useActivities();
@@ -37,9 +40,12 @@ const Activities = () => {
     return <Redirect to="/login" />;
   }
   return (
+
     <ContainerMobile>
+      <HeaderLogged />
       <h1>Atividades e Metas</h1>
       <OptionsContainerMobile>
+
         <div>
           <AddActivities id={showActivities[0]?.group} />
         </div>

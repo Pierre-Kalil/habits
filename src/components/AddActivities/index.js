@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useActivities } from "../../Providers/actives";
 import Button from "../Button";
+import Input from "../Input";
 
 const AddActivities = ({ id }) => {
   // const [actives, setActives] = useState({})

@@ -116,3 +116,14 @@ export const InputContainer1 = styled.div`
       margin-right: 1
     }
   `;
+
+export const HomeFooter = styled.footer`
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100vw;
+  text-align: center;
+  font-size: 12px;
+`;

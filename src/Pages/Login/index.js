@@ -16,6 +16,7 @@ import { Content } from "./styles";
 import { AnimationContainer } from "./styles";
 import { InputContainer1 } from "./styles";
 import { Redirect } from "react-router"
+import { HomeFooter } from "../Home/styles";
 
 import { useAuth } from "../../Providers/auth"
 
@@ -67,6 +68,9 @@ const Login = () => {
                                     <Button type='submit'>Login</Button>
                                     <p>Não tem um <strong>cadastro</strong>? Faça seu <Link to="/register">Registro</Link>.</p>
                             </form>
+                            <HomeFooter>
+                                Kenzie Academy Brasil
+                            </HomeFooter>
                         </AnimationContainer> 
                     </Content>
 			        <Background></Background>    
