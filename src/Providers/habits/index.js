@@ -70,10 +70,10 @@ export const HabitsProvider = ({ children }) => {
       });
   };
 
-  // useEffect(()=>{
-  //     loadHabits();
-  // },[])
-  console.log(habits);
+  useEffect(()=>{
+       loadHabits();
+  },[])
+  
   return (
     <HabitsContext.Provider
       value={{
