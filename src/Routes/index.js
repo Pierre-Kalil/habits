@@ -8,6 +8,7 @@ import PhysicalActivity from "../Pages/PhysicalActivity";
 import About from "../Pages/About";
 import Habits from "../Pages/Habits";
 import Community from "../Pages/Community";
+import Activities from "../Pages/Activities";
 
 const Routes = () => {
   const token = localStorage.getItem("token") || "";
@@ -31,6 +32,9 @@ const Routes = () => {
       </Route>
       <Route exact path="/groups">
         {token ? <Groups /> : <Login />}
+      </Route>
+      <Route exact path="/activities">
+        {token ? <Activities /> : <Login />}
       </Route>
       <Route exact path="/groups/physicalactivity">
         {token ? <PhysicalActivity /> : <Login />}

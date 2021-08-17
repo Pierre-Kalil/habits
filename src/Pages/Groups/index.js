@@ -13,6 +13,7 @@ import {
 import HeaderLogged from "../../components/HeaderLogged";
 import { useContext } from "react";
 import { GroupsContext } from "../../Providers/groups";
+import { useHistory } from "react-router-dom";
 import {
   ListCardsContainerDesktop,
   ListCardsContainerMobile,
@@ -22,13 +23,20 @@ import SinalMais from "../../components/SinalMais";
 import AddGroup from "../../components/AddGroup";
 // import { ActivitiesContext } from "../../Providers/actives";
 import AddActivities from "../../components/AddActivities";
+import { useActivities } from "../../Providers/actives";
 
 const Groups = () => {
   const viewport = window.innerWidth;
+  const history = useHistory();
   const { groups } = useContext(GroupsContext);
   console.log(groups);
   const [register, setRegister] = useState(false);
-  const [addActive, setActive] = useState(false);
+  const { ShowActivities } = useActivities();
+
+  const toSend = (path, id) => {
+    ShowActivities(id);
+    return history.push(path);
+  };
 
   return (
     <>
@@ -42,15 +50,10 @@ const Groups = () => {
               <div>{group.name}</div>
               <h4>categoria:</h4>
               <div>{group.category}</div>
-              <button onClick={() => setActive(true)}>Criar atividade</button>
-              {addActive ? (
-                <AddActivities setActive={setActive} id={group.id} />
-              ) : (
-                <></>
-              )}
-              <hr />
               <div>
-                <button>Ver Atividades e Metas</button>
+                <button onClick={() => toSend("/activities", group.id)}>
+                  Ver Atividades e Metas
+                </button>
               </div>
             </ListCardsContainerDesktop>
           ))}

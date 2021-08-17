@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useActivities } from "../../Providers/actives";
 import Button from "../Button";
 
-const AddActivities = ({ setActive, id }) => {
+const AddActivities = ({ id }) => {
   // const [actives, setActives] = useState({})
   const [title, setTitle] = useState("");
   const { CreateActives } = useActivities();
@@ -33,7 +33,6 @@ const AddActivities = ({ setActive, id }) => {
       realization_time: dateActive,
       group: id,
     };
-    setActive(false);
     CreateActives(data);
   };
 
