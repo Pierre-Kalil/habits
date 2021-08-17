@@ -41,6 +41,8 @@ const Groups = () => {
   const [register, setRegister] = useState(false);
   const { ShowActivities } = useActivities();
 
+  const [id,setId] = useState('')
+
   const toSend = (path, id) => {
     ShowActivities(id);
     return history.push(path);
