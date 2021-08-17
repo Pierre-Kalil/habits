@@ -6,6 +6,7 @@ import {
   ContainerMobile,
   ListCardsContainerMobile,
   OptionsContainerMobile,
+  ContainerActivitiesGoals,
 } from "./style";
 import AddActivities from "../../components/AddActivities";
 
@@ -22,7 +23,7 @@ const Activities = () => {
   const [inputUpdate, setInpuUpdate] = useState("");
   const { UpdateActivities, DeleteActivities } = useActivities();
   const { ShowActivities } = useActivities();
-  const {groupName} = useContext(GroupsContext);
+  const { groupName } = useContext(GroupsContext);
 
   const UpdateHere = () => {
     setIsUpdate(true);
@@ -34,58 +35,60 @@ const Activities = () => {
   };
 
   useEffect(() => {
-    ShowActivities(showActivities[0]?.group);
+    ShowActivities(localStorage.getItem("id"));
   }, [showActivities]);
 
   const { auth } = useAuth();
   if (!auth) {
     return <Redirect to="/login" />;
   }
-  return (
 
+  return (
     <ContainerMobile>
       <HeaderLogged />
       <h1>Atividades e Metas</h1>
-      <h1>{groupName}</h1>
-      <OptionsContainerMobile>
-
-        <div>
-          <AddActivities id={showActivities[0]?.group} />
-        </div>
-        <ul>
-          {showActivities &&
-            showActivities.map((active, index) => (
-              <ListCardsContainerMobile key={index}>
-                <p>
-                  {active.title}
-                  {isUpdate ? (
-                    <button
-                      onClick={() =>
-                        handleUpdate(active.id, inputUpdate, active.group)
-                      }
-                    >
-                      Enviar
+      <h1>Grupo: {groupName}</h1>
+      <ContainerActivitiesGoals>
+        <OptionsContainerMobile>
+          <div>
+            <AddActivities id={localStorage.getItem("id")} />
+          </div>
+          <ul>
+            {showActivities &&
+              showActivities.map((active, index) => (
+                <ListCardsContainerMobile key={index}>
+                  <p>
+                    {active.title}
+                    {isUpdate ? (
+                      <button
+                        onClick={() =>
+                          handleUpdate(active.id, inputUpdate, active.group)
+                        }
+                      >
+                        Enviar
+                      </button>
+                    ) : (
+                      <button onClick={UpdateHere}>Atualizar</button>
+                    )}{" "}
+                    <button onClick={() => DeleteActivities(active.id)}>
+                      Remover
                     </button>
-                  ) : (
-                    <button onClick={UpdateHere}>Atualizar</button>
-                  )}{" "}
-                  <button onClick={() => DeleteActivities(active.id)}>
-                    Remover
-                  </button>
-                  {isUpdate ? (
-                    <input
-                      placeholder="Digite o novo nome"
-                      value={inputUpdate}
-                      onChange={(e) => setInpuUpdate(e.target.value)}
-                    />
-                  ) : (
-                    <></>
-                  )}
-                </p>
-              </ListCardsContainerMobile>
-            ))}
-        </ul>
-      </OptionsContainerMobile>
+                    {isUpdate ? (
+                      <input
+                        placeholder="Digite o novo nome"
+                        value={inputUpdate}
+                        onChange={(e) => setInpuUpdate(e.target.value)}
+                      />
+                    ) : (
+                      <></>
+                    )}
+                  </p>
+                </ListCardsContainerMobile>
+              ))}
+          </ul>
+        </OptionsContainerMobile>
+        <OptionsContainerMobile>Metas</OptionsContainerMobile>
+      </ContainerActivitiesGoals>
     </ContainerMobile>
   );
 };

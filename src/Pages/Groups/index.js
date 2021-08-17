@@ -35,24 +35,25 @@ import { useAuth } from "../../Providers/auth";
 const Groups = () => {
   const viewport = window.innerWidth;
   const history = useHistory();
-  const { groups , nameGroup } = useContext(GroupsContext);
-  const {user} = useContext(UserContext);
-  const [edit,setEdit] = useState(false);
+  const { groups, nameGroup } = useContext(GroupsContext);
+  const { user } = useContext(UserContext);
+  const [edit, setEdit] = useState(false);
   const [register, setRegister] = useState(false);
   const { ShowActivities } = useActivities();
 
-  const [id,setId] = useState('')
+  const [id, setId] = useState("");
 
   const toSend = (path, id) => {
     ShowActivities(id);
-    nameGroup(id);
+    localStorage.setItem("id", JSON.stringify(id));
     return history.push(path);
   };
-console.log(groups)
+
   const { auth } = useAuth();
   if (!auth) {
     return <Redirect to="/login" />;
   }
+
   return (
     <>
       <HeaderLogged />
@@ -61,8 +62,17 @@ console.log(groups)
         <OptionsContainerDescktop>
           {groups.map((group) => (
             <ListCardsContainerDesktop key={group.id}>
-              {group.creator.id ===  Number(user) && <button onClick = {()=>{ setEdit(true); setId(group.id)}}>Editar</button>}
-              <div>{edit && <EditGroup setEdit = {setEdit} group = {id} />}</div>
+              {group.creator.id === Number(user) && (
+                <button
+                  onClick={() => {
+                    setEdit(true);
+                    setId(group.id);
+                  }}
+                >
+                  Editar
+                </button>
+              )}
+              <div>{edit && <EditGroup setEdit={setEdit} group={id} />}</div>
               <h4>nome:</h4>
               <div>{group.name}</div>
               <h4>categoria:</h4>

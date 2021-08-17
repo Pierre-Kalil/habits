@@ -7,7 +7,7 @@ export const GroupsContext = createContext();
 
 export const GroupsProvider = ({ children }) => {
   const [groups, setGroups] = useState([]);
-  const [groupName,setGroupName] = useState('');
+  const [groupName, setGroupName] = useState("");
 
   const loadGroups = () => {
     axios
@@ -23,7 +23,7 @@ export const GroupsProvider = ({ children }) => {
   useEffect(() => {
     loadGroups();
   });
- 
+
   const newGroup = (data) => {
     const { name, description, category } = data;
 
@@ -43,32 +43,38 @@ export const GroupsProvider = ({ children }) => {
   };
 
   const editGroup = (data, group) => {
-        
-        axios.patch(`https://kabit-api.herokuapp.com/groups/${group}/`, data, {
-            headers:{
-                Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`
-            }
-        })
-        .then(()=> toast.success('editado com sucesso'))
-        .catch(err => console.log(err))
-};
+    axios
+      .patch(`https://kabit-api.herokuapp.com/groups/${group}/`, data, {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        },
+      })
+      .then(() => toast.success("editado com sucesso"))
+      .catch((err) => console.log(err));
+  };
 
   const nameGroup = (group) => {
-    axios.get(`https://kabit-api.herokuapp.com/groups/${group}/`, {
-      headers: {
-        Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
-      },
-    })
-    .then((response) => setGroupName(response.data.name))
-    .catch((err)=> console.log(err))
-}; 
-
-  
-
-
+    axios
+      .get(`https://kabit-api.herokuapp.com/groups/${group}/`, {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        },
+      })
+      .then((response) => setGroupName(response.data.name))
+      .catch((err) => console.log(err));
+  };
 
   return (
-    <GroupsContext.Provider value={{ groups, newGroup, loadGroups , editGroup, nameGroup, groupName}}>
+    <GroupsContext.Provider
+      value={{
+        groups,
+        newGroup,
+        loadGroups,
+        editGroup,
+        nameGroup,
+        groupName,
+      }}
+    >
       {children}
     </GroupsContext.Provider>
   );
