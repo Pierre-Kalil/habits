@@ -5,8 +5,8 @@ export const StyledButton = styled.button`
 	height: 40px;
 	/* margin: auto 0; */
 	background-color: var(--roxo-secundario);
-  border-radius: 16px 0 16px 16px;
-	border: 2px solid transparent;
+  	border-radius: 16px 0 16px 16px;
+	border: 2px solid var(--roxo-secundario);
 	font-size: 20px;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	text-align: center;

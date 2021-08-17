@@ -16,6 +16,8 @@ import Button from "../../components/Button";
 import axios from "axios";
 import { useContext } from "react";
 import { CommunityContext } from "../../Providers/community";
+import { Redirect } from "react-router-dom";
+import { useAuth } from "../../Providers/auth";
 
 const Community = () => {
   const viewport = window.innerWidth;
@@ -36,6 +38,11 @@ const Community = () => {
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
   };
+
+        const { auth } = useAuth();
+        if (!auth) {
+          return <Redirect to="/login" />
+        }
   return (
     <>
       <HeaderLogged />

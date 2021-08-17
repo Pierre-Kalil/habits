@@ -9,16 +9,17 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const token = localStorage.getItem("token") || "";
-
+  const UserName = localStorage.getItem('UserName') || "";
   const [auth, setAuth] = useState(token);
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(UserName);
 
   const signIn = (data, history) => {
     api
       .post("https://kabit-api.herokuapp.com/sessions/", data)
       .then((response) => {
-        setUsername(data.username);
         localStorage.clear();
+        setUsername(data.username);
+        localStorage.setItem('UserName', data.username)
         localStorage.setItem("token", JSON.stringify(response.data.access));
         const decodedToken = jwt_decode(response.data.access);
         setAuth(decodedToken);
@@ -37,8 +38,7 @@ export const AuthProvider = ({ children }) => {
         },
       })
       // .then(()=> toast.success('Usuário atualizado'))
-      .then((resp) => {
-        console.log(resp);
+      .then(() => {
         setUsername(data.username);
       });
   };

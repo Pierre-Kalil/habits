@@ -1,4 +1,4 @@
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Dashboard from "../Pages/Dashboard";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
@@ -10,8 +10,12 @@ import Habits from "../Pages/Habits";
 import Community from "../Pages/Community";
 import { useEffect } from "react";
 
+import Activities from "../Pages/Activities";
+
+import { useAuth } from "../Providers/auth";
+
 const Routes = () => {
-  const token = localStorage.getItem("token") || "";
+  const { auth } = useAuth();
 
   return (
     <Switch>
@@ -25,19 +29,22 @@ const Routes = () => {
         <About />
       </Route>
       <Route exact path="/dashboard">
-        {token ? <Dashboard /> : <Login />}
+        <Dashboard />
       </Route>
       <Route exact path="/habits">
-        {token ? <Habits /> : <Login />}
+        <Habits />
       </Route>
       <Route exact path="/groups">
-        {token ? <Groups /> : <Login />}
+        <Groups />
+      </Route>
+      <Route exact path="/activities">
+        <Activities />
       </Route>
       <Route exact path="/groups/physicalactivity">
-        {token ? <PhysicalActivity /> : <Login />}
+        <PhysicalActivity />
       </Route>
       <Route exact path="/community">
-        {token ? <Community /> : <Login />}
+        <Community />
       </Route>
       <Route exact path="/register">
         <Register />

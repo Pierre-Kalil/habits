@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { createContext, useContext, useState } from "react";
+import toast from "react-hot-toast";
 
 export const GroupsContext = createContext();
 
@@ -18,7 +19,10 @@ export const GroupsProvider = ({ children }) => {
       .then((response) => setGroups(response.data));
   };
 
-  
+  useEffect(() => {
+    loadGroups();
+  });
+ 
   const newGroup = (data) => {
     const { name, description, category } = data;
 
@@ -37,8 +41,21 @@ export const GroupsProvider = ({ children }) => {
     );
   };
 
+  const editGroup = (data, group) => {
+        
+        axios.patch(`https://kabit-api.herokuapp.com/groups/${group}/`, data, {
+            headers:{
+                Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`
+            }
+        })
+        .then(()=> toast.success('editado com sucesso'))
+        .catch(err => console.log(err))
+};
+
+
+
   return (
-    <GroupsContext.Provider value={{ groups, newGroup, loadGroups }}>
+    <GroupsContext.Provider value={{ groups, newGroup, loadGroups , editGroup}}>
       {children}
     </GroupsContext.Provider>
   );

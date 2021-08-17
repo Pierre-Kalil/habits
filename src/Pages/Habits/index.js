@@ -5,7 +5,8 @@ import {useHabits} from "../../Providers/habits"
 import SinalMais from "../../components/SinalMais"
 import {Container, Content} from "./styles"
 import HeaderLogged from "../../components/HeaderLogged"
-
+import { Redirect } from "react-router-dom";
+import { useAuth } from "../../Providers/auth";
 
 
 const Habits = () => {
@@ -16,6 +17,10 @@ const Habits = () => {
         loadHabits();
     },[habits])
 
+          const { auth } = useAuth();
+        if (!auth) {
+          return <Redirect to="/login" />
+        }
     return(
     <Container>
         <HeaderLogged />
