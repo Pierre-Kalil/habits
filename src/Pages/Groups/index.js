@@ -35,7 +35,7 @@ import { useAuth } from "../../Providers/auth";
 const Groups = () => {
   const viewport = window.innerWidth;
   const history = useHistory();
-  const { groups } = useContext(GroupsContext);
+  const { groups , nameGroup } = useContext(GroupsContext);
   const {user} = useContext(UserContext);
   const [edit,setEdit] = useState(false);
   const [register, setRegister] = useState(false);
@@ -45,9 +45,10 @@ const Groups = () => {
 
   const toSend = (path, id) => {
     ShowActivities(id);
+    nameGroup(id);
     return history.push(path);
   };
-
+console.log(groups)
   const { auth } = useAuth();
   if (!auth) {
     return <Redirect to="/login" />;
