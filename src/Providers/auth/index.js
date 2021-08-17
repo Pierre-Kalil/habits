@@ -38,8 +38,7 @@ export const AuthProvider = ({ children }) => {
         },
       })
       // .then(()=> toast.success('Usuário atualizado'))
-      .then((resp) => {
-        console.log(resp);
+      .then(() => {
         setUsername(data.username);
       });
   };
