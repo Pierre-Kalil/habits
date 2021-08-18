@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
 export const Container = styled.button `
-    height: 250px;
-    width: 250px;
+    height: 125px;
+    width: 125px;
     border-radius: 100%;
     border: 2px solid black;
     display: flex;

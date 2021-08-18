@@ -63,7 +63,7 @@ const Login = () => {
                             <form onSubmit = {handleSubmit(handleLogin)}>
                                     <h1>Login</h1>
                                     <Input icon={FiUser} placeholder="Nome de usuário" register={register} type="text" label="Nome de usuário" name="username" error={errors.username?.message}/>
-                                    <Input icon={FiLock} placeholder="Sua senha" type="password"register={register} label="Senha" name="password" error={errors.password?.message}/>
+                                    <Input icon={FiLock} placeholder="Sua senha" type="password" register={register} label="Senha" name="password" error={errors.password?.message}/>
                                     <br />
                                     <Button type='submit'>Login</Button>
                                     <p>Não tem um <strong>cadastro</strong>? Faça seu <Link to="/register">Registro</Link>.</p>

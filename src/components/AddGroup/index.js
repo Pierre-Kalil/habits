@@ -9,6 +9,7 @@ import {
 } from "../AddHabits/styles";
 import { Container } from "./styles";
 import * as yup from "yup";
+import { InputContainerGroup } from "../../Pages/Groups/styles"
 
 const AddGroup = ({ setRegister }) => {
   const { newGroup } = useContext(GroupsContext);
@@ -35,9 +36,9 @@ const AddGroup = ({ setRegister }) => {
       <Container onSubmit={handleSubmit(handleNewGroup)}>
         <h3>Cadastrar Grupo</h3>
         <ContainerInputs>
-          <input placeholder="nome" {...register("name")} />
-          <input placeholder="descrição" {...register("description")} />
-          <input placeholder="categoria" {...register("category")} />
+          <input placeholder="Nome" {...register("name")} />
+          <input placeholder="Descrição" {...register("description")} />
+          <input placeholder="Categoria" {...register("category")} />
         </ContainerInputs>
         <ContainerButtons>
           <Button2 onClick={() => setRegister(false)}>Cancelar</Button2>

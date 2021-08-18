@@ -7,6 +7,8 @@ import {Container, Content, ContainerButtons, ContainerHabits} from "./styles"
 import HeaderLogged from "../../components/HeaderLogged"
 import { Redirect } from "react-router-dom";
 import { useAuth } from "../../Providers/auth";
+import Footer from "../../components/Footer";
+import HomeBackground from "../../components/BackgroundHome";
 
 
 const Habits = () => {
@@ -22,8 +24,14 @@ const Habits = () => {
           return <Redirect to="/login" />
         }
     return(
-    <Container>
+    <div>
+        <HomeBackground />
+        <Container>
         <HeaderLogged />
+            <h1>Hábitos</h1>
+            <div>
+                <Button onClick = {() => {setAddNewHabit(1)}}>Adicionar Hábitos</Button>
+            </div>
         <Content>
             <ContainerHabits>
             {habits.map((habit)=> <Habit key={habit.id} habit={habit}></Habit>)}
@@ -38,7 +46,10 @@ const Habits = () => {
                 <Button onClick = {() => {setAddNewHabit(1)}}> Criar hábito</Button>
             </ContainerButtons>
         </Content>
+
+        <Footer />
     </Container>
+    </div>
     )
 }
 

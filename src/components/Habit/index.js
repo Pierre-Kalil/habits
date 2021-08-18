@@ -1,5 +1,5 @@
 import Button  from "../Button"
-import { Container, ContainerInfos, ContainerButtons } from "./style"
+import { Container, ContainerInfos, ContainerButtons } from "./styles"
 import {useHabits} from "../../Providers/habits"
 
 const Habit = ({habit}) => {
