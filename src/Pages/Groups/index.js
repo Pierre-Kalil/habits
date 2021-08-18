@@ -2,6 +2,8 @@ import {
   ContainerMobile,
   // BoxContainerMobile,
   OptionsContainerMobile,
+  ContainerNewUser,
+  ContainerNewUserMobile,
 } from "./styles";
 import {
   ContainerDesktop,
@@ -9,14 +11,14 @@ import {
   OptionsContainerDesktop,
 } from "./styles";
 // import { Link } from "react-router-dom";
+import Pessoas from "../../images/comunidade.svg";
+import CriarGrupo from "../../images/criarGrupo.svg";
 
 import HeaderLogged from "../../components/HeaderLogged";
 import { useContext, useEffect } from "react";
 import { GroupsContext } from "../../Providers/groups";
-import { useHistory } from "react-router-dom";
-import {
-  ListCardsContainerMobile,
-} from "../Community/styles";
+import { Link, useHistory } from "react-router-dom";
+import { ListCardsContainerMobile } from "../Community/styles";
 import { ListCardsContainerDesktop } from "./styles";
 import { useState } from "react";
 import SinalMais from "../../components/SinalMais";
@@ -62,11 +64,30 @@ const Groups = () => {
       <HeaderLogged />
       <HomeBackground />
       <ContainerDesktop>
-        <h1>Grupos</h1>
-        <div>
-          <Button onClick={() => setRegister(true)}>Criar Grupo</Button>
-        </div>
         <OptionsContainerDesktop>
+          {groups.length === 0 ? (
+            <ContainerNewUser>
+              <h2>Você não está inscrito em nenhum grupo !</h2>
+              <br></br>
+              <div className="princ">
+                <div className="opção">
+                  <h4>Conheça nossos grupos da comunidade:</h4>
+                  <Link to="/Community">
+                    <img src={Pessoas} alt="pessoas" />
+                  </Link>
+                </div>
+                <h3>OU</h3>
+                <div className="opção">
+                  <h4>Crie um grupo para você:</h4>
+                  <button onClick={() => setRegister(true)}>
+                    <img src={CriarGrupo} alt="pessoas" />
+                  </button>
+                </div>
+              </div>
+            </ContainerNewUser>
+          ) : (
+            <h1>Grupos</h1>
+          )}
           {groups.map((group) => (
             <ListCardsContainerDesktop key={group.id}>
               {group.creator.id === Number(user) && (
