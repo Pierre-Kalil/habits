@@ -10,4 +10,4 @@ img {
   position: absolute;
   z-index: -2;
 }
-`;
+`

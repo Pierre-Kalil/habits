@@ -12,20 +12,25 @@ import Imagem from "../../images/icone.svg";
 import logo from "../../images/logo.svg";
 import DescriptionHome from "../../images/DescriptionHome.png"
 import meditando from "../../images/medit.svg";
-import { Link, useHistory } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
 import Clouds from "../../images/Clouds.png"
+import { useAuth } from "../../Providers/auth";
 
 
 const Home = () => {
   const viewport = window.innerWidth;
-
+  const { auth } = useAuth();
   const history = useHistory();
 
   const handleClick = () => {
     history.push("/register");
   };
+
+  if(auth) {
+    return <Redirect to ='/dashboard' />
+  }
 
   return (
     <>

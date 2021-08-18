@@ -10,7 +10,6 @@ const AddGoals = ({ id }) => {
   const [how_much_achieved, setHow_much_achieved] = useState("");
   const { CreateGoals } = useGoals();
 
-
   //envio do objeto para o provider
   const handleGoal = (id) => {
     const data = {
@@ -37,11 +36,11 @@ const AddGoals = ({ id }) => {
         placeholder="Difficulty"
       />
       <input
-        value={difficulty}
+        value={how_much_achieved}
         onChange={(e) => setHow_much_achieved(e.target.value)}
         placeholder="How much achieved"
       />
-      <Button callback={() => handleGoal(id)}>Enviar</Button>
+      <Button callback={() => handleGoal(id)}>Criar Meta</Button>
     </ContainerAddGoals>
   );
 };

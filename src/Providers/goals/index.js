@@ -6,7 +6,7 @@ export const GoalsContext = createContext();
 export const GoalsProvider = ({ children }) => {
   const [showGoals, setShowGoals] = useState([]);
 
-  const CreateActives = (data) => {
+  const CreateGoals = (data) => {
     axios
       .post("https://kabit-api.herokuapp.com/goals/", data, {
         headers: {
@@ -26,13 +26,13 @@ export const GoalsProvider = ({ children }) => {
   console.log(showGoals);
 
   const UpdateGoals = (data) => {
-    const { id, title, group } = data;
+    const { id, achieved } = data;
     console.log(data);
     axios
       .patch(
         `https://kabit-api.herokuapp.com/goals/${id}/`,
         {
-          title: title,
+          achieved: achieved,
         },
         {
           headers: {
@@ -61,7 +61,7 @@ export const GoalsProvider = ({ children }) => {
     <GoalsContext.Provider
       value={{
         showGoals,
-        CreateActives,
+        CreateGoals,
         ShowGoals,
         UpdateGoals,
         DeleteGoals,
