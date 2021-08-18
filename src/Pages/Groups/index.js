@@ -58,13 +58,34 @@ const Groups = () => {
   if (!auth) {
     return <Redirect to="/login" />;
   }
+  console.log(viewport);
 
   return (
     <>
       
       <ContainerDesktop>
         <OptionsContainerDesktop>
-          {groups.length === 0 ? (
+          {groups.length === 0 && viewport < 769 ? (
+            <ContainerNewUserMobile>
+              <h2>Você não está inscrito em nenhum grupo !</h2>
+              <br></br>
+              <div className="princ">
+                <div className="opção">
+                  <h4>Conheça nossos grupos da comunidade:</h4>
+                  <Link to="/Community">
+                    <img src={Pessoas} alt="pessoas" />
+                  </Link>
+                </div>
+                <h3>OU</h3>
+                <div className="opção">
+                  <h4>Crie um grupo para você:</h4>
+                  <button onClick={() => setRegister(true)}>
+                    <img src={CriarGrupo} alt="pessoas" />
+                  </button>
+                </div>
+              </div>
+            </ContainerNewUserMobile>
+          ) : (
             <ContainerNewUser>
               <h2>Você não está inscrito em nenhum grupo !</h2>
               <br></br>
@@ -84,8 +105,6 @@ const Groups = () => {
                 </div>
               </div>
             </ContainerNewUser>
-          ) : (
-            <h1>Grupos</h1>
           )}
           {groups.map((group) => (
             <ListCardsContainerDesktop key={group.id}>

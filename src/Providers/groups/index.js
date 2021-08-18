@@ -22,7 +22,7 @@ export const GroupsProvider = ({ children }) => {
 
   useEffect(() => {
     loadGroups();
-  });
+  }, []);
 
   const newGroup = (data) => {
     const { name, description, category } = data;
