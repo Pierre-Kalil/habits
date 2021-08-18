@@ -49,6 +49,7 @@ const Groups = () => {
   const [id, setId] = useState("");
 
   const toSend = (path, id) => {
+    nameGroup(id);
     ShowActivities(id);
     localStorage.setItem("id", JSON.stringify(id));
     return history.push(path);
@@ -62,7 +63,7 @@ const Groups = () => {
 
   return (
     <>
-      <HomeBackground />
+      
       <ContainerDesktop>
         <OptionsContainerDesktop>
           {groups.length === 0 && viewport < 769 ? (
@@ -119,12 +120,9 @@ const Groups = () => {
                 </Button>
               )}
               <div>{edit && <EditGroup setEdit={setEdit} group={id} />}</div>
-              <h4>nome:</h4>
-              <div>{group.name}</div>
-              <h4>Descrição:</h4>
-              <div>{group.description}</div>
-              <h4>Categoria:</h4>
-              <div>{group.category}</div>
+                <h4>Nome: {group.name}</h4>
+                <h4>Descrição: {group.description}</h4>
+                <h4>Categoria: {group.category}</h4>
               <div>
                 <Button onClick={() => toSend("/activities", group.id)}>
                   Ver Atividades e Metas
