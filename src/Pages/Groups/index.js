@@ -63,10 +63,9 @@ const Groups = () => {
 
   return (
     <>
-      
       <ContainerDesktop>
         <OptionsContainerDesktop>
-          {groups.length === 0 && viewport < 769 ? (
+          {groups.length === 0 && viewport < 769 && (
             <ContainerNewUserMobile>
               <h2>Você não está inscrito em nenhum grupo !</h2>
               <br></br>
@@ -86,7 +85,8 @@ const Groups = () => {
                 </div>
               </div>
             </ContainerNewUserMobile>
-          ) : (
+          )}
+          {groups.length === 0 && viewport > 769 && (
             <ContainerNewUser>
               <h2>Você não está inscrito em nenhum grupo !</h2>
               <br></br>
@@ -120,9 +120,9 @@ const Groups = () => {
                 </Button>
               )}
               <div>{edit && <EditGroup setEdit={setEdit} group={id} />}</div>
-                <h4>Nome: {group.name}</h4>
-                <h4>Descrição: {group.description}</h4>
-                <h4>Categoria: {group.category}</h4>
+              <h4>Nome: {group.name}</h4>
+              <h4>Descrição: {group.description}</h4>
+              <h4>Categoria: {group.category}</h4>
               <div>
                 <Button onClick={() => toSend("/activities", group.id)}>
                   Ver Atividades e Metas
