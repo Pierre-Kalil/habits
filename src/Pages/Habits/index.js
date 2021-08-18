@@ -24,14 +24,10 @@ const Habits = () => {
           return <Redirect to="/login" />
         }
     return(
-    <div>
-        <HomeBackground />
+    <> 
+        
         <Container>
-        <HeaderLogged />
             <h1>Hábitos</h1>
-            <div>
-                <Button onClick = {() => {setAddNewHabit(1)}}>Adicionar Hábitos</Button>
-            </div>
         <Content>
             <ContainerHabits>
             {habits.map((habit)=> <Habit key={habit.id} habit={habit}></Habit>)}
@@ -47,9 +43,9 @@ const Habits = () => {
             </ContainerButtons>
         </Content>
 
-        <Footer />
+       
     </Container>
-    </div>
+    </>
     )
 }
 
