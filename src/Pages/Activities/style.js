@@ -1,127 +1,181 @@
 import styled from "styled-components";
 
 export const ContainerMobile = styled.div`
-  height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 
-  h1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 10vh;
-  }
-
-  h4 {
-    color: gray;
-
-    text-align: center;
+  @media (min-width: 769px) {
   }
 `;
 
-export const BoxContainerMobile = styled.div`
-  height: 22vh;
-  background-color: blue;
-  border: 2px solid black;
-  width: 70vw;
-
+export const ContainerTitleMobile = styled.div`
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 
+  h2 {
+    margin: 20px 0;
+    font-size: 28px;
+  }
+`;
+
+export const ContainerCreateSearch = styled.div`
+  width: 70%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
   align-items: center;
   justify-content: center;
+
+  input {
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    background: var(--roxo-secundario);
+    font-weight: bold;
+    color: #fff;
+    ::placeholder {
+      color: #fff;
+    }
+  }
+
+  input:hover {
+    opacity: 0.8;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  @media (min-width: 769px) {
+    width: 49%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+`;
+
+export const ContainerInputs = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+
+  input {
+    margin: 10px 0;
+    padding: 8px;
+  }
+
+  @media (min-width: 500px) {
+    width: 40%;
+    input {
+      width: 100%;
+    }
+    button {
+      width: 100%;
+    }
+  }
+`;
+
+export const ContainerAddActive = styled.div`
+  width: 100%;
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-image: var(--gradiente);
+
+  button {
+    width: 60%;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    background-image: var(--gradiente-buttom);
+    color: #fff;
+    font-weight: bold;
+  }
+
+  button:hover {
+    opacity: 0.8;
+    transition: 0.5s;
+  }
+
+  @media (min-width: 500px) {
+    width: 40%;
+  }
 `;
 
 export const ContainerActivitiesGoals = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+
+  @media (min-width: 769px) {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
 `;
 
 export const OptionsContainerMobile = styled.div`
-  width: 49%;
+  width: 100%;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 70vh;
+  height: auto;
 `;
 
 //lista dos grupos
-export const CardsContainerMobile = styled.ul``;
+export const CardsContainerMobile = styled.ul`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+`;
 export const ListCardsContainerMobile = styled.li`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 
-  width: 250px;
+  width: 70%;
   height: 150px;
   margin: 5px 0;
   border-radius: 20px;
+  background-image: var(--gradiente);
   box-shadow: 1px 1px 4px 1px var(--sombra-box);
   background-color: var(--roxo-secundario);
   color: #fff;
   text-align: center;
 
-  button {
-    width: 50%;
+  @media (min-width: 500px) {
+    width: 45%;
+  }
+  @media (min-width: 769px) {
+    width: 40%;
   }
 `;
-
-//DESKTOP
-
-export const ContainerDescktop = styled.div`
-  height: 90vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  h1 {
-    height: 15vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-`;
-export const BoxContainerDescktop = styled.div`
-  background-color: purple;
-  height: 30vh;
-  font-size: 20px;
-  width: 25vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-export const OptionsContainerDescktop = styled.div`
-  height: 50vh;
-  width: 90vw;
+export const ContainerButton = styled.div`
   display: flex;
   justify-content: space-around;
-`;
-
-//lista dos grupos
-export const CardsContainerDesktop = styled.ul`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: center;
-`;
-export const ListCardsContainerDesktop = styled.li`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 300px;
-  height: 200px;
-  margin: 5px 0;
-  border-radius: 20px;
-  box-shadow: 1px 1px 4px 1px var(--sombra-box);
-  background-color: var(--roxo-secundario);
-  color: #fff;
+  width: 100%;
 
   button {
-    width: 50%;
-  }
-
-  hr {
-    width: 80%;
+    width: 35%;
+    padding: 5px;
+    border: none;
+    border-radius: 20px;
+    background-image: var(--gradiente-buttom);
+    color: #fff;
   }
 `;
+
+//UTILIZAR OS MESMOS CONTAINERS PARA METAS

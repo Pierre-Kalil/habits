@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { useActivities } from "../../Providers/actives";
 import Button from "../Button";
-import Input from "../Input";
-import { ContainerAddActivities } from "./styled";
+
+import { ContainerAddActivities, ContainerInputs } from "./styled";
 
 const AddActivities = ({ id }) => {
-  // const [actives, setActives] = useState({})
   const [title, setTitle] = useState("");
   const { CreateActives } = useActivities();
 
@@ -42,12 +41,15 @@ const AddActivities = ({ id }) => {
   //os inputs abaixo estão nos cards na page de grupos
   return (
     <ContainerAddActivities>
-      <input
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Nome da atividade"
-      />
-      <Button callback={() => handleActive(id)}>Enviar</Button>
+      <ContainerInputs>
+        <h3>Criar atividade</h3>
+        <input
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Nome da atividade"
+        />
+        <Button callback={() => handleActive(id)}>Enviar</Button>
+      </ContainerInputs>
     </ContainerAddActivities>
   );
 };

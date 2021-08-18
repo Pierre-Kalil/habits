@@ -9,3 +9,9 @@ export const ContainerAddActivities = styled.div`
     padding: 10px;
   }
 `;
+
+export const ContainerInputs = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+`;
