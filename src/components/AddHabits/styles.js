@@ -1,97 +1,77 @@
-import styled, { css } from "styled-components";
-import clouds5 from "../../images/clouds5.png";
+import styled from "styled-components";
+import Background from "../../images/fundoForm.png";
 
-export const Container = styled.form `
-    height: 480px;
-    width: 350px;
-    background-image: url(${clouds5});
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 40px;
-    border-radius: 8px;
+export const Container = styled.form`
+  height: 500px;
+  width: 350px;
+  background-image: url(${Background});
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    
-    h3{
-        padding: 10px;
-        text-align: center;
-        font-family:'Calibri';
-        color:var(--background);
-        font-size: 24px;
-    }
-`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-export const ContainerInputs = styled.div `
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-
-    input{
-        height: 40px;
-        width: 80%;
-        margin-bottom: 10px;
-        ::placeholder{
-            font-size: 10px;
-        }
-    }
-    
-`
-
-export const ContainerButtons = styled.div `
-    width: 80%;
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 16px;
+  h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: white;
+  }
 `;
 
-  export const InputContainerHabit = styled.div`
-    /* background: var(--background); */
-    border-radius: 10px;
-    border: 2px solid var(--roxo-secundario);
-    color: var(--roxo-secundario);
-    padding: 4px;
-    width: 100%;
-    display: flex;
-    /* flex-direction: column; */
-    transition: 0.4s;
-    background-color: var(--roxo-secundario);
+export const ContainerInputs = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 
-    border-bottom: 6px solid var(--roxo-secundario);
-    border-right: 6px solid var(--roxo-secundario);
+  input {
+    border: 0;
+    background: none;
+    margin: 7px auto;
+    text-align: center;
+    border: 2px solid #8e97fd;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  input:focus {
+    width: 280px;
+    border-color: #e0aaff;
+  }
+`;
 
-    ${props => props.isErrored && css`
-    border-color: red;
-    svg {
-      color: red;
-    }
-    `}
+export const ContainerButtons = styled.div`
+  width: 80%;
+  display: flex;
+  button {
+  }
+`;
+export const Button2 = styled.button`
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  margin-left: 1px;
+  padding: 14px 33px;
+  text-align: center;
+  border: 2px solid #e0aaff;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+  :hover {
+    background: #e0aaff;
+  }
+`;
 
-    input {
-      /* background: transparent; */
-      align-items: center;
-      font-size: 16px;
-      border: 2px solid var(--roxo-secundario);
-      border-radius: 8px;
-      padding: 5px 0px 5px 10px;
-      flex: 1;
-      border: 0;
-      color: var(--roxo-terciario);
-      /* padding-left: 8px; */
-      height:32px;
-    }
-      input::placeholder {
-        color: var(--roxo-secundario);
-        font-size: 16px;
-      }
-
-    svg {
-      margin-top: 4px;
-    }
-  `;
+export const ContainerDark = styled.div``;

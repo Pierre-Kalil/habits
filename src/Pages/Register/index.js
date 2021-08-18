@@ -31,11 +31,17 @@ const Register = () => {
     const {register, handleSubmit, formState: { errors }, reset} = useForm({resolver: yupResolver(schema)})
 
     const handleRegister = (data) => {
-        axios.post('https://kabit-api.herokuapp.com/users/', data)
+        console.log(data)
+        const {username, email, password} = data;
+        console.log(data)
+        axios.post('https://kabit-api.herokuapp.com/users/', {
+            username: username, email: email, password: password,
+        })
         .then((res) => {
             reset();
             toast.success('Sucesso ao criar a conta.')
             history.push('/login');
+
 
             
         })

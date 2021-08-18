@@ -29,7 +29,14 @@ export const BoxContainerMobile = styled.div`
   justify-content: center;
 `;
 
+export const ContainerActivitiesGoals = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const OptionsContainerMobile = styled.div`
+  width: 49%;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;

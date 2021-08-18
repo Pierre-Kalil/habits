@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 import AddHabits from "../../components/AddHabits"
 import Habit from "../../components/Habit"
 import {useHabits} from "../../Providers/habits"
-import SinalMais from "../../components/SinalMais"
-import Button from "../../components/Button";
-import {Container, Content} from "./styles"
+import Button from "../../components/Button"
+import {Container, Content, ContainerButtons, ContainerHabits} from "./styles"
 import HeaderLogged from "../../components/HeaderLogged"
 import { Redirect } from "react-router-dom";
 import { useAuth } from "../../Providers/auth";
@@ -34,7 +33,7 @@ const Habits = () => {
                 <Button onClick = {() => {setAddNewHabit(1)}}>Adicionar Hábitos</Button>
             </div>
         <Content>
-
+            <ContainerHabits>
             {habits.map((habit)=> <Habit key={habit.id} habit={habit}></Habit>)}
             
             {addNewHabit ? 
@@ -42,7 +41,10 @@ const Habits = () => {
                 :
                 <></>
             }
-
+            </ContainerHabits>
+            <ContainerButtons>
+                <Button onClick = {() => {setAddNewHabit(1)}}> Criar hábito</Button>
+            </ContainerButtons>
         </Content>
 
         <Footer />

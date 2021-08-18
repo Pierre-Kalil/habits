@@ -28,3 +28,10 @@ export const Content = styled.div `
         margin-top:48px;
     }
 `
+
+export const ContainerButtons = styled.div `
+    margin-top: 10px;
+    width: 100%;
+`
+export const ContainerHabits = styled.div `
+    padding: 10px`

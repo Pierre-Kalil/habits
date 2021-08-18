@@ -4,6 +4,7 @@ import { useActivities } from "../../Providers/actives";
 import { ContainerInputs } from "../AddGroup/styles";
 import Button from "../Button";
 import Input from "../Input";
+import { ContainerAddActivities } from "./styled";
 
 const AddActivities = ({ id }) => {
   // const [actives, setActives] = useState({})
@@ -30,32 +31,34 @@ const AddActivities = ({ id }) => {
   //fim da formatação da data
 
   //envio do objeto para o provider
-  const handleActive = () => {
+  const handleActive = (id) => {
     const data = {
       title: title,
       realization_time: dateActive,
       group: id,
     };
+    console.log(data);
     CreateActives(data);
   };
 
   //os inputs abaixo estão nos cards na page de grupos
   return (
     <div>
-    <ContainerInputs>
-      <InputContainerGroup>
+    {/* <ContainerInputs>
+      <InputContainerGroup> */}
+    <ContainerAddActivities>
       <input
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Nome da atividade"
       />
-      </InputContainerGroup>
-      <div style={{marginTop:24, }}>
-          <Button callback={handleActive}>Enviar</Button>
+      {/* </InputContainerGroup> */}
+      <div style={{marginTop:24}}>
+      <Button callback={() => handleActive(id)}>Enviar</Button>
           </div>
-    </ContainerInputs>
-
-          </div>
+    {/* </ContainerInputs> */}
+    </ContainerAddActivities>
+    </div>
   );
 };
 

@@ -1,37 +1,37 @@
 import axios from "axios";
+import { useEffect } from "react";
 import { createContext, useContext, useState } from "react";
 
-export const ActivitiesContext = createContext();
+export const GoalsContext = createContext();
 
-export const ActivitiesProvider = ({ children }) => {
-  const [showActivities, setShowActivities] = useState([]);
+export const GoalsProvider = ({ children }) => {
+  const [showGoals, setShowGoals] = useState([]);
 
   const CreateActives = (data) => {
-    console.log(data);
     axios
-      .post("https://kabit-api.herokuapp.com/activities/", data, {
+      .post("https://kabit-api.herokuapp.com/goals/", data, {
         headers: {
           Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
         },
       })
-      .then((response) => console.log(response.data.activities))
+      .then((response) => console.log(response.data.goals))
       .catch((err) => console.log(err));
   };
 
-  const ShowActivities = (id) => {
-    console.log(id);
+  const ShowGoals = (id) => {
     axios
-      .get(`https://kabit-api.herokuapp.com/activities/?group=${id}&page=1`)
-      .then((response) => setShowActivities(response.data.results))
+      .get(`https://kabit-api.herokuapp.com/goals/?group=${id}&page=1`)
+      .then((response) => setShowGoals(response.data.results))
       .catch((err) => console.log(err));
   };
+  console.log(showGoals);
 
-  const UpdateActivities = (data) => {
+  const UpdateGoals = (data) => {
     const { id, title, group } = data;
     console.log(data);
     axios
       .patch(
-        `https://kabit-api.herokuapp.com/activities/${id}/`,
+        `https://kabit-api.herokuapp.com/goals/${id}/`,
         {
           title: title,
         },
@@ -47,9 +47,9 @@ export const ActivitiesProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
-  const DeleteActivities = (id) => {
+  const DeleteGoals = (id) => {
     axios
-      .delete(`https://kabit-api.herokuapp.com/activities/${id}/`, {
+      .delete(`https://kabit-api.herokuapp.com/goals/${id}/`, {
         headers: {
           Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
         },
@@ -59,18 +59,18 @@ export const ActivitiesProvider = ({ children }) => {
   };
 
   return (
-    <ActivitiesContext.Provider
+    <GoalsContext.Provider
       value={{
-        showActivities,
+        showGoals,
         CreateActives,
-        ShowActivities,
-        UpdateActivities,
-        DeleteActivities,
+        ShowGoals,
+        UpdateGoals,
+        DeleteGoals,
       }}
     >
       {children}
-    </ActivitiesContext.Provider>
+    </GoalsContext.Provider>
   );
 };
 
-export const useActivities = () => useContext(ActivitiesContext);
+export const useGoals = () => useContext(GoalsContext);
