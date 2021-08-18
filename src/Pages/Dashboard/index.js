@@ -4,9 +4,10 @@ import {
   OptionsContainerMobile,
 } from "./styles";
 import {
-  ContainerDescktop,
-  BoxContainerDescktop,
-  OptionsContainerDescktop,
+  ContainerDesktop,
+  BoxContainerDesktopHabits,
+  BoxContainerDesktopGroups,
+  OptionsContainerDesktop,
   ContainerTitle,
 } from "./styles";
 import { Link } from "react-router-dom";
@@ -20,6 +21,11 @@ import { useState } from "react";
 import Username from "../../components/Username";
 import { Redirect } from "react-router-dom";
 import Button from "../../components/Button";
+import Footer from "../../components/Footer";
+import ImageGroup1 from "../../images/ImageGroup1.png";
+import ImageGroup2 from "../../images/ImageGroup2.png";
+import UserImage from "../../images/UserImage.png"
+import HomeBackground from "../../components/BackgroundHome";
 
 const Dashboard = () => {
   const viewport = window.innerWidth;
@@ -34,8 +40,10 @@ const Dashboard = () => {
   return (
     <>
       <HeaderLogged />
+      <HomeBackground />
       {viewport < 500 ? (
         <ContainerMobile>
+
           <h2>Organize sua vida, {username}</h2>
           <button>Trocar usuário</button>
           <h4>Escolha uma opção: </h4>
@@ -55,40 +63,59 @@ const Dashboard = () => {
           </OptionsContainerMobile>
         </ContainerMobile>
       ) : (
-        <ContainerDescktop>
+        <ContainerDesktop>
+
           <ContainerTitle>
             <figure>
               <img />
             </figure>
-            <h1>Organize sua vida, {username}</h1>
+            <h1>Organize sua vida,&nbsp;<span style={{color:"#8E97FD"}}><em>{username && username[0].toUpperCase() + username.slice(1)}</em></span>&nbsp;!</h1>
             {newUsername ? <Username setNewUsername={setNewUsername} /> : <></>}
-            <Button
+            <img src={UserImage} alt="user-photo" style={{margin:"auto", width:56, height:56}} />
+            <Button 
               onClick={() => {
                 setNewUsername(true);
-              }}
+              }} style={{margin:"auto"}}
             >
               Trocar usuário
             </Button>
           </ContainerTitle>
 
-          <OptionsContainerDescktop>
+          <OptionsContainerDesktop>
+            <div style={{display:"flex", flexDirection:"row-reverse"}}>
+                <div style={{textAlign:"right"}}>O que são Hábitos?</div>
+
             <Link
               to={"/habits"}
-              style={{ color: "white", textDecoration: "none" }}
             >
-              <BoxContainerDescktop>HÁBITOS</BoxContainerDescktop>
+
+              <BoxContainerDesktopHabits>
+
+              </BoxContainerDesktopHabits>
+              <p>Hábitos</p>
             </Link>
+                        </div>
             <figure>
               <img src={medidate} alt="imagem" />
             </figure>
+
+            <div style={{display:"flex", flexDirection:"row"}}>
+                <div style={{textAlign:"right"}}>O que são Grupos?</div>
             <Link
               to={"/groups"}
-              style={{ color: "white", textDecoration: "none" }}
+              // style={{ color: "white", textDecoration: "none" }}
             >
-              <BoxContainerDescktop>GRUPOS</BoxContainerDescktop>
+              <BoxContainerDesktopGroups>
+
+                </BoxContainerDesktopGroups>
+                <p>Grupos</p>
             </Link>
-          </OptionsContainerDescktop>
-        </ContainerDescktop>
+            </div>
+
+          </OptionsContainerDesktop>
+                      <p style={{fontFamily:"Calibri", fontSize:48, marginTop:20}}>Escolha uma opção!</p>
+          <Footer />
+        </ContainerDesktop>
       )}
     </>
   );

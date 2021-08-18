@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { GroupsContext } from "../../Providers/groups";
 import { ContainerInputs } from "../AddHabits/styles";
-import { Container } from "../AddGroup/styles";
+import { InputContainerGroup, Container } from "./styles";
 import Button from "../Button";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 export const ContainerMobile = styled.div`
   height: 90vh;
@@ -11,7 +11,6 @@ export const ContainerMobile = styled.div`
 
   h4 {
     color: gray;
-
     text-align: center;
   }
 `;
@@ -38,7 +37,7 @@ export const OptionsContainerMobile = styled.div`
 
 //DESKTOP
 
-export const ContainerDescktop = styled.div`
+export const ContainerDesktop = styled.div`
   height: 90vh;
   display: flex;
   flex-direction: column;
@@ -50,7 +49,7 @@ export const ContainerDescktop = styled.div`
     align-items: center;
   }
 `;
-export const BoxContainerDescktop = styled.div`
+export const BoxContainerDesktop = styled.div`
   background-color: purple;
   height: 30vh;
   font-size: 20px;
@@ -59,10 +58,79 @@ export const BoxContainerDescktop = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export const OptionsContainerDescktop = styled.div`
-  height: 50vh;
-  width: 90vw;
+export const OptionsContainerDesktop = styled.div`
+  /* height: 400px; */
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  
+`;
+
+export const InputContainerGroup = styled.div`
+/* background: var(--background); */
+border-radius: 10px;
+border: 2px solid var(--roxo-secundario);
+color: var(--roxo-secundario);
+padding: 4px;
+width: 100%;
+display: flex;
+/* flex-direction: column; */
+transition: 0.4s;
+background-color: var(--roxo-secundario);
+
+border-bottom: 6px solid var(--roxo-secundario);
+border-right: 6px solid var(--roxo-secundario);
+
+${props => props.isErrored && css`
+border-color: red;
+svg {
+  color: red;
+}
+`}
+
+input {
+  /* background: transparent; */
+  align-items: center;
+  font-size: 16px;
+  border: 2px solid var(--roxo-secundario);
+  border-radius: 8px;
+  padding: 5px 0px 5px 10px;
+  flex: 1;
+  border: 0;
+  color: var(--roxo-terciario);
+  /* padding-left: 8px; */
+  height:32px;
+}
+  input::placeholder {
+    color: var(--roxo-secundario);
+    font-size: 16px;
+  }
+
+svg {
+  margin-top: 4px;
+}
+`;
+
+export const ListCardsContainerDesktop = styled.li`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 300px;
+  height: 320px;
+  margin: 5px 0;
+  box-shadow: 1px 1px 4px 1px var(--sombra-box);
+  color: #fff;
+  background: linear-gradient(177.48deg, #10002B 6.72%, #3C096C 30.84%, #8E97FD 77.98%);
+  border-radius: 50px;
+  font-size: 20px;
+
+  /* button {
+    width: 50%;
+  } */
+
+  hr {
+    width: 80%;
+  }
 `;

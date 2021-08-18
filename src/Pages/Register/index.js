@@ -86,6 +86,7 @@ const Register = () => {
                                         placeholder="Uma senha bem forte"
                                         register={register}
                                         error={errors.password?.message}
+                                        type="password"
                                     />
                                 </div>
                                 <div>
@@ -96,6 +97,7 @@ const Register = () => {
                                         placeholder="Confirme sua senha"
                                         register={register}
                                         error={errors.confirmPassword?.message}
+                                        type="password"
                                     />
                                 </div>
                                 <br />

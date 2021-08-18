@@ -19,12 +19,12 @@ const AddHabits = ({ setAddNewHabit }) => {
   const { user } = useUser();
 
   const formSchema = yup.object().shape({
-    title: yup.string().required("Titúlo Obrigatório"),
-    category: yup.string().required("Categoria Obrigatório"),
-    difficulty: yup.string().required("Dificuldade Obrigatória"),
-    frequency: yup.string().required("Frequência Obrigatório"),
-    achieved: yup.boolean().required("Item Obrigatório"),
-    how_much_achieved: yup.number().required("Item Obrigatório"),
+    title: yup.string().required("Titúlo Obrigatório!"),
+    category: yup.string().required("Categoria Obrigatório!"),
+    difficulty: yup.string().required("Dificuldade Obrigatória!"),
+    frequency: yup.string().required("Frequência Obrigatório!"),
+    achieved: yup.boolean().required("Item Obrigatório!"),
+    how_much_achieved: yup.number().required("Item Obrigatório!"),
   });
 
   const {
@@ -46,13 +46,13 @@ const AddHabits = ({ setAddNewHabit }) => {
         <Container onSubmit={handleSubmit(onSubmit)}>
           <h3>CADASTRAR HÁBITOS</h3>
           <ContainerInputs>
-            <input placeholder="title" {...register("title")}></input>
-            <input placeholder="category" {...register("category")}></input>
-            <input placeholder="dificulty" {...register("difficulty")}></input>
-            <input placeholder="frequency" {...register("frequency")}></input>
-            <input placeholder="achieved" {...register("achieved")}></input>
+            <input placeholder="Título" {...register("title")}></input>
+            <input placeholder="Categoria" {...register("category")}></input>
+            <input placeholder="Dificuldade" {...register("difficulty")}></input>
+            <input placeholder="Frequência" {...register("frequency")}></input>
+            <input placeholder="Alcançado?" {...register("achieved")}></input>
             <input
-              placeholder="how_much_achieved"
+              placeholder="Quanto foi alcançado?"
               {...register("how_much_achieved")}
             ></input>
           </ContainerInputs>

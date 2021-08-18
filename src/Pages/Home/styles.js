@@ -101,18 +101,12 @@ export const Desktop = styled.div`
 
 export const HomeBackground = styled.div`
   display: flex;
-  /* justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  width: 800px;
-  height: 80%;
-  margin-top: 20px; */
 
   img {
     width: 100vw;
     height: 100vh;
     position: absolute;
-    z-index: -2
+    z-index: -2;
   }
 `;
 

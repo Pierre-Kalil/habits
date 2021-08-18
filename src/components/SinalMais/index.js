@@ -3,7 +3,7 @@ import {FiPlus} from "react-icons/fi"
 const SinalMais = ({onClick}) => {
     return(
         <Container onClick ={onClick}>
-            <FiPlus size={200} />
+            <FiPlus size={100} />
         </Container>
     )
 }
