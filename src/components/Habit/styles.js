@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const Container = styled.div `
-    height: 400px;
-    width: 320px;
+    height: 350px;
+    width: 300px;
     border: 2px solid var(--background);
     display: flex;
     flex-direction: column;
@@ -32,7 +32,7 @@ export const ContainerInfos = styled.div `
     flex-direction:column;
     justify-content: space-evenly;
 
-    h5{
+    h4{
         padding:4px 0;
         font-family: 'Arial';
         font-weight: 300;
@@ -43,5 +43,9 @@ export const ContainerButtons = styled.div `
     display: flex;
     width: 90%;
     height: 40px;
+
+    button + button{
+        margin-left: 5px;
+    }
 `
 
