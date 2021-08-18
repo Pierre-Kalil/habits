@@ -6,9 +6,6 @@ export const ContainerMobile = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-
-  @media (min-width: 769px) {
-  }
 `;
 
 export const ContainerTitleMobile = styled.div`
@@ -21,6 +18,12 @@ export const ContainerTitleMobile = styled.div`
   h2 {
     margin: 20px 0;
     font-size: 28px;
+  }
+
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 25px;
+    }
   }
 `;
 
@@ -42,7 +45,7 @@ export const ContainerCreateSearch = styled.div`
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 
   input {
     width: 100%;
@@ -66,6 +69,7 @@ export const ContainerCreateSearch = styled.div`
 
   @media (min-width: 769px) {
     width: 100%;
+
     flex-direction: row;
     justify-content: space-around;
   }
@@ -80,6 +84,7 @@ export const ContainerInputs = styled.div`
   align-items: center;
   border-radius: 20px;
   background-image: var(--gradiente);
+  margin-bottom: 5px;
 
   button {
     width: 50%;
@@ -133,6 +138,10 @@ export const OptionsContainerMobile = styled.div`
   align-items: center;
   justify-content: space-around;
   height: auto;
+
+  @media (min-width: 500px) {
+    width: 50%;
+  }
 `;
 
 //lista dos grupos
@@ -165,9 +174,9 @@ export const ListCardsContainerMobile = styled.li`
     border-radius: 10px;
   }
 
-  @media (min-width: 500px) {
+  /* @media (min-width: 500px) {
     width: 45%;
-  }
+  } */
   @media (min-width: 769px) {
     width: 40%;
   }

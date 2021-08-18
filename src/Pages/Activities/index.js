@@ -84,7 +84,7 @@ const Activities = () => {
   console.log();
   return (
     <ContainerMobile>
-      {/* <HeaderLogged /> */}
+      <HeaderLogged />
       <ContainerTitleMobile>
         <h1>Atividades e Metas</h1>
         <h2>Grupo: {groupName}</h2>
@@ -108,7 +108,7 @@ const Activities = () => {
               </ContainerInputs>
             ) : (
               <ContainerInputs>
-                <button onClick={handleIsSearch}>Enviar</button>
+                <button onClick={handleIsSearch}>Pesuisar</button>
               </ContainerInputs>
             )}
           </ContainerCreateSearch>
@@ -183,39 +183,33 @@ const Activities = () => {
           <div>
             <AddGoals id={localStorage.getItem("id")} />
           </div>
-          <ul>
+          <CardsContainerMobile>
             {showGoals &&
               showGoals.map((goal, index) => (
                 <ListCardsContainerMobile key={index}>
-                  <p>
-                    {goal.title}
-                    {isGoalUpdate ? (
-                      <button
-                        onClick={() =>
-                          handleGoalUpdate(goal.id, inputGoalUpdate)
-                        }
-                      >
-                        Enviar
-                      </button>
-                    ) : (
-                      <button onClick={UpdateGoalHere}>Atualizar</button>
-                    )}{" "}
-                    <button onClick={() => DeleteGoals(goal.id)}>
-                      Remover
+                  {goal.title}
+                  {isGoalUpdate ? (
+                    <button
+                      onClick={() => handleGoalUpdate(goal.id, inputGoalUpdate)}
+                    >
+                      Enviar
                     </button>
-                    {isGoalUpdate ? (
-                      <input
-                        placeholder="Atingido?"
-                        /* value={inputGoalUpdate} */
-                        onChange={(e) => setInpuGoalUpdate(true)}
-                      />
-                    ) : (
-                      <></>
-                    )}
-                  </p>
+                  ) : (
+                    <button onClick={UpdateGoalHere}>Atualizar</button>
+                  )}{" "}
+                  <button onClick={() => DeleteGoals(goal.id)}>Remover</button>
+                  {isGoalUpdate ? (
+                    <input
+                      placeholder="Atingido?"
+                      /* value={inputGoalUpdate} */
+                      onChange={(e) => setInpuGoalUpdate(true)}
+                    />
+                  ) : (
+                    <></>
+                  )}
                 </ListCardsContainerMobile>
               ))}
-          </ul>
+          </CardsContainerMobile>
         </OptionsContainerMobile>
         {/********************************* FIM METAS *******************************/}
       </ContainerActivitiesGoals>
