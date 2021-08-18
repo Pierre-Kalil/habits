@@ -69,7 +69,8 @@ const Activities = () => {
 
   useEffect(() => {
     ShowActivities(localStorage.getItem("id"));
-  }, [showActivities]);
+    ShowGoals(localStorage.getItem("id"));
+  }, [showActivities, showGoals]);
 
   const { auth } = useAuth();
   if (!auth) {
