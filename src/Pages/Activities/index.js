@@ -49,7 +49,8 @@ const Activities = () => {
 
   useEffect(() => {
     ShowActivities(localStorage.getItem("id"));
-  }, [showActivities]);
+    ShowGoals(localStorage.getItem("id"));
+  }, [showActivities, showGoals]);
 
   const { auth } = useAuth();
   if (!auth) {
@@ -115,10 +116,7 @@ const Activities = () => {
                     {isGoalUpdate ? (
                       <button
                         onClick={() =>
-                          handleGoalUpdate(
-                            goal.id,
-                            inputGoalUpdate,
-                          )
+                          handleGoalUpdate(goal.id, inputGoalUpdate)
                         }
                       >
                         Enviar
