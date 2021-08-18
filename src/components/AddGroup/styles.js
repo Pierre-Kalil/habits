@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import clouds5 from "../../images/clouds5.png";
 
 export const Container = styled.form `
-    height: 480px;
+    height: 360px;
     width: 350px;
     background-image: url(${clouds5});
     background-repeat: no-repeat;

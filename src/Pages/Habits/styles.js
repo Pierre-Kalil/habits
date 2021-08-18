@@ -24,5 +24,7 @@ export const Content = styled.div `
         display: flex;
         flex-wrap: wrap;
         width: 1000px;
+        justify-content: space-evenly;
+        margin-top:48px;
     }
 `

@@ -1,4 +1,6 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import ImageGroup1 from "../../images/ImageGroup1.png";
+import ImageGroup2 from "../../images/ImageGroup2.png";
 
 export const ContainerMobile = styled.div `
     height: 90vh;
@@ -42,7 +44,7 @@ export const OptionsContainerMobile = styled.div `
 
 // DESKTOP
 
-export const ContainerDescktop = styled.div`
+export const ContainerDesktop = styled.div`
     height: 90vh;
     display: flex;
     flex-direction: column;
@@ -61,26 +63,73 @@ export const ContainerTitle = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
+        font-size: 48px;
     }
 `
 
-export const BoxContainerDescktop = styled.div`
-    background-color: purple;
+export const BoxContainerDesktopHabits = styled.div`
+
+
+    background-color: var(--background);
+    background-size: contain;
+    background-image: url(${ImageGroup1});
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30vw;
-    height: 35vh;
-
+    width: 360px;
+    height: 280px;
+    border: solid var(--roxo-secundario);
+    border-radius: 16px;
+    border: 2px 8px 8px 2px;
     font-size: 30px;
+
+    &:hover{
+        background-color: var(--caixa-de-texto);
+    }
+
+
 `
 
-export const OptionsContainerDescktop = styled.div`
+export const BoxContainerDesktopGroups = styled.div`
+
+
+    background-color: var(--background);
+    background-size: contain;
+    background-image: url(${ImageGroup2});
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 360px;
+    height: 280px;
+    border: solid var(--roxo-secundario);
+    border-radius: 16px;
+    border: 2px 8px 8px 2px;
+    font-size: 30px;
+
+    &:hover{
+        background-color: var(--caixa-de-texto);
+    }
+
+
+`
+
+export const OptionsContainerDesktop = styled.div`
     height: 50vh;
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
     width: 90%;
+
+    a {
+        color: var(--roxo-secundario);
+        text-decoration: none;
+        text-align: center;
+        font-size: 2.5rem;
+        text-shadow: 0px 4px 4px rgba(0,0,0,0.67);
+		font-family: "Calibri";
+    }
 
     figure{
         img{
@@ -88,4 +137,5 @@ export const OptionsContainerDescktop = styled.div`
             width: 200px;
         }
     }
+
 `

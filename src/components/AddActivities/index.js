@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { InputContainerGroup } from "../../Pages/Groups/styles";
 import { useActivities } from "../../Providers/actives";
+import { ContainerInputs } from "../AddGroup/styles";
 import Button from "../Button";
 import Input from "../Input";
 
@@ -39,14 +41,21 @@ const AddActivities = ({ id }) => {
 
   //os inputs abaixo estão nos cards na page de grupos
   return (
-    <>
+    <div>
+    <ContainerInputs>
+      <InputContainerGroup>
       <input
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Nome da atividade"
       />
-      <Button callback={handleActive}>Enviar</Button>
-    </>
+      </InputContainerGroup>
+      <div style={{marginTop:24, }}>
+          <Button callback={handleActive}>Enviar</Button>
+          </div>
+    </ContainerInputs>
+
+          </div>
   );
 };
 

@@ -15,6 +15,8 @@ import { MenuHeader } from "../../components/Header/styles";
 import HeaderLogged from "../../components/HeaderLogged";
 import Input from "../../components/Input";
 import { GroupsContext } from "../../Providers/groups";
+import HomeBackground from "../../components/BackgroundHome";
+import Footer from "../../components/Footer";
 
 const Activities = () => {
   const { showActivities } = useActivities();
@@ -45,6 +47,7 @@ const Activities = () => {
 
     <ContainerMobile>
       <HeaderLogged />
+      <HomeBackground />
       <h1>Atividades e Metas</h1>
       <h1>{groupName}</h1>
       <OptionsContainerMobile>
@@ -86,6 +89,7 @@ const Activities = () => {
             ))}
         </ul>
       </OptionsContainerMobile>
+      <Footer />
     </ContainerMobile>
   );
 };

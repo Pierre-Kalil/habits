@@ -1,7 +1,8 @@
 import Button from "../../components/Button"
-import { Container, ContainerButtons, ContainerInputs, ContainerTest } from "./styles"
+import { Container, ContainerButtons, ContainerInputs, ContainerTest, InputContainerHabit } from "./styles"
 import {useHabits} from "../../Providers/habits"
 import {useUser} from "../../Providers/user"
+import Input from "../Input"
 
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -14,12 +15,12 @@ const AddHabits = ({setAddNewHabit}) => {
     const {user} = useUser();
     
     const formSchema = yup.object().shape({
-        title: yup.string().required("Titúlo Obrigatório"),
-        category: yup.string().required("Categoria Obrigatório"),
-        difficulty: yup.string().required("Dificuldade Obrigatória"),
-        frequency: yup.string().required("Frequência Obrigatório"),
-        achieved: yup.boolean().required("Item Obrigatório"),
-        how_much_achieved: yup.number().required("Item Obrigatório"),
+        title: yup.string().required("Titúlo Obrigatório!"),
+        category: yup.string().required("Categoria Obrigatório!"),
+        difficulty: yup.string().required("Dificuldade Obrigatória!"),
+        frequency: yup.string().required("Frequência Obrigatório!"),
+        achieved: yup.boolean().required("Item Obrigatório!"),
+        how_much_achieved: yup.number().required("Item Obrigatório!"),
     })
 
     const {
@@ -28,8 +29,6 @@ const AddHabits = ({setAddNewHabit}) => {
         = useForm({
             resolver: yupResolver((formSchema)),
         });
-
-        
 
         const onSubmit =(data)=>{
             addHabit(data, user);
@@ -40,18 +39,30 @@ const AddHabits = ({setAddNewHabit}) => {
         <>
         
             <Container onSubmit= {handleSubmit(onSubmit)}>
-                <h3>CADASTRAR HÁBITOS</h3>
+                <h3>Registre seus hábitos</h3>
                 <ContainerInputs>
-                    <input placeholder="title" {...register("title")}></input>
-                    <input placeholder="category" {...register("category")}></input>
-                    <input placeholder="dificulty" {...register("difficulty")}></input>
-                    <input placeholder="frequency" {...register("frequency")}></input>
-                    <input placeholder="achieved" {...register("achieved")}></input>
-                    <input placeholder="how_much_achieved" {...register("how_much_achieved")}></input>
+                    <InputContainerHabit>
+                    <input placeholder="Título" {...register("title")}></input>
+                    </InputContainerHabit>
+                    <InputContainerHabit>
+                    <input placeholder="Categoria" {...register("category")}></input>
+                    </InputContainerHabit>
+                    <InputContainerHabit>
+                    <input placeholder="Dificuldade" {...register("difficulty")}></input>
+                    </InputContainerHabit>
+                    <InputContainerHabit>
+                    <input placeholder="Frequencia" {...register("frequency")}></input>
+                    </InputContainerHabit>
+                    <InputContainerHabit>
+                    <input placeholder="Alcançado?" {...register("achieved")}></input>
+                    </InputContainerHabit>
+                    <InputContainerHabit>
+                    <input placeholder="Quanto alcançou?" {...register("how_much_achieved")}></input>
+                    </InputContainerHabit>
                 </ContainerInputs>
                 <ContainerButtons>
-                    <Button callback={()=>{setAddNewHabit(0)}}>CANCELAR</Button>
-                    <Button type="submit">ADICIONAR</Button>
+                        <Button callback={()=>{setAddNewHabit(0)}}>CANCELAR</Button>
+                        <Button type="submit">ADICIONAR</Button>
                 </ContainerButtons>
             </Container>
         

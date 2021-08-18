@@ -18,6 +18,8 @@ import { useContext } from "react";
 import { CommunityContext } from "../../Providers/community";
 import { Redirect } from "react-router-dom";
 import { useAuth } from "../../Providers/auth";
+import Footer from "../../components/Footer";
+import HomeBackground from "../../components/BackgroundHome";
 
 const Community = () => {
   const viewport = window.innerWidth;
@@ -46,6 +48,7 @@ const Community = () => {
   return (
     <>
       <HeaderLogged />
+      <HomeBackground />
       {viewport < 500 ? (
         <ContainerMobile>
           <h2>Organize sua vida</h2>
@@ -82,6 +85,7 @@ const Community = () => {
               ))}
             </CardsContainerDesktop>
           </OptionsContainerDescktop>
+
         </ContainerDescktop>
       )}
     </>

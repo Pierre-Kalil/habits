@@ -4,9 +4,9 @@ import {
   OptionsContainerMobile,
 } from "./styles";
 import {
-  ContainerDescktop,
-  // BoxContainerDescktop,
-  OptionsContainerDescktop,
+  ContainerDesktop,
+  // BoxContainerDesktop,
+  OptionsContainerDesktop,
 } from "./styles";
 // import { Link } from "react-router-dom";
 
@@ -15,9 +15,9 @@ import { useContext, useEffect } from "react";
 import { GroupsContext } from "../../Providers/groups";
 import { useHistory } from "react-router-dom";
 import {
-  ListCardsContainerDesktop,
   ListCardsContainerMobile,
 } from "../Community/styles";
+import { ListCardsContainerDesktop } from "./styles";
 import { useState } from "react";
 import SinalMais from "../../components/SinalMais";
 import AddGroup from "../../components/AddGroup";
@@ -31,6 +31,9 @@ import { useActivities } from "../../Providers/actives";
 
 import { Redirect } from "react-router-dom";
 import { useAuth } from "../../Providers/auth";
+import HomeBackground from "../../components/BackgroundHome";
+import Footer from "../../components/Footer";
+import Button from "../../components/Button";
 
 const Groups = () => {
   const viewport = window.innerWidth;
@@ -56,28 +59,35 @@ console.log(groups)
   return (
     <>
       <HeaderLogged />
-      <ContainerDescktop>
+      <HomeBackground />
+      <ContainerDesktop>
         <h1>Grupos</h1>
-        <OptionsContainerDescktop>
+        <div>
+          <Button onClick={() => setRegister(true)}>Criar Grupo</Button>
+        </div>
+        <OptionsContainerDesktop>
           {groups.map((group) => (
             <ListCardsContainerDesktop key={group.id}>
-              {group.creator.id ===  Number(user) && <button onClick = {()=>{ setEdit(true); setId(group.id)}}>Editar</button>}
+              {group.creator.id ===  Number(user) && <Button onClick = {()=>{ setEdit(true); setId(group.id)}}>Editar</Button>}
               <div>{edit && <EditGroup setEdit = {setEdit} group = {id} />}</div>
-              <h4>nome:</h4>
+              <h4>Nome:</h4>
               <div>{group.name}</div>
-              <h4>categoria:</h4>
+              <h4>Descrição:</h4>
+              <div>{group.description}</div>
+              <h4>Categoria:</h4>
               <div>{group.category}</div>
               <div>
-                <button onClick={() => toSend("/activities", group.id)}>
+                <Button onClick={() => toSend("/activities", group.id)}>
                   Ver Atividades e Metas
-                </button>
+                </Button>
               </div>
             </ListCardsContainerDesktop>
           ))}
-        </OptionsContainerDescktop>
-      </ContainerDescktop>
-      <SinalMais onClick={() => setRegister(true)} />
+        </OptionsContainerDesktop>
+      </ContainerDesktop>
+
       {register ? <AddGroup setRegister={setRegister} /> : <></>}
+      <Footer />
     </>
   );
 };

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { GroupsContext } from "../../Providers/groups";
-import { Container, ContainerInputs } from "../AddHabits/styles";
+import { ContainerInputs } from "../AddHabits/styles";
+import { InputContainerGroup, Container } from "./styles";
 import Button from "../Button";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -23,11 +24,13 @@ const EditGroup = ({setEdit, group}) => {
         <>
             <Container onSubmit = {handleSubmit(handleEditGroup)}>
                 <h4>Nova Categoria:</h4>
-                <ContainerInputs>
-                    <input placeholder = 'nova categoria' {...register('category')} />
-                    <Button type = 'submit' >Editar</Button>
-                </ContainerInputs>
+                <InputContainerGroup>
+                    <input placeholder ='Nova Categoria' {...register('category')} />
 
+                </InputContainerGroup>
+                <div style={{marginTop:24}}>
+                     <Button type ='submit'>Editar</Button>
+                </div>
             </Container>
         </>
     )
