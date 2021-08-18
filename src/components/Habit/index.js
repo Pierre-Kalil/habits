@@ -8,18 +8,17 @@ const Habit = ({habit}) => {
 
     return(
         <Container>
-            <h1>MEU HÁBITO</h1>
+            <h1>{habit.title}</h1>
             <ContainerInfos>
-                <h5>TITULO: {habit.title}</h5>
-                <h5>CATEGORIA: {habit.category}</h5>
-                <h5>DIFICULDADE: {habit.difficulty}</h5>
-                <h5>FREQUÊNCIA: {habit.frequency}</h5>
-                <h5>ALCANÇADO: {habit.achieved.toString()}</h5>
-                <h5>QUANTO ANCANÇOU:{habit.how_much_achieved}</h5>
+                <h4>Categoria: {habit.category}</h4>
+                <h4>Dificuldade: {habit.difficulty}</h4>
+                <h4>Frequência: {habit.frequency}</h4>
+                <h4>Alcançado: {habit.achieved.toString()}</h4>
+                <h4>Quanto alcançou:{habit.how_much_achieved}</h4>
             </ContainerInfos>
             <ContainerButtons>
-                <Button callback ={() => deleteHabit(habit)}>EXCLUIR</Button>
-                <Button callback ={() => updateHabit(habit)}>UPDATE</Button>
+                <Button callback ={() => deleteHabit(habit)}>Excluir</Button>
+                <Button callback ={() => updateHabit(habit)}>Atualizar</Button>
             </ContainerButtons>
         </Container>
     )
