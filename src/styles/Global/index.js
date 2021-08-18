@@ -17,8 +17,8 @@ export default createGlobalStyle`
     --sombra-box: rgba(0, 0, 0, 0.67);
     --gradiente: linear-gradient(177.48deg, #10002B 6.72%, #3C096C 30.84%, #8E97FD 77.98%);
     --gradiente-buttom: linear-gradient(to left, #7158E2,  #CD84F1)
-}
 
+}
 body {
 }
 button{

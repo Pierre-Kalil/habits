@@ -105,12 +105,18 @@ export const ListCardsContainerDesktop = styled.li`
   justify-content: space-evenly;
   align-items: center;
   width: 300px;
-  height: 200px;
+  height: 320px;
   margin: 5px 0;
-  border-radius: 20px;
   box-shadow: 1px 1px 4px 1px var(--sombra-box);
-  background-color: var(--roxo-secundario);
   color: #fff;
+  background: linear-gradient(177.48deg, #10002B 6.72%, #3C096C 30.84%, #8E97FD 77.98%);
+  border-radius: 50px;
+  font-size: 20px;
+  font-family: 'Arial';
+
+  h3 {
+    text-align: center;
+  } 
 
   button {
     width: 50%;

@@ -2,7 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useHistory } from "react-router";
+import { Redirect, useHistory } from "react-router";
 import { FiUser, FiMail, FiLock } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import * as yup from 'yup';
@@ -16,9 +16,11 @@ import { Content } from "./styles";
 import { AnimationContainer } from "./styles";
 import { InputContainer1 } from "./styles";
 import { HomeFooter } from "./styles";
+import { useAuth } from "../../Providers/auth";
 
 const Register = () => {
     
+    const {auth} = useAuth();
     const history = useHistory();
 
     const schema = yup.object().shape({
@@ -49,6 +51,10 @@ const Register = () => {
             toast.error("Erro ao criar a conta.")
             reset();
             })
+    }
+
+    if(auth) {
+        return <Redirect to = '/dashboard' />
     }
     return (
         <div>
@@ -86,6 +92,7 @@ const Register = () => {
                                         placeholder="Uma senha bem forte"
                                         register={register}
                                         error={errors.password?.message}
+                                        type="password"
                                     />
                                 </div>
                                 <div>
@@ -96,6 +103,7 @@ const Register = () => {
                                         placeholder="Confirme sua senha"
                                         register={register}
                                         error={errors.confirmPassword?.message}
+                                        type="password"
                                     />
                                 </div>
                                 <br />
