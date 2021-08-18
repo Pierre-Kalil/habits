@@ -19,7 +19,7 @@ const HeaderLogged = () => {
 
     return (
         <MenuHeader>
-             <TresemmeLogo src={Tresemmewhite} alt="Logo-written-white" onClick={() => toSend("/dashboard")}></TresemmeLogo>
+            <TresemmeLogo src={Tresemmewhite} alt="Logo-written-white" onClick={() => toSend("/dashboard")}></TresemmeLogo>
             <ButtonFlexContainer>
                 <MenuButton onClick={() => toSend("/Community")}>Comunidade</MenuButton>
                 <MenuButton onClick={() => toSend("/Habits")}>Hábitos</MenuButton>

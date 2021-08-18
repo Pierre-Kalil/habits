@@ -25,7 +25,6 @@ const Habits = () => {
         }
     return(
     <> 
-        
         <Container>
             <h1>Hábitos</h1>
         <Content>
