@@ -25,34 +25,36 @@ const Login = () => {
     const {getToken, user} = useContext(UserContext);
     const history = useHistory();
 
-    const { signIn } = useAuth()
-
+    const { signIn, auth } = useAuth()
     const schema = yup.object().shape({
         username: yup.string().required('Campo Obrigatório!'),
         password: yup.string().required('Campo Obrigatório!').min(6, 'Mínimo de 6 caracteres'),
-
+        
     })
-
+    
     const {register, handleSubmit, formState: {errors}, reset} = useForm({resolver: yupResolver(schema)})
-
+    
     const handleLogin = (data) => {
         // axios.post('https://kabit-api.herokuapp.com/sessions/', data)
         // .then((res)=> {
-        //     reset();
-        //     localStorage.clear()
-        //     localStorage.setItem('token', JSON.stringify(res.data.access))
-        //     getToken(res.data.access)
-        //     toast.success('Você foi logado!');
-        //     history.push('/dashboard')
+            //     reset();
+            //     localStorage.clear()
+            //     localStorage.setItem('token', JSON.stringify(res.data.access))
+            //     getToken(res.data.access)
+            //     toast.success('Você foi logado!');
+            //     history.push('/dashboard')
             
-        // })
-        // .catch(err => console.log(err));
-
-        signIn(data, history);
-    }
-    
-
-
+            // })
+            // .catch(err => console.log(err));
+            
+            signIn(data, history);
+        }
+        
+        
+        if(auth) {
+           return <Redirect to = '/dashboard' />
+        } 
+        
     return (
         <div>
             <Header />

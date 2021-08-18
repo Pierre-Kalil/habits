@@ -1,18 +1,20 @@
 import { MenuHeader, MenuButton, ButtonFlexContainer, TresemmeLogo } from "./styles"
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import Tresemmewhite from "../../images/Tresemmewhite.png"
+import { useAuth } from "../../Providers/auth";
 
 const HeaderLogged = () => {
 
     const history = useHistory();
-    
+    const { setAuth } = useAuth();
     const toSend = (path) => {
         return history.push(path)
     }
 
-    const handleLogout = () => {
-        localStorage.clear();
-        history.push("/login")
+    const  handleLogout = async () => {
+        //localStorage.clear();
+        setAuth('');
+        return await history.push("/login")
     }
 
     return (
