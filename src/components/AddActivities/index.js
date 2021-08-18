@@ -3,12 +3,12 @@ import { useState } from "react";
 import { useActivities } from "../../Providers/actives";
 import {
   ContainerAddActivities,
-  ContainerInputs,
+  ContainerCreate,
 } from "../AddActivities/style";
-import Button from "../Button";
 
 const AddActivities = ({ id }) => {
   const [title, setTitle] = useState("");
+  const [isCreate, setIsCreate] = useState(false);
   const { CreateActives } = useActivities();
 
   //funções para formatar data, conforme pede a documentação da API
@@ -39,21 +39,31 @@ const AddActivities = ({ id }) => {
     };
     console.log(data);
     CreateActives(data);
+    setIsCreate(false);
+  };
+
+  const handleIsCreate = () => {
+    setIsCreate(true);
   };
 
   //os inputs abaixo estão nos cards na page de grupos
   return (
     <div>
       <ContainerAddActivities>
-        <ContainerInputs>
-          <h3>Criar atividade</h3>
-          <input
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="Nome da atividade"
-          />
-          <Button callback={() => handleActive(id)}>Enviar</Button>
-        </ContainerInputs>
+        {isCreate ? (
+          <ContainerCreate>
+            <input
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Nome da atividade"
+            />
+            <button onClick={() => handleActive(id)}>Enviar</button>
+          </ContainerCreate>
+        ) : (
+          <ContainerCreate>
+            <button onClick={handleIsCreate}>Criar Atividade</button>
+          </ContainerCreate>
+        )}
       </ContainerAddActivities>
     </div>
   );

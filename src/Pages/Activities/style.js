@@ -72,24 +72,37 @@ export const ContainerCreateSearch = styled.div`
 `;
 
 export const ContainerInputs = styled.div`
+  width: 100%;
+  height: 110px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10px 0;
+  border-radius: 20px;
+  background-image: var(--gradiente);
+
+  button {
+    width: 50%;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    background-image: var(--gradiente-buttom);
+    color: #fff;
+    font-weight: bold;
+  }
 
   input {
     margin: 10px 0;
-    padding: 8px;
+    padding: 9px;
   }
 
   @media (min-width: 500px) {
     width: 40%;
     input {
-      width: 100%;
+      width: 70%;
     }
     button {
-      width: 100%;
+      width: 50%;
     }
   }
 `;
@@ -102,16 +115,6 @@ export const ContainerAddActive = styled.div`
   align-items: center;
   border-radius: 20px;
   background-image: var(--gradiente);
-
-  button {
-    width: 60%;
-    padding: 8px;
-    border: none;
-    border-radius: 20px;
-    background-image: var(--gradiente-buttom);
-    color: #fff;
-    font-weight: bold;
-  }
 
   button:hover {
     opacity: 0.8;
@@ -155,6 +158,12 @@ export const ListCardsContainerMobile = styled.li`
   background-color: var(--roxo-secundario);
   color: #fff;
   text-align: center;
+
+  input {
+    padding: 8px 0;
+    border: none;
+    border-radius: 10px;
+  }
 
   @media (min-width: 500px) {
     width: 45%;

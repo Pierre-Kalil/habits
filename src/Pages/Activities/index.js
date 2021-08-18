@@ -38,6 +38,7 @@ const Activities = () => {
   } = useActivities();
   const [isUpdate, setIsUpdate] = useState(false);
   const [isGoalUpdate, setIsGoalUpdate] = useState(false);
+  const [isSearch, setIsSearch] = useState(false);
   const [inputUpdate, setInpuUpdate] = useState("");
 
   const [inputGoalUpdate, setInpuGoalUpdate] = useState(false);
@@ -49,14 +50,14 @@ const Activities = () => {
   const UpdateHere = () => {
     setIsUpdate(true);
   };
+  const handleUpdate = (id, inputUpdate, group) => {
+    const data = { id: id, title: inputUpdate, group: group };
+    setIsUpdate(false);
+    UpdateActivities(data);
+  };
 
   const UpdateGoalHere = () => {
     setIsGoalUpdate(true);
-  };
-
-  const handleUpdate = (id, inputUpdate, group) => {
-    const data = { id: id, title: inputUpdate, group: group };
-    UpdateActivities(data);
   };
   const handleGoalUpdate = (id, inputGoalUpdate) => {
     const data = { id: id, achieved: inputGoalUpdate };
@@ -65,6 +66,10 @@ const Activities = () => {
 
   const hanldeSearch = (active) => {
     OneActivities(active);
+    setIsSearch(false);
+  };
+  const handleIsSearch = () => {
+    setIsSearch(true);
   };
 
   useEffect(() => {
@@ -88,19 +93,24 @@ const Activities = () => {
       <ContainerActivitiesGoals>
         <OptionsContainerMobile>
           <ContainerCreateSearch>
-            {/* <AddActivities id={localStorage.getItem("id")} /> */}
             <ContainerAddActive>
-              <button>Criar Atividade</button>
+              <AddActivities id={localStorage.getItem("id")} />
+              {/* <button>Criar Atividade</button> */}
             </ContainerAddActive>
-            <ContainerInputs>
-              <h3>Pesquisar atividade</h3>
-              <input
-                value={idActive}
-                onChange={(e) => setIdActive(e.target.value)}
-                placeholder="Digite o numero da atividade"
-              />
-              <Button callback={() => hanldeSearch(idActive)}>Enviar</Button>
-            </ContainerInputs>
+            {isSearch ? (
+              <ContainerInputs>
+                <input
+                  value={idActive}
+                  onChange={(e) => setIdActive(e.target.value)}
+                  placeholder="Digite o numero da atividade"
+                />
+                <button onClick={() => hanldeSearch(idActive)}>Enviar</button>
+              </ContainerInputs>
+            ) : (
+              <ContainerInputs>
+                <button onClick={handleIsSearch}>Enviar</button>
+              </ContainerInputs>
+            )}
           </ContainerCreateSearch>
           <CardsContainerMobile>
             {idActive.length !== 0
