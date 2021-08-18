@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useEffect } from "react";
 import { createContext, useContext, useState } from "react";
 
 export const GoalsContext = createContext();
