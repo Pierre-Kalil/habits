@@ -179,11 +179,14 @@ export const ContainerNewUser = styled.div`
 export const ContainerNewUserMobile = styled.div`
   text-align: center;
   font-family: Calibri;
-  h2 {
+  h3 {
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
   img {
-    width: 18vw;
-    height: 18vw;
+    width: 30vw;
+    height: 30vw;
+    margin-top: 10px;
   }
   button {
     background: none;
@@ -192,15 +195,15 @@ export const ContainerNewUserMobile = styled.div`
   }
   .princ {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
   }
   .opção {
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
-
-    h4 {
-    }
+    width: 80vw;
+    height: 50vw;
+    margin-top: 10px;
   }
 `;
