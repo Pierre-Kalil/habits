@@ -66,24 +66,24 @@ const Activities = () => {
         <h1>Atividades e Metas</h1>
         <h2>Grupo: {groupName}</h2>
       </ContainerTitleMobile>
-      <ContainerCreateSearch>
-        {/* <AddActivities id={localStorage.getItem("id")} /> */}
-        <ContainerAddActive>
-          <button>Criar Atividade</button>
-        </ContainerAddActive>
-        <ContainerInputs>
-          <h3>Pesquisar atividade</h3>
-          <input
-            value={idActive}
-            onChange={(e) => setIdActive(e.target.value)}
-            placeholder="Digite o numero da atividade"
-          />
-          <Button callback={() => hanldeSearch(idActive)}>Enviar</Button>
-        </ContainerInputs>
-      </ContainerCreateSearch>
 
       <ContainerActivitiesGoals>
         <OptionsContainerMobile>
+          <ContainerCreateSearch>
+            {/* <AddActivities id={localStorage.getItem("id")} /> */}
+            <ContainerAddActive>
+              <button>Criar Atividade</button>
+            </ContainerAddActive>
+            <ContainerInputs>
+              <h3>Pesquisar atividade</h3>
+              <input
+                value={idActive}
+                onChange={(e) => setIdActive(e.target.value)}
+                placeholder="Digite o numero da atividade"
+              />
+              <Button callback={() => hanldeSearch(idActive)}>Enviar</Button>
+            </ContainerInputs>
+          </ContainerCreateSearch>
           <CardsContainerMobile>
             {idActive.length !== 0
               ? oneActives &&

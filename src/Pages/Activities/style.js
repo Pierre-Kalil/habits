@@ -24,6 +24,18 @@ export const ContainerTitleMobile = styled.div`
   }
 `;
 
+export const ContainerActivitiesGoals = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (min-width: 769px) {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+`;
+
 export const ContainerCreateSearch = styled.div`
   width: 70%;
   display: flex;
@@ -53,7 +65,7 @@ export const ContainerCreateSearch = styled.div`
   }
 
   @media (min-width: 769px) {
-    width: 49%;
+    width: 100%;
     flex-direction: row;
     justify-content: space-around;
   }
@@ -108,18 +120,6 @@ export const ContainerAddActive = styled.div`
 
   @media (min-width: 500px) {
     width: 40%;
-  }
-`;
-
-export const ContainerActivitiesGoals = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  @media (min-width: 769px) {
-    flex-direction: row;
-    flex-wrap: nowrap;
   }
 `;
 
