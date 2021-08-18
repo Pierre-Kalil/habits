@@ -5,6 +5,7 @@ export const ActivitiesContext = createContext();
 
 export const ActivitiesProvider = ({ children }) => {
   const [showActivities, setShowActivities] = useState([]);
+  const [oneActives, setOneActive] = useState([]);
 
   const CreateActives = (data) => {
     console.log(data);
@@ -58,6 +59,12 @@ export const ActivitiesProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
+  const OneActivities = (id) => {
+    axios
+      .get(`https://kabit-api.herokuapp.com/activities/${id}/`)
+      .then((response) => setOneActive([...oneActives, response.data]));
+  };
+
   return (
     <ActivitiesContext.Provider
       value={{
@@ -66,6 +73,8 @@ export const ActivitiesProvider = ({ children }) => {
         ShowActivities,
         UpdateActivities,
         DeleteActivities,
+        OneActivities,
+        oneActives,
       }}
     >
       {children}

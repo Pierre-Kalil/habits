@@ -1,50 +1,75 @@
-import { useHistory } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { useActivities } from "../../Providers/actives";
 import { useGoals } from "../../Providers/goals";
 
 import {
   ContainerMobile,
+  CardsContainerMobile,
   ListCardsContainerMobile,
   OptionsContainerMobile,
   ContainerActivitiesGoals,
+  ContainerInputs,
+  ContainerTitleMobile,
+  ContainerButton,
+  ContainerCreateSearch,
+  ContainerAddActive,
 } from "./style";
 import AddActivities from "../../components/AddActivities";
 import AddGoals from "../../components/AddGoals";
 
 import { Redirect } from "react-router-dom";
 import { useAuth } from "../../Providers/auth";
-import { MenuHeader } from "../../components/Header/styles";
 import HeaderLogged from "../../components/HeaderLogged";
-import Input from "../../components/Input";
 import { GroupsContext } from "../../Providers/groups";
+
+import Button from "../../components/Button";
+
 import HomeBackground from "../../components/BackgroundHome";
 import Footer from "../../components/Footer";
 
 const Activities = () => {
-  const { showActivities } = useActivities();
+  const {
+    showActivities,
+    oneActives,
+    OneActivities,
+    UpdateActivities,
+    DeleteActivities,
+    ShowActivities,
+  } = useActivities();
   const [isUpdate, setIsUpdate] = useState(false);
   const [isGoalUpdate, setIsGoalUpdate] = useState(false);
+  const [isSearch, setIsSearch] = useState(false);
   const [inputUpdate, setInpuUpdate] = useState("");
+
   const [inputGoalUpdate, setInpuGoalUpdate] = useState(false);
-  const { UpdateActivities, DeleteActivities } = useActivities();
-  const { ShowActivities } = useActivities();
   const { showGoals, ShowGoals, UpdateGoals, DeleteGoals } = useGoals();
+
   const { groupName } = useContext(GroupsContext);
+  const [idActive, setIdActive] = useState("");
 
   const UpdateHere = () => {
     setIsUpdate(true);
   };
-  const UpdateGoalHere = () => {
-    setIsGoalUpdate(true);
-  };
   const handleUpdate = (id, inputUpdate, group) => {
     const data = { id: id, title: inputUpdate, group: group };
+    setIsUpdate(false);
     UpdateActivities(data);
+  };
+
+  const UpdateGoalHere = () => {
+    setIsGoalUpdate(true);
   };
   const handleGoalUpdate = (id, inputGoalUpdate) => {
     const data = { id: id, achieved: inputGoalUpdate };
     UpdateGoals(data);
+  };
+
+  const hanldeSearch = (active) => {
+    OneActivities(active);
+    setIsSearch(false);
+  };
+  const handleIsSearch = () => {
+    setIsSearch(true);
   };
 
   useEffect(() => {
@@ -56,23 +81,42 @@ const Activities = () => {
   if (!auth) {
     return <Redirect to="/login" />;
   }
-
+  console.log();
   return (
     <ContainerMobile>
-      <HeaderLogged />
-      <HomeBackground />
-      <h1>Atividades e Metas</h1>
-      <h1>Grupo: {groupName}</h1>
+      {/* <HeaderLogged /> */}
+      <ContainerTitleMobile>
+        <h1>Atividades e Metas</h1>
+        <h2>Grupo: {groupName}</h2>
+      </ContainerTitleMobile>
+
       <ContainerActivitiesGoals>
         <OptionsContainerMobile>
-          <div>
-            <AddActivities id={localStorage.getItem("id")} />
-          </div>
-          <ul>
-            {showActivities &&
-              showActivities.map((active, index) => (
-                <ListCardsContainerMobile key={index}>
-                  <p>
+          <ContainerCreateSearch>
+            <ContainerAddActive>
+              <AddActivities id={localStorage.getItem("id")} />
+              {/* <button>Criar Atividade</button> */}
+            </ContainerAddActive>
+            {isSearch ? (
+              <ContainerInputs>
+                <input
+                  value={idActive}
+                  onChange={(e) => setIdActive(e.target.value)}
+                  placeholder="Digite o numero da atividade"
+                />
+                <button onClick={() => hanldeSearch(idActive)}>Enviar</button>
+              </ContainerInputs>
+            ) : (
+              <ContainerInputs>
+                <button onClick={handleIsSearch}>Enviar</button>
+              </ContainerInputs>
+            )}
+          </ContainerCreateSearch>
+          <CardsContainerMobile>
+            {idActive.length !== 0
+              ? oneActives &&
+                oneActives.map((active, index) => (
+                  <ListCardsContainerMobile key={index}>
                     {active.title}
                     {isUpdate ? (
                       <button
@@ -97,11 +141,43 @@ const Activities = () => {
                     ) : (
                       <></>
                     )}
-                  </p>
-                </ListCardsContainerMobile>
-              ))}
-          </ul>
+                  </ListCardsContainerMobile>
+                ))
+              : showActivities &&
+                showActivities.map((active, index) => (
+                  <ListCardsContainerMobile key={index}>
+                    <div>{active.title}</div>
+                    <div>{active.realization_time}</div>
+                    <ContainerButton>
+                      {isUpdate ? (
+                        <button
+                          onClick={() =>
+                            handleUpdate(active.id, inputUpdate, active.group)
+                          }
+                        >
+                          Enviar
+                        </button>
+                      ) : (
+                        <button onClick={UpdateHere}>Atualizar</button>
+                      )}{" "}
+                      <button onClick={() => DeleteActivities(active.id)}>
+                        Remover
+                      </button>
+                    </ContainerButton>
+                    {isUpdate ? (
+                      <input
+                        placeholder="Digite o novo nome"
+                        value={inputUpdate}
+                        onChange={(e) => setInpuUpdate(e.target.value)}
+                      />
+                    ) : (
+                      <></>
+                    )}
+                  </ListCardsContainerMobile>
+                ))}
+          </CardsContainerMobile>
         </OptionsContainerMobile>
+
         {/********************************* METAS *******************************/}
         <OptionsContainerMobile>
           <div>

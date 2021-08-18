@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { InputContainerGroup } from "../../Pages/Groups/styles";
+
 import { useActivities } from "../../Providers/actives";
-import { ContainerInputs } from "../AddGroup/styles";
-import Button from "../Button";
-import Input from "../Input";
-import { ContainerAddActivities } from "./styled";
+import {
+  ContainerAddActivities,
+  ContainerCreate,
+} from "../AddActivities/style";
 
 const AddActivities = ({ id }) => {
-  // const [actives, setActives] = useState({})
   const [title, setTitle] = useState("");
+  const [isCreate, setIsCreate] = useState(false);
   const { CreateActives } = useActivities();
 
   //funções para formatar data, conforme pede a documentação da API
@@ -39,25 +39,32 @@ const AddActivities = ({ id }) => {
     };
     console.log(data);
     CreateActives(data);
+    setIsCreate(false);
+  };
+
+  const handleIsCreate = () => {
+    setIsCreate(true);
   };
 
   //os inputs abaixo estão nos cards na page de grupos
   return (
     <div>
-    {/* <ContainerInputs>
-      <InputContainerGroup> */}
-    <ContainerAddActivities>
-      <input
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Nome da atividade"
-      />
-      {/* </InputContainerGroup> */}
-      <div style={{marginTop:24}}>
-      <Button callback={() => handleActive(id)}>Enviar</Button>
-          </div>
-    {/* </ContainerInputs> */}
-    </ContainerAddActivities>
+      <ContainerAddActivities>
+        {isCreate ? (
+          <ContainerCreate>
+            <input
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Nome da atividade"
+            />
+            <button onClick={() => handleActive(id)}>Enviar</button>
+          </ContainerCreate>
+        ) : (
+          <ContainerCreate>
+            <button onClick={handleIsCreate}>Criar Atividade</button>
+          </ContainerCreate>
+        )}
+      </ContainerAddActivities>
     </div>
   );
 };
