@@ -1,6 +1,7 @@
 import { useHistory } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { useActivities } from "../../Providers/actives";
+import { useGoals } from "../../Providers/goals";
 
 import {
   ContainerMobile,
@@ -9,6 +10,7 @@ import {
   ContainerActivitiesGoals,
 } from "./style";
 import AddActivities from "../../components/AddActivities";
+import AddGoals from "../../components/AddGoals";
 
 import { Redirect } from "react-router-dom";
 import { useAuth } from "../../Providers/auth";
@@ -20,18 +22,27 @@ import { GroupsContext } from "../../Providers/groups";
 const Activities = () => {
   const { showActivities } = useActivities();
   const [isUpdate, setIsUpdate] = useState(false);
+  const [isGoalUpdate, setIsGoalUpdate] = useState(false);
   const [inputUpdate, setInpuUpdate] = useState("");
+  const [inputGoalUpdate, setInpuGoalUpdate] = useState(false);
   const { UpdateActivities, DeleteActivities } = useActivities();
   const { ShowActivities } = useActivities();
+  const { showGoals, ShowGoals, UpdateGoals, DeleteGoals } = useGoals();
   const { groupName } = useContext(GroupsContext);
 
   const UpdateHere = () => {
     setIsUpdate(true);
   };
-
+  const UpdateGoalHere = () => {
+    setIsGoalUpdate(true);
+  };
   const handleUpdate = (id, inputUpdate, group) => {
     const data = { id: id, title: inputUpdate, group: group };
     UpdateActivities(data);
+  };
+  const handleGoalUpdate = (id, inputGoalUpdate) => {
+    const data = { id: id, achieved: inputGoalUpdate };
+    UpdateGoals(data);
   };
 
   useEffect(() => {
@@ -87,7 +98,50 @@ const Activities = () => {
               ))}
           </ul>
         </OptionsContainerMobile>
-        <OptionsContainerMobile>Metas</OptionsContainerMobile>
+        {/********************************* METAS *******************************/}
+        <OptionsContainerMobile>
+          <div>
+            <AddGoals id={localStorage.getItem("id")} />
+          </div>
+          <ul>
+            {showGoals &&
+              showGoals.map((goal, index) => (
+                <ListCardsContainerMobile key={index}>
+                  <p>
+                    {goal.title}
+                    {isGoalUpdate ? (
+                      <button
+                        onClick={() =>
+                          handleGoalUpdate(
+                            goal.id,
+                            inputGoalUpdate,
+                            goal.active
+                          )
+                        }
+                      >
+                        Enviar
+                      </button>
+                    ) : (
+                      <button onClick={UpdateGoalHere}>Atualizar</button>
+                    )}{" "}
+                    <button onClick={() => DeleteGoals(goal.id)}>
+                      Remover
+                    </button>
+                    {isGoalUpdate ? (
+                      <input
+                        placeholder="Atingido?"
+                        /* value={inputGoalUpdate} */
+                        onChange={(e) => setInpuGoalUpdate(true)}
+                      />
+                    ) : (
+                      <></>
+                    )}
+                  </p>
+                </ListCardsContainerMobile>
+              ))}
+          </ul>
+        </OptionsContainerMobile>
+        {/********************************* FIM METAS *******************************/}
       </ContainerActivitiesGoals>
     </ContainerMobile>
   );
