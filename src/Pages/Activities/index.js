@@ -118,7 +118,6 @@ const Activities = () => {
                           handleGoalUpdate(
                             goal.id,
                             inputGoalUpdate,
-                            goal.active
                           )
                         }
                       >

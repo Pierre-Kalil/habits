@@ -40,7 +40,7 @@ const AddGoals = ({ id }) => {
         onChange={(e) => setHow_much_achieved(e.target.value)}
         placeholder="How much achieved"
       />
-      <Button callback={() => handleGoal(id)}>Enviar</Button>
+      <Button callback={() => handleGoal(id)}>Criar Meta</Button>
     </ContainerAddGoals>
   );
 };
