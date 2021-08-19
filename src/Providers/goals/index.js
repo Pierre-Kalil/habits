@@ -5,6 +5,7 @@ export const GoalsContext = createContext();
 
 export const GoalsProvider = ({ children }) => {
   const [showGoals, setShowGoals] = useState([]);
+  const [oneGoal, setOneGoal] = useState([]);
 
   const CreateGoals = (data) => {
     axios
@@ -23,7 +24,6 @@ export const GoalsProvider = ({ children }) => {
       .then((response) => setShowGoals(response.data.results))
       .catch((err) => console.log(err));
   };
-  console.log(showGoals);
 
   const UpdateGoals = (data) => {
     const { id, achieved } = data;
@@ -57,6 +57,12 @@ export const GoalsProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
+  const OneGoal = (id) => {
+    axios
+      .get(`https://kabit-api.herokuapp.com/goals/${id}/`)
+      .then((response) => setOneGoal([...oneGoal, response.data]));
+  };
+
   return (
     <GoalsContext.Provider
       value={{
@@ -65,6 +71,8 @@ export const GoalsProvider = ({ children }) => {
         ShowGoals,
         UpdateGoals,
         DeleteGoals,
+        OneGoal,
+        oneGoal,
       }}
     >
       {children}
