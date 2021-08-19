@@ -4,7 +4,7 @@ import { useActivities } from "../../Providers/actives";
 import {
   ContainerAddActivities,
   ContainerCreate,
-} from "../AddActivities/style";
+} from "./styles";
 
 const AddActivities = ({ id }) => {
   const [title, setTitle] = useState("");

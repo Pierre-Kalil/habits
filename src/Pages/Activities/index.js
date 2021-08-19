@@ -13,7 +13,7 @@ import {
   ContainerButton,
   ContainerCreateSearch,
   ContainerAddActive,
-} from "./style";
+} from "./styles";
 import AddActivities from "../../components/AddActivities";
 import AddGoals from "../../components/AddGoals";
 
@@ -64,7 +64,7 @@ const Activities = () => {
     UpdateGoals(data);
   };
 
-  const hanldeSearch = (active) => {
+  const handleSearch = (active) => {
     OneActivities(active);
     setIsSearch(false);
   };
@@ -104,11 +104,11 @@ const Activities = () => {
                   onChange={(e) => setIdActive(e.target.value)}
                   placeholder="Digite o numero da atividade"
                 />
-                <button onClick={() => hanldeSearch(idActive)}>Enviar</button>
+                <Button onClick={() => handleSearch(idActive)}>Enviar</Button>
               </ContainerInputs>
             ) : (
               <ContainerInputs>
-                <button onClick={handleIsSearch}>Pesuisar</button>
+                <Button onClick={handleIsSearch}>Pesuisar</Button>
               </ContainerInputs>
             )}
           </ContainerCreateSearch>
@@ -119,13 +119,13 @@ const Activities = () => {
                   <ListCardsContainerMobile key={index}>
                     {active.title}
                     {isUpdate ? (
-                      <button
+                      <Button
                         onClick={() =>
                           handleUpdate(active.id, inputUpdate, active.group)
                         }
                       >
                         Enviar
-                      </button>
+                      </Button>
                     ) : (
                       <button onClick={UpdateHere}>Atualizar</button>
                     )}{" "}
@@ -150,19 +150,19 @@ const Activities = () => {
                     <div>{active.realization_time}</div>
                     <ContainerButton>
                       {isUpdate ? (
-                        <button
+                        <Button
                           onClick={() =>
                             handleUpdate(active.id, inputUpdate, active.group)
                           }
                         >
                           Enviar
-                        </button>
+                        </Button>
                       ) : (
-                        <button onClick={UpdateHere}>Atualizar</button>
+                        <Button onClick={UpdateHere}>Atualizar</Button>
                       )}{" "}
-                      <button onClick={() => DeleteActivities(active.id)}>
+                      <Button onClick={() => DeleteActivities(active.id)}>
                         Remover
-                      </button>
+                      </Button>
                     </ContainerButton>
                     {isUpdate ? (
                       <input

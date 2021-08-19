@@ -25,6 +25,8 @@ const Habits = () => {
         }
     return(
     <> 
+    <HeaderLogged />
+    <HomeBackground />
         <Container>
             <h1>Hábitos</h1>
         <Content>

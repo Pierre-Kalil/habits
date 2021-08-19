@@ -43,6 +43,7 @@ export const TresemmeLogo = styled.img`
 `;
 
 export const MenuButton = styled.button`
+  width: 240px;
   height: 40px;
   background-color: transparent;
   border: 2px solid transparent;
