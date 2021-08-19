@@ -3,7 +3,7 @@ import { InputContainer1 } from "../../Pages/Login/styles";
 
 const Input = ({ label, icon: Icon, error, register, name, ...rest }) => {
   return (
-    <div>
+    <div >
       <div>{label}</div>
       <InputContainer1>
         {Icon  && <Icon size={24}  />}
