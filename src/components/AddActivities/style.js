@@ -12,7 +12,7 @@ export const ContainerCreate = styled.div`
 
   button {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     border: none;
     border-radius: 20px;
     background-image: var(--gradiente-buttom);
