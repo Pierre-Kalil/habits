@@ -29,32 +29,24 @@ const Habits = () => {
         }
     return(
     <> 
-    <HeaderLogged />
         <Container>
-            <h1>Hábitos</h1>
-        <Content>
-          <ContainerHabits>
-            {habits.map((habit) => (
-              <Habit key={habit.id} habit={habit}></Habit>
-            ))}
-
-            {addNewHabit ? (
-              <AddHabits setAddNewHabit={setAddNewHabit} />
-            ) : (
-              <></>
-            )}
-          </ContainerHabits>
-          <ContainerButtons>
-            <Button
-              onClick={() => {
-                setAddNewHabit(1);
-              }}
-            >
-              {" "}
-              Criar hábito
-            </Button>
-          </ContainerButtons>
-        </Content>
+            <HeaderLogged />
+            {addNewHabit ? 
+                <AddHabits setAddNewHabit={setAddNewHabit}/>
+                :
+                <>
+                <h1>Hábitos</h1>
+                <Content>
+                    <ContainerHabits>
+                    {habits.map((habit)=> <Habit key={habit.id} habit={habit}></Habit>)}
+                    
+                    </ContainerHabits>
+                    <ContainerButtons>
+                        <Button onClick = {() => {setAddNewHabit(1)}}> Criar hábito</Button>
+                    </ContainerButtons>
+                </Content>
+                </>
+            }           
       </Container>
     </>
   );
