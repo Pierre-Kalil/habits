@@ -2,11 +2,7 @@ import { useState } from "react";
 import { useGoals } from "../../Providers/goals";
 import Button from "../Button";
 import Input from "../Input";
-<<<<<<< HEAD
 import { ContainerAddGoals, ContainerCreate } from "./styled";
-=======
-import { ContainerAddGoals } from "./styles";
->>>>>>> b17a628217a1d71118a937cb3b19a68ce2dcd1d2
 
 const AddGoals = ({ id }) => {
   const [title, setTitle] = useState("");
@@ -25,8 +21,8 @@ const AddGoals = ({ id }) => {
       group: id,
     };
     console.log(data);
-    CreateGoals(data);
     setIsCreate(false);
+    CreateGoals(data);
   };
 
   const handleIsCreate = () => {
@@ -35,7 +31,6 @@ const AddGoals = ({ id }) => {
 
   //os inputs abaixo estão nos cards na page de grupos
   return (
-<<<<<<< HEAD
     <div>
       <ContainerAddGoals>
         {isCreate ? (
@@ -64,26 +59,6 @@ const AddGoals = ({ id }) => {
         )}
       </ContainerAddGoals>
     </div>
-=======
-    <ContainerAddGoals>
-      <input
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Título"
-      />
-      <input
-        value={difficulty}
-        onChange={(e) => setDifficulty(e.target.value)}
-        placeholder="Dificuldade"
-      />
-      <input
-        value={how_much_achieved}
-        onChange={(e) => setHow_much_achieved(e.target.value)}
-        placeholder="Quanto conseguiu?"
-      />
-      <Button callback={() => handleGoal(id)}>Criar Meta</Button>
-    </ContainerAddGoals>
->>>>>>> b17a628217a1d71118a937cb3b19a68ce2dcd1d2
   );
 };
 

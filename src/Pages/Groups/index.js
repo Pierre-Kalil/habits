@@ -49,6 +49,7 @@ const Groups = () => {
   const [id, setId] = useState("");
 
   const toSend = (path, id) => {
+    nameGroup(id);
     ShowActivities(id);
     localStorage.setItem("id", JSON.stringify(id));
     return history.push(path);
@@ -58,7 +59,6 @@ const Groups = () => {
   if (!auth) {
     return <Redirect to="/login" />;
   }
-  console.log(viewport);
 
   return (
     <>
