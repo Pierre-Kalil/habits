@@ -116,7 +116,11 @@ export const ListCardsContainerDesktop = styled.li`
 
   h3 {
     text-align: center;
-  } 
+  }
+  
+  p{
+    text-align: center;
+  }
 
   button {
     width: 50%;
