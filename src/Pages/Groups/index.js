@@ -62,8 +62,19 @@ const Groups = () => {
 
   return (
     <>
+      <HeaderLogged />
       <HomeBackground />
       <ContainerDesktop>
+        {groups.length > 0 && (
+          <>
+            <div className="texto">
+              <h2>Escolha seu grupo:</h2>{" "}
+            </div>
+            <div className="botao">
+              <button onClick={() => setRegister(true)}>Criar grupo</button>
+            </div>
+          </>
+        )}
         <OptionsContainerDesktop>
           {groups.length === 0 && viewport >= 769 && (
             <ContainerNewUser>
@@ -107,6 +118,7 @@ const Groups = () => {
               </div>
             </ContainerNewUserMobile>
           )}
+
           {groups.map((group) => (
             <ListCardsContainerDesktop key={group.id}>
               {group.creator.id === Number(user) && (
@@ -135,7 +147,6 @@ const Groups = () => {
           ))}
         </OptionsContainerDesktop>
       </ContainerDesktop>
-
       {register ? <AddGroup setRegister={setRegister} /> : <></>}
       <Footer />
     </>
