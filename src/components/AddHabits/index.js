@@ -42,6 +42,7 @@ const AddHabits = ({ setAddNewHabit }) => {
 
   return (
     <>
+    
       <ContainerDark>
         <Container onSubmit={handleSubmit(onSubmit)}>
           <h3>CADASTRAR HÁBITOS</h3>

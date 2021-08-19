@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 export const HabitsContext = createContext();
 
@@ -32,7 +33,7 @@ export const HabitsProvider = ({ children }) => {
           Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
         },
       }
-    );
+    ).then((response) => toast.success("Hábito adicionado"));
   };
 
   const updateHabit = (habit) => {
@@ -55,7 +56,7 @@ export const HabitsProvider = ({ children }) => {
       headers: {
         Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
       },
-    });
+    }).then((response) => toast.success("Hábito excluído"));;
   };
 
   const loadHabits = () => {
