@@ -20,7 +20,6 @@ export const ActivitiesProvider = ({ children }) => {
   };
 
   const ShowActivities = (id) => {
-    console.log(id);
     axios
       .get(`https://kabit-api.herokuapp.com/activities/?group=${id}&page=1`)
       .then((response) => setShowActivities(response.data.results))
@@ -29,7 +28,6 @@ export const ActivitiesProvider = ({ children }) => {
 
   const UpdateActivities = (data) => {
     const { id, title, group } = data;
-    console.log(data);
     axios
       .patch(
         `https://kabit-api.herokuapp.com/activities/${id}/`,

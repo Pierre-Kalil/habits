@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
           Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
         },
       })
-      // .then(()=> toast.success('Usuário atualizado'))
+      .then(()=> toast.success('Usuário atualizado'))
       .then(() => {
         setUsername(data.username);
       });

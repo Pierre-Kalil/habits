@@ -64,6 +64,7 @@ export const ContainerTitle = styled.div`
         justify-content: center;
         align-items: center;
         font-size: 48px;
+        font-family: 'Calibri';
     }
 `
 
@@ -83,6 +84,7 @@ export const BoxContainerDesktopHabits = styled.div`
     border-radius: 16px;
     border: 2px 8px 8px 2px;
     font-size: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 
     &:hover{
         background-color: var(--caixa-de-texto);
@@ -107,6 +109,7 @@ export const BoxContainerDesktopGroups = styled.div`
     border-radius: 16px;
     border: 2px 8px 8px 2px;
     font-size: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 
     &:hover{
         background-color: var(--caixa-de-texto);
@@ -122,11 +125,27 @@ export const OptionsContainerDesktop = styled.div`
     align-items: flex-end;
     width: 90%;
 
+
+    div {
+        div{
+            width:300px;
+            p{
+                font-size: 16px;
+                padding: 8px;
+                span{
+                    color: var(--roxo-secundario);
+                    font-style: italic;
+                    text-shadow: 0px 4px 4px rgba(0,0,0,0.33);
+                }
+            }
+        }
+    }
+
     a {
         color: var(--roxo-secundario);
         text-decoration: none;
         text-align: center;
-        font-size: 2.5rem;
+        /* font-size: 2.5rem; */
         text-shadow: 0px 4px 4px rgba(0,0,0,0.67);
 		font-family: "Calibri";
     }

@@ -20,6 +20,7 @@ import { Redirect } from "react-router-dom";
 import { useAuth } from "../../Providers/auth";
 import Footer from "../../components/Footer";
 import HomeBackground from "../../components/BackgroundHome";
+import toast from "react-hot-toast";
 
 const Community = () => {
   const viewport = window.innerWidth;
@@ -37,8 +38,8 @@ const Community = () => {
           },
         }
       )
-      .then((response) => console.log(response))
-      .catch((err) => console.log(err));
+      .then(() => toast.success('Inscrito com sucesso'))
+      .catch(() => toast.error('Erro ao se inscrever'));
   };
 
         const { auth } = useAuth();
@@ -48,7 +49,7 @@ const Community = () => {
   return (
     <>
       <HeaderLogged />
-      <HomeBackground />
+
       {viewport < 500 ? (
         <ContainerMobile>
           <h2>Organize sua vida</h2>
@@ -61,7 +62,7 @@ const Community = () => {
                   <p>Categoria: {group.category}</p>
                   <p>Descrição: {group.description}</p>
                   <Button onClick={() => SubmitToSubscribe(group.id)}>
-                    Cadastrar-se
+                    Inscreva-se
                   </Button>
                 </ListCardsContainerMobile>
               ))}
@@ -69,7 +70,9 @@ const Community = () => {
           </OptionsContainerMobile>
         </ContainerMobile>
       ) : (
+        
         <ContainerDescktop>
+
           <h1>Escolha seu grupo</h1>
           <OptionsContainerDescktop>
             <CardsContainerDesktop>
@@ -79,7 +82,7 @@ const Community = () => {
                   <p>Categoria: {group.category}</p>
                   <p>Descrição: {group.description}</p>
                   <Button onClick={() => SubmitToSubscribe(group.id)}>
-                    Cadastrar-se
+                    Inscreva-se
                   </Button>
                 </ListCardsContainerDesktop>
               ))}
@@ -87,7 +90,9 @@ const Community = () => {
           </OptionsContainerDescktop>
 
         </ContainerDescktop>
+
       )}
+
     </>
   );
 };

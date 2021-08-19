@@ -12,9 +12,9 @@ export const UserProvider = ({children}) => {
         setUser(JSON.stringify(id.user_id))
     }
 
-    /* useEffect (() =>{
+    useEffect (() =>{
         JSON.parse(localStorage.getItem("token")) && getToken(JSON.parse(localStorage.getItem("token")));
-    },[]) */ 
+    },[]) 
 
     return (
         <UserContext.Provider value ={{user, getToken}}>

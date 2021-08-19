@@ -13,19 +13,13 @@ import {
   ContainerButton,
   ContainerCreateSearch,
   ContainerAddActive,
-} from "./style";
+  Divisor,
+} from "./styles";
 import AddActivities from "../../components/AddActivities";
 import AddGoals from "../../components/AddGoals";
 
-import { Redirect } from "react-router-dom";
-import { useAuth } from "../../Providers/auth";
 import HeaderLogged from "../../components/HeaderLogged";
 import { GroupsContext } from "../../Providers/groups";
-
-import Button from "../../components/Button";
-
-import HomeBackground from "../../components/BackgroundHome";
-import Footer from "../../components/Footer";
 
 const Activities = () => {
   const {
@@ -37,15 +31,16 @@ const Activities = () => {
     ShowActivities,
   } = useActivities();
   const [isUpdate, setIsUpdate] = useState(false);
-  const [isGoalUpdate, setIsGoalUpdate] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
+  const [isSearchGoal, setIsSearchGoal] = useState(false);
   const [inputUpdate, setInpuUpdate] = useState("");
 
-  const [inputGoalUpdate, setInpuGoalUpdate] = useState(false);
-  const { showGoals, ShowGoals, UpdateGoals, DeleteGoals } = useGoals();
+  const { showGoals, ShowGoals, UpdateGoals, DeleteGoals, OneGoal, oneGoal } =
+    useGoals();
 
   const { groupName } = useContext(GroupsContext);
   const [idActive, setIdActive] = useState("");
+  const [idGoal, setIdGoal] = useState("");
 
   const UpdateHere = () => {
     setIsUpdate(true);
@@ -56,21 +51,33 @@ const Activities = () => {
     UpdateActivities(data);
   };
 
-  const UpdateGoalHere = () => {
-    setIsGoalUpdate(true);
-  };
   const handleGoalUpdate = (id, inputGoalUpdate) => {
     const data = { id: id, achieved: inputGoalUpdate };
     UpdateGoals(data);
+    setIsUpdate(false);
   };
 
-  const hanldeSearch = (active) => {
+  //Active
+  const handleSearch = (active) => {
     OneActivities(active);
     setIsSearch(false);
   };
   const handleIsSearch = () => {
     setIsSearch(true);
   };
+  //**Active */
+
+  //Goal
+  const handleGoalSearch = (goal) => {
+    setIsSearchGoal(false);
+    OneGoal(goal);
+  };
+
+  const handleGoalClose = () => {
+    setIsSearchGoal(true);
+  };
+
+  //Goal //
 
   useEffect(() => {
     ShowActivities(localStorage.getItem("id"));
@@ -80,10 +87,6 @@ const Activities = () => {
     ShowGoals(localStorage.getItem("id"));
   }, [showGoals]);
 
-  const { auth } = useAuth();
-  if (!auth) {
-    return <Redirect to="/login" />;
-  }
   console.log();
   return (
     <ContainerMobile>
@@ -92,9 +95,9 @@ const Activities = () => {
         <h1>Atividades e Metas</h1>
         <h2>Grupo: {groupName}</h2>
       </ContainerTitleMobile>
-
       <ContainerActivitiesGoals>
         <OptionsContainerMobile>
+          <h2>Atividades</h2>
           <ContainerCreateSearch>
             <ContainerAddActive>
               <AddActivities id={localStorage.getItem("id")} />
@@ -107,11 +110,11 @@ const Activities = () => {
                   onChange={(e) => setIdActive(e.target.value)}
                   placeholder="Digite o numero da atividade"
                 />
-                <button onClick={() => hanldeSearch(idActive)}>Enviar</button>
+                <button onClick={() => handleSearch(idActive)}>Enviar</button>
               </ContainerInputs>
             ) : (
               <ContainerInputs>
-                <button onClick={handleIsSearch}>Pesuisar</button>
+                <button onClick={handleIsSearch}>Pesquisar</button>
               </ContainerInputs>
             )}
           </ContainerCreateSearch>
@@ -149,8 +152,12 @@ const Activities = () => {
               : showActivities &&
                 showActivities.map((active, index) => (
                   <ListCardsContainerMobile key={index}>
-                    <div>{active.title}</div>
+                    <div>
+                      <h3>{active.title}</h3>
+                    </div>
+                    <div>{active.id}</div>
                     <div>{active.realization_time}</div>
+
                     <ContainerButton>
                       {isUpdate ? (
                         <button
@@ -181,37 +188,86 @@ const Activities = () => {
           </CardsContainerMobile>
         </OptionsContainerMobile>
 
+        <Divisor>
+          <hr />
+        </Divisor>
         {/********************************* METAS *******************************/}
         <OptionsContainerMobile>
-          <div>
-            <AddGoals id={localStorage.getItem("id")} />
-          </div>
+          <h2>Metas</h2>
+
+          <ContainerCreateSearch>
+            <ContainerAddActive>
+              <div>
+                <AddGoals id={localStorage.getItem("id")} />
+              </div>
+            </ContainerAddActive>
+            {isSearchGoal ? (
+              <ContainerInputs>
+                <input
+                  value={idGoal}
+                  onChange={(e) => setIdGoal(e.target.value)}
+                  placeholder="Digite o numero da meta"
+                />
+                <button onClick={() => handleGoalSearch(idGoal)}>Enviar</button>
+              </ContainerInputs>
+            ) : (
+              <ContainerInputs>
+                <button onClick={handleGoalClose}>Pesquisar</button>
+              </ContainerInputs>
+            )}
+          </ContainerCreateSearch>
           <CardsContainerMobile>
-            {showGoals &&
-              showGoals.map((goal, index) => (
-                <ListCardsContainerMobile key={index}>
-                  {goal.title}
-                  {isGoalUpdate ? (
-                    <button
-                      onClick={() => handleGoalUpdate(goal.id, inputGoalUpdate)}
-                    >
-                      Enviar
+            {idGoal.length !== 0
+              ? oneGoal &&
+                oneGoal.map((goal, index) => (
+                  <ListCardsContainerMobile key={index}>
+                    {/* {goal.title} */}
+                    {isUpdate ? (
+                      <button
+                        onClick={() =>
+                          handleGoalUpdate(goal.id, inputUpdate, goal.group)
+                        }
+                      >
+                        Enviar
+                      </button>
+                    ) : (
+                      <button onClick={UpdateHere}>Atualizar</button>
+                    )}{" "}
+                    <button onClick={() => DeleteActivities(goal.id)}>
+                      Remover
                     </button>
-                  ) : (
-                    <button onClick={UpdateGoalHere}>Atualizar</button>
-                  )}{" "}
-                  <button onClick={() => DeleteGoals(goal.id)}>Remover</button>
-                  {isGoalUpdate ? (
-                    <input
-                      placeholder="Atingido?"
-                      /* value={inputGoalUpdate} */
-                      onChange={(e) => setInpuGoalUpdate(true)}
-                    />
-                  ) : (
-                    <></>
-                  )}
-                </ListCardsContainerMobile>
-              ))}
+                    {isUpdate ? (
+                      <input
+                        placeholder="Digite o novo nome"
+                        value={inputUpdate}
+                        onChange={(e) => setInpuUpdate(e.target.value)}
+                      />
+                    ) : (
+                      <></>
+                    )}
+                  </ListCardsContainerMobile>
+                ))
+              : showGoals &&
+                showGoals.map((goal, index) => (
+                  <ListCardsContainerMobile key={index}>
+                    <div>
+                      <h3>{goal.title}</h3>
+                    </div>
+                    <div>{goal.difficulty}</div>
+                    <div>{goal.how_much_achieved}</div>
+                    <div>{goal.achieved.toString()}</div>
+                    <div>{goal.id}</div>
+                    <ContainerButton>
+                      <button onClick={() => UpdateGoals(goal.id)}>
+                        Atualizar
+                      </button>
+
+                      <button onClick={() => DeleteGoals(goal.id)}>
+                        Remover
+                      </button>
+                    </ContainerButton>
+                  </ListCardsContainerMobile>
+                ))}
           </CardsContainerMobile>
         </OptionsContainerMobile>
         {/********************************* FIM METAS *******************************/}

@@ -1,10 +1,7 @@
 import { useState } from "react";
 
 import { useActivities } from "../../Providers/actives";
-import {
-  ContainerAddActivities,
-  ContainerCreate,
-} from "../AddActivities/style";
+import { ContainerAddActivities, ContainerCreate } from "./styles";
 
 const AddActivities = ({ id }) => {
   const [title, setTitle] = useState("");

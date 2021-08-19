@@ -1,10 +1,12 @@
 import axios from "axios";
 import { createContext, useContext, useState } from "react";
+import { toast } from "react-hot-toast";
 
 export const GoalsContext = createContext();
 
 export const GoalsProvider = ({ children }) => {
   const [showGoals, setShowGoals] = useState([]);
+  const [oneGoal, setOneGoal] = useState([]);
 
   const CreateGoals = (data) => {
     axios
@@ -13,26 +15,24 @@ export const GoalsProvider = ({ children }) => {
           Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
         },
       })
-      .then((response) => console.log(response.data.goals))
-      .catch((err) => console.log(err));
+      .then((response) => toast.sucess('Meta criada com sucesso'))
+      .catch((err) => console.log('Erro ao criar meta'));
   };
 
   const ShowGoals = (id) => {
     axios
       .get(`https://kabit-api.herokuapp.com/goals/?group=${id}&page=1`)
       .then((response) => setShowGoals(response.data.results))
-      .catch((err) => console.log(err));
+      .catch((err) => toast.error('Erro ao mostrar metas'));
   };
-  console.log(showGoals);
 
-  const UpdateGoals = (data) => {
-    const { id, achieved } = data;
-    console.log(data);
+  const UpdateGoals = (id) => {
+    
     axios
       .patch(
         `https://kabit-api.herokuapp.com/goals/${id}/`,
         {
-          achieved: achieved,
+          achieved: true
         },
         {
           headers: {
@@ -42,7 +42,7 @@ export const GoalsProvider = ({ children }) => {
           },
         }
       )
-      .then((response) => console.log(response.data))
+      .then(() => toast.sucess('Atualizado com sucesso'))
       .catch((err) => console.log(err));
   };
 
@@ -53,8 +53,14 @@ export const GoalsProvider = ({ children }) => {
           Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
         },
       })
-      .then((response) => console.log(response.data))
+      .then(() => toast.sucess('Deletado com sucesso'))
       .catch((err) => console.log(err));
+  };
+
+  const OneGoal = (id) => {
+    axios
+      .get(`https://kabit-api.herokuapp.com/goals/${id}/`)
+      .then((response) => setOneGoal([response.data]));
   };
 
   return (
@@ -65,6 +71,8 @@ export const GoalsProvider = ({ children }) => {
         ShowGoals,
         UpdateGoals,
         DeleteGoals,
+        OneGoal,
+        oneGoal,
       }}
     >
       {children}

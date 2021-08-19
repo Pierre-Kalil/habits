@@ -31,6 +31,7 @@ const Groups = () => {
   const [id, setId] = useState("");
 
   const toSend = (path, id) => {
+    nameGroup(id);
     ShowActivities(id);
     localStorage.setItem("id", JSON.stringify(id));
     return history.push(path);
@@ -40,13 +41,21 @@ const Groups = () => {
   if (!auth) {
     return <Redirect to="/login" />;
   }
-  console.log(viewport);
 
   return (
     <>
-      {/* <HomeBackground /> */}
+      <HeaderLogged />
       <ContainerDesktop>
-        <HeaderLogged />
+        {groups.length > 0 && (
+          <>
+            <div className="texto">
+              <h2>Escolha seu grupo:</h2>{" "}
+            </div>
+            <div className="botao">
+              <button onClick={() => setRegister(true)}>Criar grupo</button>
+            </div>
+          </>
+        )}
         <OptionsContainerDesktop>
           {groups.length === 0 && viewport >= 769 && (
             <ContainerNewUser>
@@ -90,9 +99,8 @@ const Groups = () => {
               </div>
             </ContainerNewUserMobile>
           )}
-
-          {groups.map((group, index) => (
-            <ListCardsContainerDesktop key={index}>
+          {groups.map((group) => (
+            <ListCardsContainerDesktop key={group.id}>
               {group.creator.id === Number(user) && (
                 <Button
                   onClick={() => {
@@ -121,7 +129,6 @@ const Groups = () => {
           ))}
         </OptionsContainerDesktop>
       </ContainerDesktop>
-
       {register ? <AddGroup setRegister={setRegister} /> : <></>}
       <Footer />
     </>

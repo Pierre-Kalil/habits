@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div `
-    height: 350px;
+    height: 360px;
     width: 300px;
     border: 2px solid var(--background);
     display: flex;
@@ -16,6 +16,8 @@ export const Container = styled.div `
         /* height: 40px; */
         color: var(--background);
         margin-top: 16px;
+        font-size: 24px;
+        text-align:center;
 
     }
 `
@@ -23,7 +25,7 @@ export const Container = styled.div `
 export const ContainerInfos = styled.div `
     width: 90%;
     height: 180px;
-    font-size: 24px;
+    font-size: 20px;
     padding-top: 25px;
     padding-bottom: 25px;
     padding-left: 25px;

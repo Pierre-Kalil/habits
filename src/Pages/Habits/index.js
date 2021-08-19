@@ -29,8 +29,8 @@ const Habits = () => {
   }
   return (
     <>
+      <HeaderLogged />
       <Container>
-        <HeaderLogged />
         <h1>Hábitos</h1>
         <Content>
           <ContainerHabits>

@@ -48,6 +48,33 @@ export const ContainerDesktop = styled.div`
     justify-content: center;
     align-items: center;
   }
+  h2 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .texto {
+    font-family: Calibri;
+  }
+  .botao {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    button {
+      margin-right: 25px;
+      width: 18vh;
+      height: 6vh;
+      padding: 8px;
+      border: none;
+      border-radius: 20px;
+      background: linear-gradient(275.76deg, #7158e2 44.33%, #cd84f1 98.56%);
+      color: #fff;
+      font-weight: bold;
+      transition: 0.5s;
+    }
+    button:hover {
+      background: #e0aaff;
+    }
+  }
 `;
 export const BoxContainerDesktop = styled.div`
   background-color: purple;
