@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useGoals } from "../../Providers/goals";
 import Button from "../Button";
 import Input from "../Input";
-import { ContainerAddGoals } from "./styled";
+import { ContainerAddGoals } from "./styles";
 
 const AddGoals = ({ id }) => {
   const [title, setTitle] = useState("");
@@ -28,17 +28,17 @@ const AddGoals = ({ id }) => {
       <input
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        placeholder="Title"
+        placeholder="Título"
       />
       <input
         value={difficulty}
         onChange={(e) => setDifficulty(e.target.value)}
-        placeholder="Difficulty"
+        placeholder="Dificuldade"
       />
       <input
         value={how_much_achieved}
         onChange={(e) => setHow_much_achieved(e.target.value)}
-        placeholder="How much achieved"
+        placeholder="Quanto conseguiu?"
       />
       <Button callback={() => handleGoal(id)}>Criar Meta</Button>
     </ContainerAddGoals>

@@ -51,6 +51,7 @@ export const ContainerButtons = styled.div `
 export const ContainerHabits = styled.div `
     @media screen and (min-width: 600px){
         width: 600px;
+        
         display: flex;
         flex-wrap: wrap;
         margin-top: 30px;

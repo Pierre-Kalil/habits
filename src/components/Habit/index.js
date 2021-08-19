@@ -14,7 +14,7 @@ const Habit = ({habit}) => {
                 <h4>Dificuldade: {habit.difficulty}</h4>
                 <h4>Frequência: {habit.frequency}</h4>
                 <h4>Alcançado: {habit.achieved.toString()}</h4>
-                <h4>Quanto alcançou:{habit.how_much_achieved}</h4>
+                <h4>Quanto alcançou: {habit.how_much_achieved}</h4>
             </ContainerInfos>
             <ContainerButtons>
                 <Button callback ={() => deleteHabit(habit)}>Excluir</Button>

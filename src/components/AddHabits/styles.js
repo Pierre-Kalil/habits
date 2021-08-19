@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Background from "../../images/fundoForm.png";
 
 export const Container = styled.form`
-  height: 500px;
+  /* height: 500px; */
   width: 350px;
   background-image: url(${Background});
   display: flex;
@@ -29,10 +29,11 @@ export const ContainerInputs = styled.div`
   align-items: center;
   width: 100%;
 
+
   input {
     border: 0;
     background: none;
-    margin: 7px auto;
+    margin: 8px auto;
     text-align: center;
     border: 2px solid #8e97fd;
     padding: 14px 10px;
@@ -42,6 +43,7 @@ export const ContainerInputs = styled.div`
     border-radius: 24px;
     transition: 0.25s;
     cursor: pointer;
+    font-size: 20px;;
   }
   input:focus {
     width: 280px;
@@ -53,6 +55,7 @@ export const ContainerButtons = styled.div`
   width: 80%;
   display: flex;
   button {
+
   }
 `;
 export const Button2 = styled.button`
@@ -74,4 +77,5 @@ export const Button2 = styled.button`
   }
 `;
 
-export const ContainerDark = styled.div``;
+export const ContainerDark = styled.div`
+`;

@@ -48,7 +48,7 @@ const Community = () => {
   return (
     <>
       <HeaderLogged />
-      <HomeBackground />
+
       {viewport < 500 ? (
         <ContainerMobile>
           <h2>Organize sua vida</h2>
@@ -69,7 +69,9 @@ const Community = () => {
           </OptionsContainerMobile>
         </ContainerMobile>
       ) : (
+        
         <ContainerDescktop>
+
           <h1>Escolha seu grupo</h1>
           <OptionsContainerDescktop>
             <CardsContainerDesktop>
@@ -87,7 +89,9 @@ const Community = () => {
           </OptionsContainerDescktop>
 
         </ContainerDescktop>
+
       )}
+
     </>
   );
 };

@@ -62,6 +62,7 @@ const Groups = () => {
 
   return (
     <>
+    <HeaderLogged />
       <HomeBackground />
       <ContainerDesktop>
         <OptionsContainerDesktop>
@@ -107,6 +108,7 @@ const Groups = () => {
               </div>
             </ContainerNewUserMobile>
           )}
+          
           {groups.map((group) => (
             <ListCardsContainerDesktop key={group.id}>
               {group.creator.id === Number(user) && (
