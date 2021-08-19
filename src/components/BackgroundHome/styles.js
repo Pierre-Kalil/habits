@@ -8,6 +8,7 @@ img {
   width: 100vw;
   height: 100vh;
   position: absolute;
+  object-fit: cover;
   z-index: -2;
 }
 `
