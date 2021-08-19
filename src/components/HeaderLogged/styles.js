@@ -7,7 +7,7 @@ export const MenuHeader = styled.header`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 80px;
+  height: 15vh;
   position: relative;
 
   svg {
@@ -19,6 +19,7 @@ export const MenuHeader = styled.header`
   }
 
   @media (min-width: 767px) {
+    height: 80px;
     svg {
       display: none;
     }

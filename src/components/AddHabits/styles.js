@@ -3,17 +3,18 @@ import Background from "../../images/fundoForm.png";
 
 export const Container = styled.form`
   /* height: 500px; */
-  width: 350px;
+  width: 100vw;
   background-image: url(${Background});
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 10px;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  border-radius: 0px;
+  height: 85vh;
+  @media screen and (min-width: 500px){
+    border-radius: 24px;
+    height: 500px;
+    width: 350px;
+  }
 
   h3 {
     margin-top: 15px;
@@ -33,7 +34,7 @@ export const ContainerInputs = styled.div`
   input {
     border: 0;
     background: none;
-    margin: 8px auto;
+    margin: 7px auto;
     text-align: center;
     border: 2px solid #8e97fd;
     padding: 14px 10px;
@@ -43,26 +44,31 @@ export const ContainerInputs = styled.div`
     border-radius: 24px;
     transition: 0.25s;
     cursor: pointer;
-    font-size: 20px;;
+    font-size: 15px;;
   }
   input:focus {
     width: 280px;
     border-color: #e0aaff;
+  }
+  input::placeholder{
+    color: gray;
   }
 `;
 
 export const ContainerButtons = styled.div`
   width: 80%;
   display: flex;
-  button {
+  justify-content: center;
 
+  button + button {
+    margin-left: 5px;
   }
 `;
 export const Button2 = styled.button`
   border: 0;
   background: none;
   display: block;
-  margin: 20px auto;
+  margin: 13px auto;
   margin-left: 1px;
   padding: 14px 33px;
   text-align: center;
@@ -78,4 +84,15 @@ export const Button2 = styled.button`
 `;
 
 export const ContainerDark = styled.div`
+
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media screen and (min-width: 800px){
+    height: 90vh;
+  }
+
+
 `;
+

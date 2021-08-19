@@ -116,6 +116,7 @@ export const ContainerInputs = styled.div`
   }
 
   input {
+    width: 90%;
     margin: 10px 0;
     padding: 9px;
   }
@@ -123,7 +124,7 @@ export const ContainerInputs = styled.div`
   @media (min-width: 500px) {
     width: 250px;
     input {
-      width: 70%;
+      width: 80%;
     }
     input:hover {
       opacity: 0.7;
