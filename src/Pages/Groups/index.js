@@ -49,7 +49,6 @@ const Groups = () => {
   const [id, setId] = useState("");
 
   const toSend = (path, id) => {
-    nameGroup(id);
     ShowActivities(id);
     localStorage.setItem("id", JSON.stringify(id));
     return history.push(path);
@@ -63,30 +62,10 @@ const Groups = () => {
 
   return (
     <>
-      
+      <HomeBackground />
       <ContainerDesktop>
         <OptionsContainerDesktop>
-          {groups.length === 0 && viewport < 769 ? (
-            <ContainerNewUserMobile>
-              <h2>Você não está inscrito em nenhum grupo !</h2>
-              <br></br>
-              <div className="princ">
-                <div className="opção">
-                  <h4>Conheça nossos grupos da comunidade:</h4>
-                  <Link to="/Community">
-                    <img src={Pessoas} alt="pessoas" />
-                  </Link>
-                </div>
-                <h3>OU</h3>
-                <div className="opção">
-                  <h4>Crie um grupo para você:</h4>
-                  <button onClick={() => setRegister(true)}>
-                    <img src={CriarGrupo} alt="pessoas" />
-                  </button>
-                </div>
-              </div>
-            </ContainerNewUserMobile>
-          ) : (
+          {groups.length === 0 && viewport >= 769 && (
             <ContainerNewUser>
               <h2>Você não está inscrito em nenhum grupo !</h2>
               <br></br>
@@ -107,6 +86,27 @@ const Groups = () => {
               </div>
             </ContainerNewUser>
           )}
+          {groups.length === 0 && viewport < 769 && (
+            <ContainerNewUserMobile>
+              <h2>Você não está inscrito em nenhum grupo !</h2>
+              <br></br>
+              <div className="princ">
+                <div className="opção">
+                  <h4>Conheça nossos grupos da comunidade:</h4>
+                  <Link to="/Community">
+                    <img src={Pessoas} alt="pessoas" />
+                  </Link>
+                </div>
+                <h3>OU</h3>
+                <div className="opção">
+                  <h4>Crie um grupo para você:</h4>
+                  <button onClick={() => setRegister(true)}>
+                    <img src={CriarGrupo} alt="pessoas" />
+                  </button>
+                </div>
+              </div>
+            </ContainerNewUserMobile>
+          )}
           {groups.map((group) => (
             <ListCardsContainerDesktop key={group.id}>
               {group.creator.id === Number(user) && (
@@ -120,9 +120,12 @@ const Groups = () => {
                 </Button>
               )}
               <div>{edit && <EditGroup setEdit={setEdit} group={id} />}</div>
-                <h4>Nome: {group.name}</h4>
-                <h4>Descrição: {group.description}</h4>
-                <h4>Categoria: {group.category}</h4>
+              <h4>nome:</h4>
+              <div>{group.name}</div>
+              <h4>Descrição:</h4>
+              <div>{group.description}</div>
+              <h4>Categoria:</h4>
+              <div>{group.category}</div>
               <div>
                 <Button onClick={() => toSend("/activities", group.id)}>
                   Ver Atividades e Metas
