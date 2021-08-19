@@ -22,24 +22,28 @@ export const GroupsProvider = ({ children }) => {
 
   useEffect(() => {
     loadGroups();
-  }, []);
+  });
 
   const newGroup = (data) => {
     const { name, description, category } = data;
-    axios.post(
-      "https://kabit-api.herokuapp.com/groups/",
-      {
-        name: name,
-        description: description,
-        category: category,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+    axios
+      .post(
+        "https://kabit-api.herokuapp.com/groups/",
+        {
+          name: name,
+          description: description,
+          category: category,
         },
-      })
-      .then(()=> toast.success('Criado com sucesso'))
-      .catch(()=> toast.error('Erro ao criar grupo'));
+        {
+          headers: {
+            Authorization: `Bearer ${JSON.parse(
+              localStorage.getItem("token")
+            )}`,
+          },
+        }
+      )
+      .then(() => toast.success("Criado com sucesso"))
+      .catch(() => toast.error("Erro ao criar grupo"));
   };
 
   const editGroup = (data, group) => {
@@ -50,7 +54,7 @@ export const GroupsProvider = ({ children }) => {
         },
       })
       .then(() => toast.success("Editado com sucesso"))
-      .catch(() => toast.error('Erro ao editar'));
+      .catch(() => toast.error("Erro ao editar"));
   };
 
   const nameGroup = (group) => {
