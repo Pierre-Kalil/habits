@@ -45,6 +45,8 @@ const Groups = () => {
   return (
     <>
       <HeaderLogged />
+      {register ? <AddGroup setRegister={setRegister} />
+      :
       <ContainerDesktop>
         {groups.length > 0 && (
           <>
@@ -129,7 +131,7 @@ const Groups = () => {
           ))}
         </OptionsContainerDesktop>
       </ContainerDesktop>
-      {register ? <AddGroup setRegister={setRegister} /> : <></>}
+      }
       <Footer />
     </>
   );
