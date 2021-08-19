@@ -15,6 +15,10 @@ export const ContainerTitleMobile = styled.div`
   align-items: center;
   margin-top: 20px;
 
+  h1 {
+    font-size: 45px;
+  }
+
   h2 {
     margin: 20px 0;
     font-size: 28px;
@@ -22,13 +26,14 @@ export const ContainerTitleMobile = styled.div`
 
   @media (max-width: 500px) {
     h1 {
-      font-size: 25px;
+      font-size: 35px;
     }
   }
 `;
 
 export const ContainerActivitiesGoals = styled.div`
   width: 100%;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -46,6 +51,7 @@ export const ContainerCreateSearch = styled.div`
   justify-content: center;
   align-items: center;
   justify-content: space-around;
+  margin: 20px 10px;
 
   input {
     width: 100%;
@@ -64,7 +70,14 @@ export const ContainerCreateSearch = styled.div`
   }
 
   button {
-    width: 100%;
+    width: 150px;
+    font-size: 16px;
+  }
+
+  button:hover {
+    opacity: 0.8;
+    border: 1px solid #fff;
+    transition: 1s;
   }
 
   @media (min-width: 769px) {
@@ -76,7 +89,7 @@ export const ContainerCreateSearch = styled.div`
 `;
 
 export const ContainerInputs = styled.div`
-  width: 100%;
+  width: 225px;
   height: 110px;
   display: flex;
   flex-direction: column;
@@ -87,7 +100,7 @@ export const ContainerInputs = styled.div`
   margin-bottom: 5px;
 
   button {
-    width: 50%;
+    width: 150px;
     padding: 8px;
     border: none;
     border-radius: 20px;
@@ -96,30 +109,44 @@ export const ContainerInputs = styled.div`
     font-weight: bold;
   }
 
+  button:hover {
+    opacity: 0.8;
+    border: 1px solid #fff;
+    transition: 1s;
+  }
+
   input {
+    width: 90%;
     margin: 10px 0;
     padding: 9px;
   }
 
   @media (min-width: 500px) {
-    width: 40%;
+    width: 250px;
     input {
-      width: 70%;
+      width: 80%;
+    }
+    input:hover {
+      opacity: 0.7;
+      border: 1px solid #fff;
+      transition: 1s;
     }
     button {
-      width: 50%;
+      width: 150px;
     }
   }
 `;
 
 export const ContainerAddActive = styled.div`
-  width: 100%;
+  width: 225px;
   height: 110px;
+
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
   background-image: var(--gradiente);
+  padding: 5px 0;
 
   button:hover {
     opacity: 0.8;
@@ -127,7 +154,7 @@ export const ContainerAddActive = styled.div`
   }
 
   @media (min-width: 500px) {
-    width: 40%;
+    width: 250px;
   }
 `;
 
@@ -140,7 +167,7 @@ export const OptionsContainerMobile = styled.div`
   height: auto;
 
   @media (min-width: 500px) {
-    width: 50%;
+    width: 45%;
   }
 `;
 
@@ -158,7 +185,7 @@ export const ListCardsContainerMobile = styled.li`
   justify-content: space-around;
   align-items: center;
 
-  width: 70%;
+  width: 220px;
   height: 150px;
   margin: 5px 0;
   border-radius: 20px;
@@ -173,10 +200,18 @@ export const ListCardsContainerMobile = styled.li`
     border: none;
     border-radius: 10px;
   }
+  input:hover {
+    opacity: 0.7;
+    border: 1px solid #fff;
+    transition: 1s;
+  }
 
-  /* @media (min-width: 500px) {
-    width: 45%;
-  } */
+  button:hover {
+    opacity: 0.8;
+    border: 1px solid #fff;
+    transition: 1s;
+  }
+
   @media (min-width: 769px) {
     width: 40%;
   }
@@ -194,6 +229,26 @@ export const ContainerButton = styled.div`
     background-image: var(--gradiente-buttom);
     color: #fff;
   }
+
+  button:hover {
+    opacity: 0.8;
+    border: 1px solid #fff;
+    transition: 1s;
+  }
 `;
 
-//UTILIZAR OS MESMOS CONTAINERS PARA METAS
+export const Divisor = styled.div`
+  width: 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  border: 0.5px solid black;
+
+  @media (min-width: 768) {
+    width: 1px;
+    flex-direction: column;
+  }
+`;

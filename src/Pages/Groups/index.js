@@ -1,16 +1,5 @@
-import {
-  ContainerMobile,
-  // BoxContainerMobile,
-  OptionsContainerMobile,
-  ContainerNewUser,
-  ContainerNewUserMobile,
-} from "./styles";
-import {
-  ContainerDesktop,
-  // BoxContainerDesktop,
-  OptionsContainerDesktop,
-} from "./styles";
-// import { Link } from "react-router-dom";
+import { ContainerNewUser, ContainerNewUserMobile } from "./styles";
+import { ContainerDesktop, OptionsContainerDesktop } from "./styles";
 import Pessoas from "../../images/comunidade.svg";
 import CriarGrupo from "../../images/criarGrupo.svg";
 
@@ -18,19 +7,12 @@ import HeaderLogged from "../../components/HeaderLogged";
 import { useContext, useEffect } from "react";
 import { GroupsContext } from "../../Providers/groups";
 import { Link, useHistory } from "react-router-dom";
-import { ListCardsContainerMobile } from "../Community/styles";
 import { ListCardsContainerDesktop } from "./styles";
 import { useState } from "react";
-import SinalMais from "../../components/SinalMais";
 import AddGroup from "../../components/AddGroup";
-// import { ActivitiesContext } from "../../Providers/actives";
-import AddActivities from "../../components/AddActivities";
 import EditGroup from "../../components/EditGroup";
-import axios from "axios";
 import { UserContext } from "../../Providers/user";
-
 import { useActivities } from "../../Providers/actives";
-
 import { Redirect } from "react-router-dom";
 import { useAuth } from "../../Providers/auth";
 import HomeBackground from "../../components/BackgroundHome";
@@ -117,7 +99,6 @@ const Groups = () => {
               </div>
             </ContainerNewUserMobile>
           )}
-
           {groups.map((group) => (
             <ListCardsContainerDesktop key={group.id}>
               {group.creator.id === Number(user) && (
@@ -131,12 +112,14 @@ const Groups = () => {
                 </Button>
               )}
               <div>{edit && <EditGroup setEdit={setEdit} group={id} />}</div>
+
               <h4>nome:</h4>
               <div>{group.name}</div>
               <h4>Descrição:</h4>
               <div>{group.description}</div>
               <h4>Categoria:</h4>
               <div>{group.category}</div>
+
               <div>
                 <Button onClick={() => toSend("/activities", group.id)}>
                   Ver Atividades e Metas

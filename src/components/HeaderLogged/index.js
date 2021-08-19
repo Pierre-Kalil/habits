@@ -2,7 +2,6 @@ import {
   MenuHeader,
   MenuButton,
   Menuhamburguer,
-  MenuhamburguerActive,
   ButtonFlexContainer,
   TresemmeLogo,
 } from "./styles";

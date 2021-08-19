@@ -14,7 +14,7 @@ export const MenuHeader = styled.header`
     width: 50px;
     height: 40px;
     color: #fff;
-    z-index: 3;
+    z-index: 10;
     cursor: pointer;
   }
 
@@ -73,10 +73,11 @@ export const Menuhamburguer = styled.ul`
   align-items: center;
   position: absolute;
   width: 100%;
-  height: 40vh;
+  height: 45vh;
   top: 0px;
   opacity: 1;
   background: var(--roxo-primario);
+  z-index: 3;
   transition: all 3s ease;
 
   li {
