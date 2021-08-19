@@ -64,6 +64,13 @@ export const OptionsContainerDesktop = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+
+  svg {
+    z-index: 4;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+  }
 `;
 
 export const InputContainerGroup = styled.div`

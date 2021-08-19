@@ -62,7 +62,7 @@ export const ActivitiesProvider = ({ children }) => {
   const OneActivities = (id) => {
     axios
       .get(`https://kabit-api.herokuapp.com/activities/${id}/`)
-      .then((response) => setOneActive([...oneActives, response.data]));
+      .then((response) => setOneActive([response.data]));
   };
 
   return (
