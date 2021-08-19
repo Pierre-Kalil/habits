@@ -128,10 +128,9 @@ export const OptionsContainerDesktop = styled.div`
 
     div {
         div{
-            width:400px;
+            width:300px;
             p{
-                font-family: 'Arial';
-                font-size: 18px;
+                font-size: 16px;
                 padding: 8px;
                 span{
                     color: var(--roxo-secundario);

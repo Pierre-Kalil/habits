@@ -2,35 +2,49 @@ import styled from "styled-components";
 
 export const MenuHeader = styled.header`
   position: sticky;
-  /* top: 0; */
   background-color: var(--roxo-primario);
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  /* margin-bottom: 48px; */
+  justify-content: space-around;
+  align-items: center;
   height: 80px;
-  z-index: 2;
+  position: relative;
+
+  svg {
+    width: 50px;
+    height: 40px;
+    color: #fff;
+    z-index: 3;
+    cursor: pointer;
+  }
+
+  @media (min-width: 767px) {
+    svg {
+      display: none;
+    }
+  }
 `;
 
 export const ButtonFlexContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
-  width: 320px;
-  margin-right: 32px;
+  width: 640px;
+  /* margin-right: 32px; */
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const TresemmeLogo = styled.img`
   width: auto;
-  height: 64px;
+  height: 40%;
   cursor: pointer;
-  padding-top: 8px;
-  padding-left: 24px;
 `;
 
 export const MenuButton = styled.button`
   width: 240px;
   height: 40px;
-  margin: auto 0;
   background-color: transparent;
   border: 2px solid transparent;
   font-size: 20px;
@@ -49,5 +63,26 @@ export const MenuButton = styled.button`
     border: 2px solid #222222;
     color: #222222;
     border-radius: 16px 0 16px 16px;
+  }
+`;
+
+export const Menuhamburguer = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 40vh;
+  top: 0px;
+  opacity: 1;
+  background: var(--roxo-primario);
+  transition: all 3s ease;
+
+  li {
+    z-index: 4;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 8px;
   }
 `;

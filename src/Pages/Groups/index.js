@@ -63,7 +63,6 @@ const Groups = () => {
   return (
     <>
       <HeaderLogged />
-      <HomeBackground />
       <ContainerDesktop>
         {groups.length > 0 && (
           <>

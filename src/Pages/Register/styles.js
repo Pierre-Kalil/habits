@@ -3,6 +3,8 @@ import tresmLogowhite from "../../images/tresmLogowhite.png"
 
 export const Container = styled.div`
 	height: 100vh;
+	width: 300px;
+	margin-left: 10px;
 	display: flex;
 	align-items:  stretch;
 `;
@@ -21,7 +23,7 @@ export const Content = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	width: 100%;
+	width: 300px;
 	max-width: 700px;
 `;
 
@@ -44,8 +46,7 @@ export const AnimationContainer = styled.div`
 	animation: ${appearFromRight} 1s;
 
 	form{
-		margin: 80px 0;
-		width: 340px;
+		width: 320px;
 		text-align: center;
 		
 
@@ -115,6 +116,7 @@ export const InputContainer1 = styled.div`
     svg {
       margin-right: 1
     }
+
   `;
 
 export const HomeFooter = styled.footer`

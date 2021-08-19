@@ -37,7 +37,7 @@ const Home = () => {
       {viewport < 769 ? (
         <Container>
           <h1>
-            TRÊS <img src={logo} alt="logo"></img> EMMME
+            TRES <img src={logo} alt="logo"></img> EMME
           </h1>
           <img src={Imagem} alt="icone"></img>
           <div>

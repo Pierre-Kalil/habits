@@ -23,16 +23,15 @@ const Habits = () => {
     loadHabits();
   }, [habits]);
 
-  const { auth } = useAuth();
-  if (!auth) {
-    return <Redirect to="/login" />;
-  }
-  return (
-    <>
-      <HeaderLogged />
-      <HomeBackground />
-      <Container>
-        <h1>Hábitos</h1>
+          const { auth } = useAuth();
+        if (!auth) {
+          return <Redirect to="/login" />
+        }
+    return(
+    <> 
+    <HeaderLogged />
+        <Container>
+            <h1>Hábitos</h1>
         <Content>
           <ContainerHabits>
             {habits.map((habit) => (
