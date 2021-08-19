@@ -1,13 +1,12 @@
 import { DevFlex, DevContainer } from "./styles";
 import Header from "../../components/Header";
-
+import {Link } from 'react-router-dom';
 import Input from "../../components/Input";
 
 const About = () => {
 
 	return (
 		<DevFlex>
-			<Header />
 			<DevContainer>
 				<div style={{backgroundColor:"purple", width: 175, height:250}}></div>
 				<h3>Lucas Ribeiro</h3>
@@ -38,6 +37,7 @@ const About = () => {
 				<h3>Pierre Kalil</h3>
 				<h4>Quality Assurance, QA</h4>
 			</DevContainer>
+			<Link to = '/dashboard'> Voltar</Link>
 		</DevFlex>
 	)
     }
