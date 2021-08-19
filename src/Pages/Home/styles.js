@@ -41,6 +41,7 @@ export const Container = styled.div`
       margin-top: 30%;
       margin-bottom: 5px;
       p {
+        padding: 5px;
         font-family: HeadlandOne;
         font-style: normal;
         font-weight: normal;

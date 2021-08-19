@@ -79,9 +79,9 @@ const Home = () => {
           </ContainerDescktop>
         </>
       )}
-      <HomeFooter>
+       {viewport > 768 && <HomeFooter>
         Kenzie Academy Brasil
-      </HomeFooter>
+      </HomeFooter>}
     </>
   );
 };

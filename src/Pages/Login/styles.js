@@ -18,10 +18,7 @@ export const Back = styled.button`
 
 export const Container = styled.div`
     display: flex;
-    /* flex-direction: column; */
     height: 100vh;
-    /* align-items: center; */
-    /* justify-content: center; */
     align-items:  stretch;
 `;
 
@@ -34,7 +31,6 @@ export const Background = styled.div`
 	@media (min-width: 1100px) {
 		flex: 1;
 		background: url(${tresmLogopurple}) no-repeat center, var(--caixa-de-texto);
-		/* background-size: contain; */
 		background-color: var(--caixa-de-texto);
         background-size: 480px;
 	}
@@ -44,8 +40,8 @@ export const Content = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+  width: 300px;
 	justify-content: center;
-	width: 100%;
 	max-width: 700px;
 `;
 
@@ -69,7 +65,8 @@ export const AnimationContainer = styled.div`
 
 	form{
 		margin: 80px 0;
-		width: 340px;
+    padding-left: 10px;
+		width: 300px;
 		text-align: center;
 		
 

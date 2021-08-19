@@ -23,7 +23,7 @@ import { useAuth } from "../../Providers/auth";
 const Login = () => {
   const { getToken, user } = useContext(UserContext);
   const history = useHistory();
-
+  const viewport = window.innerWidth;
   const { signIn, auth } = useAuth();
   const schema = yup.object().shape({
     username: yup.string().required("Campo Obrigatório!"),
@@ -62,8 +62,11 @@ const Login = () => {
 
   return (
     <div>
-      <Header />
-      {/* <Back><span class="material-icons">arrow_back</span></Back> */}
+
+      { viewport > 768? <Header /> 
+      :
+        <Back onClick = {()=> history.push('/')}><span class="material-icons">arrow_back</span></Back>
+      }
       <Container>
         <Content>
           <AnimationContainer>
