@@ -40,7 +40,7 @@ export const Content = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-  width: 300px;
+  width: 100%;
 	justify-content: center;
 	max-width: 700px;
 `;

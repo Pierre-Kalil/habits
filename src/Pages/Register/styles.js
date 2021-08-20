@@ -4,7 +4,7 @@ import tresmLogowhite from "../../images/tresmLogowhite.png";
 export const Container = styled.div`
   height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: stretch;
 `;
 
 export const Background = styled.div`
