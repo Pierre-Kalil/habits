@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { useActivities } from "../../Providers/actives";
-import Button from "../Button";
 
-const AddActivities = ({ setActive, id }) => {
-  // const [actives, setActives] = useState({})
+import { useActivities } from "../../Providers/actives";
+import { ContainerAddActivities, ContainerCreate } from "./styles";
+
+const AddActivities = ({ id }) => {
   const [title, setTitle] = useState("");
-  const { loadActives } = useActivities();
+  const [isCreate, setIsCreate] = useState(false);
+  const { CreateActives } = useActivities();
 
   //funções para formatar data, conforme pede a documentação da API
   const zeroFill = (n) => {
@@ -27,28 +28,41 @@ const AddActivities = ({ setActive, id }) => {
   //fim da formatação da data
 
   //envio do objeto para o provider
-  const handleActive = () => {
+  const handleActive = (id) => {
     const data = {
       title: title,
       realization_time: dateActive,
       group: id,
     };
     console.log(data);
+    CreateActives(data);
+    setIsCreate(false);
+  };
 
-    setActive(false);
-    loadActives(data);
+  const handleIsCreate = () => {
+    setIsCreate(true);
   };
 
   //os inputs abaixo estão nos cards na page de grupos
   return (
-    <>
-      <input
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Nome da atividade"
-      />
-      <Button callback={handleActive}>Enviar</Button>
-    </>
+    <div>
+      <ContainerAddActivities>
+        {isCreate ? (
+          <ContainerCreate>
+            <input
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Nome da atividade"
+            />
+            <button onClick={() => handleActive(id)}>Enviar</button>
+          </ContainerCreate>
+        ) : (
+          <ContainerCreate>
+            <button onClick={handleIsCreate}>Criar Atividade</button>
+          </ContainerCreate>
+        )}
+      </ContainerAddActivities>
+    </div>
   );
 };
 

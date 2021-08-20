@@ -10,19 +10,16 @@ export const UserProvider = ({children}) => {
     const getToken = (token) => {
         const id = jwt_decode(token)
         setUser(JSON.stringify(id.user_id))
-        console.log(id)
     }
 
     useEffect (() =>{
         JSON.parse(localStorage.getItem("token")) && getToken(JSON.parse(localStorage.getItem("token")));
-    },[])
-
+    },[]) 
 
     return (
         <UserContext.Provider value ={{user, getToken}}>
             {children}
         </UserContext.Provider>
-
     )
 
 }

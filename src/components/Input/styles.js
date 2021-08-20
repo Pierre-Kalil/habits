@@ -1,36 +1,50 @@
 import styled, { css } from "styled-components";
 
-export const Container1 = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: left;
-	font-size:20px;
-	margin-top:10px;
-	div {
-		span{
-			color: var(--red);
-		}
-	}
-`;
+export const InputContainer1 = styled.div`
+  border-radius: 10px;
+  border: 2px solid var(--roxo-secundario);
+  color: var(--roxo-secundario);
 
-  /* input {
-    padding: 5px 0px 5px 10px;
-    height: 35px;
-    border: 1px solid purple;
-    border-bottom: 3px solid;
-    border-right: 3px solid;
+  width: 200px;
+  display: flex;
+  transition: 0.4s;
+
+  border-bottom: 6px solid var(--roxo-secundario);
+  border-right: 6px solid var(--roxo-secundario);
+
+  ${(props) =>
+    props.isErrored &&
+    css`
+      border-color: red;
+      svg {
+        color: red;
+      }
+    `}
+
+  input {
+    width: 200px;
+    /* background: transparent; */
+    align-items: center;
+    font-size: 16px;
+    border: 2px solid var(--roxo-secundario);
     border-radius: 8px;
-    margin: 10px auto;
+    padding: 5px 0px 5px 10px;
+    flex: 1;
+    border: 0;
+    color: var(--roxo-terciario);
+    padding-left: 8px;
+    height: 32px;
+  }
+  input::placeholder {
+    color: var(--roxo-secundario);
+    font-size: 16px;
   }
 
-  input::placeholder {
-    color: purple;
-  } */
+  svg {
+    margin-top: 4px;
+  }
 
-
-  export const InputContainer1 = styled.div`
-    background: var(--background);
+  @media (min-width: 768px) {
     border-radius: 10px;
     border: 2px solid var(--roxo-secundario);
     color: var(--roxo-secundario);
@@ -42,12 +56,14 @@ export const Container1 = styled.div`
     border-bottom: 6px solid var(--roxo-secundario);
     border-right: 6px solid var(--roxo-secundario);
 
-    ${props => props.isErrored && css`
-    border-color: var(--red);
-    svg {
-      color: var(--red);
-    }
-    `}
+    ${(props) =>
+      props.isErrored &&
+      css`
+        border-color: red;
+        svg {
+          color: red;
+        }
+      `}
 
     input {
       /* background: transparent; */
@@ -60,14 +76,15 @@ export const Container1 = styled.div`
       border: 0;
       color: var(--roxo-terciario);
       padding-left: 8px;
-      height:32px;
+      height: 32px;
     }
-      input::placeholder {
-        color: var(--roxo-secundario);
-        font-size: 16px;
-      }
+    input::placeholder {
+      color: var(--roxo-secundario);
+      font-size: 16px;
+    }
 
     svg {
-      margin-right: 1
+      margin-top: 4px;
     }
-  `;
+  }
+`;

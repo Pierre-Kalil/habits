@@ -41,6 +41,7 @@ export const Container = styled.div`
       margin-top: 30%;
       margin-bottom: 5px;
       p {
+        padding: 5px;
         font-family: HeadlandOne;
         font-style: normal;
         font-weight: normal;
@@ -73,8 +74,8 @@ export const Desktop = styled.div`
   margin-top: 20px;
 
   img {
-    width: 30vw;
-    height: 23vw;
+    width: 28vw;
+    height: 20vw;
     animation: go-back 1s infinite alternate;
   }
   @keyframes go-back {
@@ -92,6 +93,22 @@ export const Desktop = styled.div`
     font-size: 55px;
     line-height: 100%;
   }
+
+  h2 {
+    color: var(--roxo-primario);
+    padding-bottom: 10px;
+  }
+`;
+
+export const HomeBackground = styled.div`
+  display: flex;
+
+  img {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: -2;
+  }
 `;
 
 export const ContainerDescktop = styled.div`
@@ -104,9 +121,9 @@ export const ContainerDescktop = styled.div`
 export const ContainerDescription = styled.div`
   /* position: absolute; */
   img {
-    margin-top:10px;
-    width: 480px;
-    height: 480px;
+    margin-top:144px;
+    width: 360px;
+    height: 360px;
     margin-right: 64px;
   }
 `;
@@ -119,7 +136,7 @@ export const StyledButton = styled.button`
   background: var(--roxo-primario);
   color: var(--background);
 
-	border: 2px solid transparent;
+	border: 2px solid var(--roxo-secundario);
   border-radius: 4px;
   align-items: center;
   cursor: pointer;
@@ -139,4 +156,15 @@ export const StyledButton = styled.button`
 		color: #222222;
 		border-radius: 16px 0 16px 16px;
 	}
+`;
+
+export const HomeFooter = styled.footer`
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100vw;
+  text-align: center;
+  font-size: 12px;
 `;

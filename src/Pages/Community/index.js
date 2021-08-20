@@ -3,6 +3,7 @@ import {
   OptionsContainerMobile,
   CardsContainerMobile,
   ListCardsContainerMobile,
+  ContainerPages,
 } from "./styles";
 import {
   ContainerDescktop,
@@ -16,10 +17,15 @@ import Button from "../../components/Button";
 import axios from "axios";
 import { useContext } from "react";
 import { CommunityContext } from "../../Providers/community";
+import { Redirect } from "react-router-dom";
+import { useAuth } from "../../Providers/auth";
+import Footer from "../../components/Footer";
+import HomeBackground from "../../components/BackgroundHome";
+import toast from "react-hot-toast";
 
 const Community = () => {
   const viewport = window.innerWidth;
-  const { CardsGroups } = useContext(CommunityContext);
+  const { CardsGroups, PageNext, PagePreview } = useContext(CommunityContext);
 
   const SubmitToSubscribe = (id) => {
     const token = JSON.parse(localStorage.getItem("token"));
@@ -33,16 +39,26 @@ const Community = () => {
           },
         }
       )
-      .then((response) => console.log(response))
-      .catch((err) => console.log(err));
+      .then(() => toast.success("Inscrito com sucesso"))
+      .catch(() => toast.error("Erro ao se inscrever"));
   };
+
+  const { auth } = useAuth();
+  if (!auth) {
+    return <Redirect to="/login" />;
+  }
   return (
     <>
       <HeaderLogged />
+
       {viewport < 500 ? (
         <ContainerMobile>
           <h2>Organize sua vida</h2>
           <h4>Escolha uma opção: </h4>
+          <ContainerPages>
+            <button onClick={PageNext}>Proxima Pagina</button>
+            <button onClick={PagePreview}>Pagina Anterior</button>
+          </ContainerPages>
           <OptionsContainerMobile>
             <CardsContainerMobile>
               {CardsGroups.map((group, index) => (
@@ -51,7 +67,7 @@ const Community = () => {
                   <p>Categoria: {group.category}</p>
                   <p>Descrição: {group.description}</p>
                   <Button onClick={() => SubmitToSubscribe(group.id)}>
-                    Cadastrar-se
+                    Inscreva-se
                   </Button>
                 </ListCardsContainerMobile>
               ))}
@@ -61,6 +77,10 @@ const Community = () => {
       ) : (
         <ContainerDescktop>
           <h1>Escolha seu grupo</h1>
+          <ContainerPages>
+            <button onClick={PageNext}>Proxima Pagina</button>
+            <button onClick={PagePreview}>Pagina Anterior</button>
+          </ContainerPages>
           <OptionsContainerDescktop>
             <CardsContainerDesktop>
               {CardsGroups.map((group, index) => (
@@ -69,7 +89,7 @@ const Community = () => {
                   <p>Categoria: {group.category}</p>
                   <p>Descrição: {group.description}</p>
                   <Button onClick={() => SubmitToSubscribe(group.id)}>
-                    Cadastrar-se
+                    Inscreva-se
                   </Button>
                 </ListCardsContainerDesktop>
               ))}

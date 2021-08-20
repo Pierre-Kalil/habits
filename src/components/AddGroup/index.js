@@ -1,8 +1,8 @@
 import { yupResolver } from "@hookform/resolvers/yup"
-import { useContext } from "react"
 import { useForm } from "react-hook-form"
+import { useContext } from "react"
 import { GroupsContext } from "../../Providers/groups"
-import { Container, ContainerButtons, ContainerInputs } from "../AddHabits/styles"
+import { Container, ContainerButtons, ContainerInputs } from "./styles"
 import Button from "../Button"
 import * as yup from "yup";
 
