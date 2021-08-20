@@ -50,8 +50,8 @@ const Groups = () => {
 
   return (
     <>
-      <HeaderLogged />
       <Container>
+        <HeaderLogged />
         {register ? (
           <AddGroup setRegister={setRegister} />
         ) : (
