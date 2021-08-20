@@ -206,6 +206,18 @@ export const ListCardsContainerMobile = styled.li`
     transition: 1s;
   }
 
+  .button-update {
+    display: flex;
+  }
+  button {
+    width: 35%;
+    padding: 5px;
+    border: none;
+    border-radius: 20px;
+    background-image: var(--gradiente-buttom);
+    color: #fff;
+  }
+
   button:hover {
     opacity: 0.8;
     border: 1px solid #fff;

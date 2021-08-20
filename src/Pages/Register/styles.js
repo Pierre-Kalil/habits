@@ -44,11 +44,11 @@ export const AnimationContainer = styled.div`
   animation: ${appearFromRight} 1s;
 
   form {
-    width: 320px;
+    width: 300px;
     text-align: center;
 
     h1 {
-      margin-bottom: 32px;
+		margin-top: 10px;
       text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       font-size: 2.5rem;
       font-family: "Calibri";

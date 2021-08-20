@@ -1,6 +1,5 @@
 import styled, { keyframes, css } from "styled-components";
 import tresmLogopurple from "../../images/tresmLogopurple.png";
-
 export const Back = styled.button`
   position: absolute;
   width: 55px;
@@ -14,76 +13,62 @@ export const Back = styled.button`
     background-color: gray;
   }
 `;
-
 export const Container = styled.div`
   display: flex;
-  /* flex-direction: column; */
   height: 100vh;
-  /* align-items: center; */
-  /* justify-content: center; */
   align-items: stretch;
 `;
-
 export const Form = styled.form`
   display: flex;
 `;
-
 export const Background = styled.div`
   @media (min-width: 1100px) {
     flex: 1;
     background: url(${tresmLogopurple}) no-repeat center, var(--caixa-de-texto);
-    /* background-size: contain; */
     background-color: var(--caixa-de-texto);
     background-size: 480px;
   }
 `;
-
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 100%;
+  justify-content: center;
   max-width: 700px;
 `;
-
 const appearFromLeft = keyframes`
-	from {
-		opacity: 0;
-		transform: translateX(-50px)
-	}
-	to {
-		opacity: 1;
-		transform: translateX(0px)
-	}
+  from {
+    opacity: 0;
+    transform: translateX(-50px)
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px)
+  }
 `;
-
 export const AnimationContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   animation: ${appearFromLeft} 1s;
-
   form {
     margin: 80px 0;
-    width: 340px;
+    /* padding-left: 10px; */
+    width: 300px;
     text-align: center;
-
     h1 {
       margin-bottom: 32px;
       text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       font-size: 2.5rem;
       font-family: "Calibri";
     }
-
     > div {
       margin-top: 16px;
     }
-
     p {
       margin-top: 24px;
-
       a {
         font-weight: bold;
         color: var(--roxo-secundario);
@@ -92,7 +77,6 @@ export const AnimationContainer = styled.div`
     }
   }
 `;
-
 export const InputContainer1 = styled.div`
   background: var(--background);
   border-radius: 10px;
@@ -102,10 +86,8 @@ export const InputContainer1 = styled.div`
   width: 100%;
   display: flex;
   transition: 0.4s;
-
   border-bottom: 6px solid var(--roxo-secundario);
   border-right: 6px solid var(--roxo-secundario);
-
   ${(props) =>
     props.isErrored &&
     css`
@@ -114,7 +96,6 @@ export const InputContainer1 = styled.div`
         color: var(--red);
       }
     `}
-
   input {
     /* background: transparent; */
     align-items: center;
@@ -132,7 +113,6 @@ export const InputContainer1 = styled.div`
     color: var(--roxo-secundario);
     font-size: 16px;
   }
-
   svg {
     margin-right: 1;
   }
