@@ -20,6 +20,8 @@ import AddGoals from "../../components/AddGoals";
 
 import HeaderLogged from "../../components/HeaderLogged";
 import { GroupsContext } from "../../Providers/groups";
+import { useAuth } from "../../Providers/auth";
+import { Redirect } from "react-router-dom";
 
 const Activities = () => {
   const {
@@ -87,7 +89,11 @@ const Activities = () => {
     ShowGoals(localStorage.getItem("id"));
   }, [showGoals]);
 
-  console.log();
+  const { auth } = useAuth();
+  if (!auth) {
+    return <Redirect to="/login" />;
+  }
+
   return (
     <ContainerMobile>
       <HeaderLogged />
