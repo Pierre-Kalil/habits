@@ -10,8 +10,7 @@ export const Container = styled.form`
   align-items: center;
   background-image: url(${Background});
 
-
-  @media screen and (min-width: 500px){
+  @media screen and (min-width: 500px) {
     height: 330px;
     width: 350px;
     border-radius: 10px;
@@ -19,11 +18,8 @@ export const Container = styled.form`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
-
+    margin-top: 200px;
   }
-
-  
 
   h3 {
     margin-top: 15px;
@@ -39,7 +35,6 @@ export const ContainerInputs = styled.div`
   align-items: center;
   width: 100%;
 
-
   input {
     border: 0;
     background: none;
@@ -53,13 +48,13 @@ export const ContainerInputs = styled.div`
     border-radius: 24px;
     transition: 0.25s;
     cursor: pointer;
-    font-size: 15px;;
+    font-size: 15px;
   }
   input:focus {
     width: 280px;
     border-color: #e0aaff;
   }
-  input::placeholder{
+  input::placeholder {
     color: gray;
   }
 `;
@@ -93,16 +88,11 @@ export const Button2 = styled.button`
 `;
 
 export const ContainerDark = styled.div`
-
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  @media screen and (min-width: 800px){
+  @media screen and (min-width: 800px) {
     height: 90vh;
   }
-
-
 `;
-
-
