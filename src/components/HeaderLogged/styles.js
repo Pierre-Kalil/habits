@@ -19,7 +19,7 @@ export const MenuHeader = styled.header`
   }
 
   @media (min-width: 767px) {
-    height: 80px;
+    height: 10vh;
     svg {
       display: none;
     }
