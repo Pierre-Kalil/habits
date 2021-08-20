@@ -40,8 +40,9 @@ export const OptionsContainerMobile = styled.div`
 export const ContainerDesktop = styled.div`
   height: 90vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
   h1 {
     height: 15vh;
     display: flex;
@@ -74,6 +75,10 @@ export const ContainerDesktop = styled.div`
     button:hover {
       background: #e0aaff;
     }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 `;
 export const BoxContainerDesktop = styled.div`
@@ -154,7 +159,7 @@ export const ListCardsContainerDesktop = styled.li`
   align-items: center;
   width: 300px;
   height: 320px;
-  margin: 5px 0;
+  margin: 5px 5px;
   box-shadow: 1px 1px 4px 1px var(--sombra-box);
   color: #fff;
   background: linear-gradient(
