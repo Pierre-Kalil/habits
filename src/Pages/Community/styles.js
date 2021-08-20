@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ContainerMobile = styled.div`
   height: 90vh;
+  position: relative;
 
   h2 {
     display: flex;
@@ -109,16 +110,21 @@ export const ListCardsContainerDesktop = styled.li`
   margin: 5px 0;
   box-shadow: 1px 1px 4px 1px var(--sombra-box);
   color: #fff;
-  background: linear-gradient(177.48deg, #10002B 6.72%, #3C096C 30.84%, #8E97FD 77.98%);
+  background: linear-gradient(
+    177.48deg,
+    #10002b 6.72%,
+    #3c096c 30.84%,
+    #8e97fd 77.98%
+  );
   border-radius: 50px;
   font-size: 20px;
-  font-family: 'Arial';
+  font-family: "Arial";
 
   h3 {
     text-align: center;
   }
-  
-  p{
+
+  p {
     text-align: center;
   }
 
@@ -128,5 +134,32 @@ export const ListCardsContainerDesktop = styled.li`
 
   hr {
     width: 80%;
+  }
+`;
+
+export const ContainerPages = styled.div`
+  width: 300px;
+  height: 50px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  /* background-color: red; */
+
+  button {
+    width: 45%;
+    padding: 5px;
+    border: none;
+    border-radius: 20px;
+    background-image: var(--gradiente-buttom);
+    color: #fff;
+    margin: 0 10px;
+  }
+
+  button:hover {
+    opacity: 0.8;
+    border: 1px solid #fff;
+    transition: 1s;
   }
 `;
