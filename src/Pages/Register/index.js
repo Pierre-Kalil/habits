@@ -17,10 +17,12 @@ import { AnimationContainer } from "./styles";
 import { InputContainer1 } from "./styles";
 import { HomeFooter } from "./styles";
 import { useAuth } from "../../Providers/auth";
+import { Back } from "../Login/styles";
 
 const Register = () => {
   const { auth } = useAuth();
   const history = useHistory();
+  const viewport = window.innerWidth;
 
   const schema = yup.object().shape({
     username: yup.string().required("Campo Obrigatório!"),
@@ -68,7 +70,10 @@ const Register = () => {
   }
   return (
     <div>
-      <Header />
+      { viewport > 768? <Header /> 
+      :
+        <Back onClick = {()=> history.push('/')}><span class="material-icons">arrow_back</span></Back>
+      }
       <Container>
         <Background></Background>
         <Content>
@@ -123,7 +128,7 @@ const Register = () => {
                 Já tem uma conta? Faça seu <Link to="/login">login</Link> aqui!
               </p>
             </form>
-            <HomeFooter>Kenzie Academy Brasil</HomeFooter>
+            {viewport > 768 && <HomeFooter>Kenzie Academy Brasil</HomeFooter>}
           </AnimationContainer>
         </Content>
       </Container>
