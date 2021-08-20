@@ -29,7 +29,6 @@ export const ContainerCreate = styled.div`
   }
 
   input {
-    width: 80%;
     margin: 10px 0;
     padding: 10px;
   }
