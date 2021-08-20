@@ -3,6 +3,7 @@ import {
   OptionsContainerMobile,
   CardsContainerMobile,
   ListCardsContainerMobile,
+  ContainerPages,
 } from "./styles";
 import {
   ContainerDescktop,
@@ -24,7 +25,7 @@ import toast from "react-hot-toast";
 
 const Community = () => {
   const viewport = window.innerWidth;
-  const { CardsGroups } = useContext(CommunityContext);
+  const { CardsGroups, PageNext, PagePreview } = useContext(CommunityContext);
 
   const SubmitToSubscribe = (id) => {
     const token = JSON.parse(localStorage.getItem("token"));
@@ -38,14 +39,14 @@ const Community = () => {
           },
         }
       )
-      .then(() => toast.success('Inscrito com sucesso'))
-      .catch(() => toast.error('Erro ao se inscrever'));
+      .then(() => toast.success("Inscrito com sucesso"))
+      .catch(() => toast.error("Erro ao se inscrever"));
   };
 
-        const { auth } = useAuth();
-        if (!auth) {
-          return <Redirect to="/login" />
-        }
+  const { auth } = useAuth();
+  if (!auth) {
+    return <Redirect to="/login" />;
+  }
   return (
     <>
       <HeaderLogged />
@@ -54,6 +55,10 @@ const Community = () => {
         <ContainerMobile>
           <h2>Organize sua vida</h2>
           <h4>Escolha uma opção: </h4>
+          <ContainerPages>
+            <button onClick={PageNext}>Proxima Pagina</button>
+            <button onClick={PagePreview}>Pagina Anterior</button>
+          </ContainerPages>
           <OptionsContainerMobile>
             <CardsContainerMobile>
               {CardsGroups.map((group, index) => (
@@ -70,10 +75,12 @@ const Community = () => {
           </OptionsContainerMobile>
         </ContainerMobile>
       ) : (
-        
         <ContainerDescktop>
-
           <h1>Escolha seu grupo</h1>
+          <ContainerPages>
+            <button onClick={PageNext}>Proxima Pagina</button>
+            <button onClick={PagePreview}>Pagina Anterior</button>
+          </ContainerPages>
           <OptionsContainerDescktop>
             <CardsContainerDesktop>
               {CardsGroups.map((group, index) => (
@@ -88,11 +95,8 @@ const Community = () => {
               ))}
             </CardsContainerDesktop>
           </OptionsContainerDescktop>
-
         </ContainerDescktop>
-
       )}
-
     </>
   );
 };

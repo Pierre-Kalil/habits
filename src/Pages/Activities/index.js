@@ -221,7 +221,7 @@ const Activities = () => {
               ? oneGoal &&
                 oneGoal.map((goal, index) => (
                   <ListCardsContainerMobile key={index}>
-                    {/* {goal.title} */}
+                    {goal.title}
                     {isUpdate ? (
                       <button
                         onClick={() =>
@@ -233,7 +233,7 @@ const Activities = () => {
                     ) : (
                       <button onClick={UpdateHere}>Atualizar</button>
                     )}{" "}
-                    <button onClick={() => DeleteActivities(goal.id)}>
+                    <button onClick={() => DeleteGoals(goal.id)}>
                       Remover
                     </button>
                     {isUpdate ? (
