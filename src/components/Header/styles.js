@@ -1,14 +1,15 @@
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 
 export const MenuHeader = styled.header`
   position: sticky;
   background-color: var(--roxo-primario);
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 12vh;
   position: relative;
+  z-index: 999;
 
   svg {
     width: 50px;
@@ -38,7 +39,7 @@ export const ButtonFlexContainer = styled.div`
 
 export const TresemmeLogo = styled.img`
   width: auto;
-  height: 40%;
+  height: 50px;
   cursor: pointer;
 `;
 
@@ -47,7 +48,7 @@ export const MenuButton = styled.button`
   height: 40px;
   background-color: transparent;
   border: 2px solid transparent;
-  font-size: 20px;
+  font-size: 30px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   text-align: center;
   cursor: pointer;
@@ -66,20 +67,34 @@ export const MenuButton = styled.button`
   }
 `;
 
+const appearFromRight = keyframes`
+	from {
+		opacity: 0;
+		transform: translateX(100%)
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0)
+	}
+`;
+
 export const Menuhamburguer = styled.ul`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   position: absolute;
   width: 100%;
-  height: 40vh;
+  height: 100vh;
   top: 0px;
-  opacity: 1;
+  /* opacity: 1; */
   background: var(--roxo-primario);
   transition: all 3s ease;
+  animation: ${appearFromRight} 0.5s;
 
   li {
     z-index: 4;
+    /* margin-top: 100px; */
     justify-content: center;
     align-items: center;
     list-style: none;

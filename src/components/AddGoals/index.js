@@ -38,17 +38,17 @@ const AddGoals = ({ id }) => {
             <input
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="Title"
+              placeholder="Nome"
             />
             <input
               value={difficulty}
               onChange={(e) => setDifficulty(e.target.value)}
-              placeholder="Difficulty"
+              placeholder="Dificuldade"
             />
             <input
               value={how_much_achieved}
               onChange={(e) => setHow_much_achieved(e.target.value)}
-              placeholder="How much achieved"
+              placeholder="Alcançado"
             />
             <button onClick={() => handleGoal(id)}>Enviar</button>
           </ContainerCreate>

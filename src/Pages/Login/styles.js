@@ -26,7 +26,7 @@ export const Background = styled.div`
     flex: 1;
     background: url(${tresmLogopurple}) no-repeat center, var(--caixa-de-texto);
     background-color: var(--caixa-de-texto);
-    background-size: 480px;
+    background-size: 470px;
   }
 `;
 export const Content = styled.div`
@@ -55,7 +55,6 @@ export const AnimationContainer = styled.div`
   animation: ${appearFromLeft} 1s;
   form {
     margin: 80px 0;
-    /* padding-left: 10px; */
     width: 300px;
     text-align: center;
     h1 {
@@ -97,7 +96,7 @@ export const InputContainer1 = styled.div`
       }
     `}
   input {
-    /* background: transparent; */
+    background: transparent;
     align-items: center;
     font-size: 16px;
     border: 2px solid var(--roxo-secundario);

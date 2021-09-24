@@ -1,27 +1,24 @@
-import axios from "axios";
 import { useHistory, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import toast from "react-hot-toast";
 import Header from "../../components/Header";
 import { FiUser, FiLock } from "react-icons/fi";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
-import { Back, Container } from "./styles";
-import { useContext } from "react";
-import { UserContext } from "../../Providers/user";
-import { Background } from "./styles";
-import { Content } from "./styles";
-import { AnimationContainer } from "./styles";
-import { InputContainer1 } from "./styles";
+import {
+  Back,
+  Container,
+  Background,
+  Content,
+  AnimationContainer,
+} from "./styles";
+
 import { Redirect } from "react-router";
-import { HomeFooter } from "../Home/styles";
 
 import { useAuth } from "../../Providers/auth";
 
 const Login = () => {
-  const { getToken, user } = useContext(UserContext);
   const history = useHistory();
   const viewport = window.innerWidth;
   const { signIn, auth } = useAuth();
@@ -37,22 +34,9 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm({ resolver: yupResolver(schema) });
 
   const handleLogin = (data) => {
-    // axios.post('https://kabit-api.herokuapp.com/sessions/', data)
-    // .then((res)=> {
-    //     reset();
-    //     localStorage.clear()
-    //     localStorage.setItem('token', JSON.stringify(res.data.access))
-    //     getToken(res.data.access)
-    //     toast.success('Você foi logado!');
-    //     history.push('/dashboard')
-
-    // })
-    // .catch(err => console.log(err));
-
     signIn(data, history);
   };
 
@@ -62,11 +46,13 @@ const Login = () => {
 
   return (
     <div>
-
-      { viewport > 768? <Header /> 
-      :
-        <Back onClick = {()=> history.push('/')}><span class="material-icons">arrow_back</span></Back>
-      }
+      {viewport > 768 ? (
+        <Header />
+      ) : (
+        <Back onClick={() => history.push("/")}>
+          <span class="material-icons">arrow_back</span>
+        </Back>
+      )}
       <Container>
         <Content>
           <AnimationContainer>
@@ -97,7 +83,6 @@ const Login = () => {
                 <Link to="/register">Registro</Link>.
               </p>
             </form>
-            <HomeFooter>Kenzie Academy Brasil</HomeFooter>
           </AnimationContainer>
         </Content>
         <Background></Background>

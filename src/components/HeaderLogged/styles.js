@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 
 export const MenuHeader = styled.header`
   position: sticky;
@@ -67,24 +67,40 @@ export const MenuButton = styled.button`
   }
 `;
 
+const appearFromRight = keyframes`
+	from {
+		opacity: 0;
+		transform: translateX(100%)
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0)
+	}
+`;
+
 export const Menuhamburguer = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   position: absolute;
   width: 100%;
-  height: 45vh;
+  height: 100vh;
   top: 0px;
   opacity: 1;
   background: var(--roxo-primario);
   z-index: 3;
-  transition: all 3s ease;
+  animation: ${appearFromRight} 0.5s;
 
   li {
     z-index: 4;
     justify-content: center;
     align-items: center;
     list-style: none;
-    padding: 8px;
+    padding: 16px;
+
+    button {
+      font-size: 30px;
+    }
   }
 `;

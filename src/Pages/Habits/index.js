@@ -37,11 +37,6 @@ const Habits = () => {
           <>
             <h1>Hábitos</h1>
             <Content>
-              <ContainerHabits>
-                {habits.map((habit) => (
-                  <Habit key={habit.id} habit={habit}></Habit>
-                ))}
-              </ContainerHabits>
               <ContainerButtons>
                 <Button
                   onClick={() => {
@@ -52,6 +47,11 @@ const Habits = () => {
                   Criar hábito
                 </Button>
               </ContainerButtons>
+              <ContainerHabits>
+                {habits.map((habit) => (
+                  <Habit key={habit.id} habit={habit}></Habit>
+                ))}
+              </ContainerHabits>
             </Content>
           </>
         )}

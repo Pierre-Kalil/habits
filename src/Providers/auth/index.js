@@ -4,22 +4,28 @@ import { toast } from "react-hot-toast";
 // import axios from "axios";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
+import { useRouteMatch } from "react-router";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const token = localStorage.getItem("token") || "";
-  const UserName = localStorage.getItem('UserName') || "";
+  const UserName = localStorage.getItem("UserName") || "";
   const [auth, setAuth] = useState(token);
   const [username, setUsername] = useState(UserName);
 
   const signIn = (data, history) => {
+    console.log(data);
+    const { username, password } = data;
     api
-      .post("https://kabit-api.herokuapp.com/sessions/", data)
+      .post("https://kabit-api.herokuapp.com/sessions/", {
+        username: username,
+        password: password,
+      })
       .then((response) => {
         localStorage.clear();
         setUsername(data.username);
-        localStorage.setItem('UserName', data.username)
+        localStorage.setItem("UserName", data.username);
         localStorage.setItem("token", JSON.stringify(response.data.access));
         const decodedToken = jwt_decode(response.data.access);
         setAuth(decodedToken);
@@ -37,7 +43,7 @@ export const AuthProvider = ({ children }) => {
           Authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
         },
       })
-      .then(()=> toast.success('Usuário atualizado'))
+      .then(() => toast.success("Usuário atualizado"))
       .then(() => {
         setUsername(data.username);
       });

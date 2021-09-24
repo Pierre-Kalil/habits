@@ -58,6 +58,9 @@ const Groups = () => {
           <>
             <h1>Grupos</h1>
             <Content>
+              <ContainerButtons>
+                <Button onClick={() => setRegister(true)}>criar grupo</Button>
+              </ContainerButtons>
               <ContainerHabits>
                 {groups.map((group) => (
                   <ListCardsContainerDesktop key={group.id}>
@@ -90,9 +93,6 @@ const Groups = () => {
                   </ListCardsContainerDesktop>
                 ))}
               </ContainerHabits>
-              <ContainerButtons>
-                <Button onClick={() => setRegister(true)}>criar grupo</Button>
-              </ContainerButtons>
             </Content>
           </>
         )}

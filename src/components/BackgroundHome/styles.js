@@ -5,9 +5,10 @@ export const BackGroundH = styled.div`
 
   img {
     width: 100%;
-    height: 90vh;
+    height: 100vh;
     position: absolute;
     object-fit: cover;
     z-index: -2;
+    opacity: 30%;
   }
 `;

@@ -55,7 +55,7 @@ export const ContainerInputs = styled.div`
     border-color: #e0aaff;
   }
   input::placeholder {
-    color: gray;
+    color: #fff;
   }
 `;
 

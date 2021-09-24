@@ -6,6 +6,7 @@ export const ContainerAddGoals = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  height: auto;
 `;
 
 export const ContainerCreate = styled.div`

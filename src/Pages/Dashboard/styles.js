@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import ImageGroup1 from "../../images/ImageGroup1.png";
-import ImageGroup2 from "../../images/ImageGroup2.png";
 
 export const ContainerMobile = styled.div`
   /* height: 90vh; */
@@ -12,37 +10,19 @@ export const ContainerMobile = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 15vh;
+    height: 10vh;
   }
 
   h4 {
     color: gray;
     text-align: center;
+    padding: 10px 0;
   }
 
   img {
     height: 100px;
     width: 100px;
   }
-`;
-
-export const BoxContainerMobile = styled.div`
-  height: 30vh;
-  background-color: blue;
-  border: 2px solid black;
-  width: 80vw;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const OptionsContainerMobile = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  height: 65vh;
 `;
 
 // DESKTOP
@@ -114,16 +94,29 @@ export const ContainerHabtisGroups = styled.div`
   align-items: center;
   width: 49%;
 
-  .figure {
+  .figure1 {
     /* padding: 10px; */
-    width: 80%;
+    width: 100%;
     height: 350px;
     border-radius: 20px;
     border: 6px solid var(--roxo-secundario);
   }
 
-  .figure:hover {
-    background-color: var(--caixa-de-texto);
+  .figure2 {
+    /* padding: 10px; */
+    width: 100%;
+    height: 350px;
+    border-radius: 20px;
+    border: 6px solid var(--roxo-secundario);
+  }
+
+  .figure1:hover {
+    background-color: var(--roxo-secundario);
+    border: 6px solid #fff;
+  }
+  .figure2:hover {
+    background-color: var(--roxo-secundario);
+    border: 6px solid #fff;
   }
 
   img {
@@ -146,7 +139,11 @@ export const ContainerHabtisGroups = styled.div`
     flex-direction: column;
     justify-content: center;
 
-    .figure {
+    .figure1 {
+      width: 200px;
+      height: 200px;
+    }
+    .figure2 {
       width: 200px;
       height: 200px;
     }

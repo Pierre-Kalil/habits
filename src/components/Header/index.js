@@ -5,6 +5,7 @@ import {
   MenuhamburguerActive,
   ButtonFlexContainer,
   TresemmeLogo,
+  AnimationContainer,
 } from "./styles";
 import { useHistory } from "react-router-dom";
 import Tresemmewhite from "../../images/Tresemmewhite.png";
@@ -44,27 +45,28 @@ const Header = () => {
           <FiAlignJustify onClick={OpenHamburguer} />
         )}
         {MenuDrop ? (
+          // <AnimationContainer>
           <Menuhamburguer>
-           
             <li>
-              <MenuButton onClick={() => toSend("/register")}>Cadastrar</MenuButton>
+              <MenuButton onClick={() => toSend("/register")}>
+                Cadastrar
+              </MenuButton>
             </li>
             <li>
               <MenuButton onClick={() => toSend("/login")}>Logar</MenuButton>
             </li>
-            
+
             <li>
               <MenuButton onClick={() => toSend("/About")}>Sobre</MenuButton>
             </li>
           </Menuhamburguer>
         ) : (
+          // </AnimationContainer>
           <></>
         )}
 
         <ButtonFlexContainer>
-          <MenuButton onClick={() => toSend("/register")}>
-            Cadastrar
-          </MenuButton>
+          <MenuButton onClick={() => toSend("/register")}>Cadastrar</MenuButton>
           <MenuButton onClick={() => toSend("/login")}>Logar</MenuButton>
           <MenuButton onClick={() => toSend("/About")}>Sobre</MenuButton>
         </ButtonFlexContainer>

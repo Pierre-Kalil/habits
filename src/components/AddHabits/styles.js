@@ -10,7 +10,8 @@ export const Container = styled.form`
   align-items: center;
   border-radius: 0px;
   height: 85vh;
-  @media screen and (min-width: 500px){
+  z-index: 999;
+  @media screen and (min-width: 500px) {
     border-radius: 24px;
     height: 500px;
     width: 350px;
@@ -29,7 +30,8 @@ export const ContainerInputs = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-
+  z-index: 999;
+  margin-top: 20px;
 
   input {
     border: 0;
@@ -44,14 +46,14 @@ export const ContainerInputs = styled.div`
     border-radius: 24px;
     transition: 0.25s;
     cursor: pointer;
-    font-size: 15px;;
+    font-size: 15px;
   }
   input:focus {
     width: 280px;
     border-color: #e0aaff;
   }
-  input::placeholder{
-    color: gray;
+  input::placeholder {
+    color: #fff;
   }
 `;
 
@@ -84,15 +86,11 @@ export const Button2 = styled.button`
 `;
 
 export const ContainerDark = styled.div`
-
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  @media screen and (min-width: 800px){
+  @media screen and (min-width: 800px) {
     height: 90vh;
   }
-
-
 `;
-

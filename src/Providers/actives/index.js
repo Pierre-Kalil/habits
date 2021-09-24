@@ -21,7 +21,7 @@ export const ActivitiesProvider = ({ children }) => {
 
   const ShowActivities = (id) => {
     axios
-      .get(`https://kabit-api.herokuapp.com/activities/?group=${id}&page=1`)
+      .get(`https://kabit-api.herokuapp.com/activities/?group=${id}`)
       .then((response) => setShowActivities(response.data.results))
       .catch((err) => console.log(err));
   };
